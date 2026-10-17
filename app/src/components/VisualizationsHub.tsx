@@ -172,7 +172,7 @@ export const VisualizationsHub: React.FC = () => {
                 <tr className="border-b border-white/15 text-zinc-400">
                   <th className="py-3.5 pr-4 font-semibold">Cecha / Możliwość</th>
                   <th className="py-3.5 px-4 font-bold text-amber-400 bg-amber-500/[0.06] rounded-t-xl">
-                    Polski Ekosystem Craft (Web)
+                    Ekosystem Craft (Web)
                   </th>
                   <th className="py-3.5 px-4 font-semibold">
                     Komercyjne Chmury (Adobe CC / MS 365 / Corel)
