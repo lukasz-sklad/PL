@@ -241,7 +241,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                 }`}
               >
                 <MonitorPlay className="h-3.5 w-3.5" />
-                {liveIframe ? 'Tryb: Żywy Edytor WASM' : 'Załaduj edytor tutaj (WASM)'}
+                {liveIframe ? 'Tryb: Interaktywny Zamknij!' : 'Załaduj edytor tutaj'}
               </button>
               <a
                 href={currentTargetUrl}
