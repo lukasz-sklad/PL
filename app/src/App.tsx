@@ -13,16 +13,16 @@ import { Footer } from './components/Footer';
 export function App() {
   const [activeApp, setActiveApp] = useState<CraftApp>(CRAFT_APPS[0]);
   const [theme, setTheme] = useState<ThemeMode>(() => {
-    const saved = localStorage.getItem('pl_craft_theme');
+    const saved = localStorage.getItem('pl_craft_theme_v2');
     if (saved === 'light' || saved === 'sepia' || saved === 'dark') {
       return saved;
     }
-    return 'dark';
+    return 'sepia';
   });
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('pl_craft_theme', theme);
+    localStorage.setItem('pl_craft_theme_v2', theme);
   }, [theme]);
 
   return (

@@ -158,11 +158,11 @@ export const VisualizationsHub: React.FC = () => {
         <div className="rounded-3xl border border-white/10 bg-[#18191c] p-6 sm:p-10">
           <div className="max-w-3xl">
             <h3 className="text-2xl font-extrabold text-white sm:text-3xl">
-              Dlaczego warto korzystać z polskiej stacji *Craft?
+              Dlaczego warto korzystać z polskich aplikacji Craft?
             </h3>
             <p className="mt-2 text-sm text-zinc-400">
-              Porównanie naszego otwartoźródłowego ekosystemu (WebAssembly + natywne binarki SteamOS)
-              z zamkniętymi chmurami subskrypcyjnymi:
+              Porównanie naszego otwartoźródłowego ekosystemu WebAssembly z zamkniętymi chmurami
+              subskrypcyjnymi:
             </p>
           </div>
 
@@ -172,7 +172,7 @@ export const VisualizationsHub: React.FC = () => {
                 <tr className="border-b border-white/15 text-zinc-400">
                   <th className="py-3.5 pr-4 font-semibold">Cecha / Możliwość</th>
                   <th className="py-3.5 px-4 font-bold text-amber-400 bg-amber-500/[0.06] rounded-t-xl">
-                    Nasza Stacja *Craft PL (Web &amp; SteamOS)
+                    Polski Ekosystem Craft (Web)
                   </th>
                   <th className="py-3.5 px-4 font-semibold">
                     Komercyjne Chmury (Adobe CC / MS 365 / Corel)
@@ -216,15 +216,15 @@ export const VisualizationsHub: React.FC = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td className="py-3.5 pr-4 font-medium text-white">Optymalizacja pod Linux / Steam Deck (SteamOS)</td>
+                  <td className="py-3.5 pr-4 font-medium text-white">Szybkość uruchomienia</td>
                   <td className="py-3.5 px-4 bg-amber-500/[0.06] text-emerald-300 font-semibold">
                     <span className="inline-flex items-center gap-1.5">
-                      <Zap className="h-4 w-4 text-amber-400" /> Natywne kompilacje znver2 + LTO Fat + 4-etapowe PGO + Flatpak &amp; AppImage
+                      <Zap className="h-4 w-4 text-amber-400" /> Natychmiast w karcie przeglądarki na każdym systemie
                     </span>
                   </td>
                   <td className="py-3.5 px-4 text-zinc-400">
                     <span className="inline-flex items-center gap-1.5">
-                      <X className="h-4 w-4 text-red-400" /> Brak natywnego wsparcia dla systemu Linux / SteamOS
+                      <X className="h-4 w-4 text-red-400" /> Ciężkie instalatory i ograniczenia systemowe
                     </span>
                   </td>
                 </tr>

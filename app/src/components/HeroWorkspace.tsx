@@ -60,20 +60,18 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
             <span className="text-zinc-400">W duchu „Jajka Polskiego”</span>
           </div>
 
-          <h1 className="mt-5 max-w-4xl text-3xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Wszystkie aplikacje{' '}
-            <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-red-400 bg-clip-text text-transparent">
-              *Craft po polsku
+          <h1 className="mt-4 max-w-4xl text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+            Aplikacje{' '}
+            <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-red-400 bg-clip-text text-transparent">
+              Craft po polsku
             </span>{' '}
             w jednym miejscu
           </h1>
 
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-zinc-300 sm:text-base">
-            Otwartoźródłowe odpowiedniki pakietów Adobe, CorelDRAW oraz Microsoft Office napisane w{' '}
-            <strong className="text-white">Rust + WebAssembly</strong>. Działają od ręki w przeglądarce
-            oraz natywnie na Linuksie / SteamOS (z kompilacją{' '}
-            <code className="rounded bg-white/10 px-1.5 py-0.5 text-amber-300">znver2 + PGO</code>),
-            domyślnie z <strong className="text-white">polskim językiem</strong> i ciemnym motywem.
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">
+            Otwartoźródłowe aplikacje webowe napisane w{' '}
+            <strong className="text-white">Rust + WebAssembly</strong>. Działają od ręki w
+            przeglądarce, domyślnie po polsku.
           </p>
         </div>
 

@@ -20,8 +20,8 @@ function classifyCommitMessagePl(msg: string): string {
   if (lower.startsWith('fix') || lower.includes('bug')) {
     return 'Poprawka błędu';
   }
-  if (lower.startsWith('perf') || lower.includes('optim') || lower.includes('pgo')) {
-    return 'Wydajność & PGO';
+  if (lower.startsWith('perf') || lower.includes('optim')) {
+    return 'Optymalizacja';
   }
   if (lower.startsWith('ci') || lower.includes('workflow')) {
     return 'CI / Automatyzacja';
