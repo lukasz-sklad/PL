@@ -105,10 +105,10 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
         <div className="flex flex-col items-center text-center">
           <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-xs text-zinc-300 backdrop-blur">
             <span className="inline-flex items-center gap-1 font-semibold text-amber-400">
-              <Sparkles className="h-3.5 w-3.5" /> 100% Po Polsku (PL)
+              <Sparkles className="h-3.5 w-3.5" /> 100% Po Polsku
             </span>
             <span className="text-zinc-600">•</span>
-            <span>Oryginalne nazwy *Craft</span>
+            <span>Działają od ręki</span>
             <span className="text-zinc-600">•</span>
             <span className="text-emerald-400 font-medium">
               Ponad 12 290 przetłumaczonych fraz UI
@@ -127,8 +127,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
 
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">
             Otwartoźródłowe aplikacje webowe napisane w{' '}
-            <strong className="text-white">Rust + WebAssembly</strong>. Działają od ręki w
-            przeglądarce, domyślnie po polsku.
+            <strong className="text-white">Rust + WebAssembly</strong>.
           </p>
         </div>
 
