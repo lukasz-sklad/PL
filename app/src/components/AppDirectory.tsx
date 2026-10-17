@@ -56,7 +56,7 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
                     </div>
                   </div>
                   <span className="rounded-full border border-emerald-500/30 bg-emerald-500/15 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-300">
-                    PL • Online
+                    Online
                   </span>
                 </div>
 
