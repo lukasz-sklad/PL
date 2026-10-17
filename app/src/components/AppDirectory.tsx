@@ -16,7 +16,7 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
               <Layers className="h-4 w-4" /> Katalog Aplikacji Online (Oryginalne Nazwy)
             </div>
             <h2 className="mt-2 text-2xl font-extrabold text-white sm:text-4xl">
-              6 gotowych polskich aplikacji webowych
+              {CRAFT_APPS.length} gotowych polskich aplikacji webowych
             </h2>
             <p className="mt-2 max-w-2xl text-sm text-zinc-400">
               Każda aplikacja zachowuje swoją oryginalną nazwę z ekosystemu{' '}
@@ -26,7 +26,7 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
           </div>
           <div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-zinc-300">
             Łącznie przetłumaczono:{' '}
-            <strong className="text-amber-400 font-mono">12 290+ fraz UI</strong>
+            <strong className="text-amber-400 font-mono">14 700+ fraz UI</strong>
           </div>
         </div>
 

@@ -348,6 +348,63 @@ export const CRAFT_APPS: CraftApp[] = [
       { key: 'G', action: 'Widok siatki wszystkich slajdów (Slide Sorter)', category: 'Widok' },
     ],
   },
+  {
+    id: 'pdfcraft',
+    name: 'PDFCraft',
+    taglinePl: 'Edytor dokumentów PDF, OCR, formularze, podpisy i polski syntezator mowy Lektor TTS',
+    replaces: 'Adobe Acrobat Pro',
+    version: '0.8.0',
+    primaryUrl: 'https://pdf.lmk.one/',
+    altUrls: [
+      { label: 'pdf.lmk.one (Domyślnie: Podróż na Marsa PDF)', url: 'https://pdf.lmk.one/' },
+      { label: 'Czysty edytor (?new)', url: 'https://pdf.lmk.one/?new' },
+      { label: 'lmk.one/pdf', url: 'https://lmk.one/pdf' },
+      { label: 'lmk.one/pdfcraft', url: 'https://lmk.one/pdfcraft' },
+    ],
+    upstreamRepo: 'storytold/pdfcraft',
+    plWebRepo: 'lukasz-sklad/pdf-web',
+    accentColor: '#EF4444',
+    badgeBg: 'bg-red-500/15 border-red-500/40',
+    badgeText: 'text-red-300',
+    gradientFrom: 'from-red-500/20',
+    gradientTo: 'to-orange-600/5',
+    translatedStrings: 2410,
+    parityPercent: 91,
+    wasmSizeCompressedMb: '14,0 MB (gzip)',
+    defaultStateNote: 'Polski interfejs (PL) + Ciemny motyw + Lektor PL (Chrome Web Speech / Desktop Piper) + Domyślnie otwiera podroz_na_marsa.pdf',
+    urlParams: [
+      {
+        label: 'Domyślny start: Podróż na Marsa (PDF + Lektor)',
+        exampleUrl: 'https://pdf.lmk.one/',
+        description: 'Automatycznie wczytuje dwustronicowe kompendium „Podróż na Marsa” z klikalnymi odnośnikami do Wikipedii oraz tekstem gotowym do odsłuchania przez Lektora (Shift + klik).',
+      },
+      {
+        label: 'Czysty edytor bez pliku (?new)',
+        exampleUrl: 'https://pdf.lmk.one/?new',
+        description: 'Otwiera pusty obszar roboczy gotowy na wczytanie własnego dokumentu PDF.',
+      },
+      {
+        label: 'Otwórz zewnętrzny plik PDF o Marsie z Wikimedia (?file=)',
+        exampleUrl: 'https://pdf.lmk.one/?file=https://upload.wikimedia.org/wikipedia/commons/2/2c/Mars_Exploration_Rover_Mission_Press_Kit.pdf',
+        description: 'Pobiera plik PDF bezpośrednio z adresu URL (z automatycznym wsparciem mostka CORS).',
+      },
+    ],
+    formats: ['.pdf (1.0–2.0, PDF/A, PDF/X, PDF/UA)', '.fdf / .xfdf (formularze)', '.png / .jpeg / .tiff (eksport i import)', '.txt / .md (eksport tekstu)'],
+    highlights: [
+      'Wbudowany polski syntezator mowy Lektor TTS: Shift + kliknięcie na tekście lub komentarzu czyta na głos (w Chrome przez Web Speech API, na pulpicie przez lokalny silnik Piper TTS)',
+      'Minimalizacja okienka Lektora do górnego paska (przycisk „🔊 Lektor”) – w przeglądarkach bez Web Speech (Firefox/Brave) okienko jest domyślnie schowane w pasku',
+      'Edycja tekstu i obrazów w PDF, adnotacje, wyróżnienia, redakcja (trwałe zamazywanie danych), łączenie i dzielenie stron',
+      'Obsługa aktywnych linków zewnętrznych w dokumentach PDF, formularzy AcroForm, podpisów cyfrowych oraz weryfikacji dostępności PDF/UA',
+    ],
+    sampleFileUrl: 'https://pdf.lmk.one/',
+    shortcuts: [
+      { key: 'Shift+Klik LPM', action: 'Przeczytaj na głos kliknięte zdanie lub zaznaczony tekst (Lektor PL)', category: 'Lektor TTS' },
+      { key: 'Ctrl+O', action: 'Otwórz plik PDF z dysku', category: 'Plik' },
+      { key: 'Ctrl+F', action: 'Wyszukaj tekst w dokumencie PDF', category: 'Nawigacja' },
+      { key: 'Ctrl++ / Ctrl+-', action: 'Powiększ / pomniejsz widok strony', category: 'Widok' },
+      { key: 'Ctrl+0', action: 'Dopasuj stronę do okna', category: 'Widok' },
+    ],
+  },
 ];
 
 export interface SiblingCraftApp {
@@ -360,14 +417,6 @@ export interface SiblingCraftApp {
 }
 
 export const SIBLING_APPS: SiblingCraftApp[] = [
-  {
-    name: 'PDFCraft',
-    replaces: 'Adobe Acrobat Pro',
-    version: '0.4.0',
-    descriptionPl: 'Przeglądanie, adnotacje, formularze, łączenie, redakcja i podpisywanie dokumentów PDF.',
-    upstreamRepo: 'storytold/pdfcraft',
-    statusPl: 'Lokalnie w katalogu /app/pdfcraft (kolejny do spolszczenia!)',
-  },
   {
     name: 'CadCraft',
     replaces: 'AutoCAD / FreeCAD',
@@ -423,6 +472,17 @@ export interface CommitEntry {
 }
 
 export const INITIAL_COMMITS: CommitEntry[] = [
+  {
+    sha: 'pdf080pl',
+    repo: 'lukasz-sklad/pdf-web',
+    appName: 'PDFCraft',
+    author: 'lukasz-sklad',
+    date: '2026-10-17',
+    message: 'feat(pdf): PDFCraft v0.8.0 PL + Lektor TTS (Chrome Web Speech & Piper) z minimalizacją do paska + domyślny PDF Podróż na Marsa',
+    categoryPl: 'Polskie Wydanie Web & Lektor',
+    url: 'https://github.com/lukasz-sklad/pdf-web',
+    isPolishBuild: true,
+  },
   {
     sha: 'fc080pl',
     repo: 'lukasz-sklad/film-web',
