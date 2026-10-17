@@ -371,7 +371,7 @@ export const CRAFT_APPS: CraftApp[] = [
     translatedStrings: 2410,
     parityPercent: 91,
     wasmSizeCompressedMb: '14,0 MB (gzip)',
-    defaultStateNote: 'Polski interfejs (PL) + Ciemny motyw + Lektor PL (Chrome Web Speech / Desktop Piper) + Domyślnie otwiera podroz_na_marsa.pdf',
+    defaultStateNote: 'Polski interfejs (PL) + Ciemny motyw + Lektor PL (Chrome Web Speech) + Domyślnie otwiera podroz_na_marsa.pdf',
     urlParams: [
       {
         label: 'Domyślny start: Podróż na Marsa (PDF + Lektor)',
@@ -391,7 +391,7 @@ export const CRAFT_APPS: CraftApp[] = [
     ],
     formats: ['.pdf (1.0–2.0, PDF/A, PDF/X, PDF/UA)', '.fdf / .xfdf (formularze)', '.png / .jpeg / .tiff (eksport i import)', '.txt / .md (eksport tekstu)'],
     highlights: [
-      'Wbudowany polski syntezator mowy Lektor TTS: Shift + kliknięcie na tekście lub komentarzu czyta na głos (w Chrome przez Web Speech API, na pulpicie przez lokalny silnik Piper TTS)',
+      'Wbudowany polski syntezator mowy Lektor TTS: Shift + kliknięcie na tekście lub komentarzu czyta na głos (w Chrome przez Web Speech API)',
       'Minimalizacja okienka Lektora do górnego paska (przycisk „🔊 Lektor”) – w przeglądarkach bez Web Speech (Firefox/Brave) okienko jest domyślnie schowane w pasku',
       'Edycja tekstu i obrazów w PDF, adnotacje, wyróżnienia, redakcja (trwałe zamazywanie danych), łączenie i dzielenie stron',
       'Obsługa aktywnych linków zewnętrznych w dokumentach PDF, formularzy AcroForm, podpisów cyfrowych oraz weryfikacji dostępności PDF/UA',
@@ -478,7 +478,7 @@ export const INITIAL_COMMITS: CommitEntry[] = [
     appName: 'PDFCraft',
     author: 'lukasz-sklad',
     date: '2026-10-17',
-    message: 'feat(pdf): PDFCraft v0.8.0 PL + Lektor TTS (Chrome Web Speech & Piper) z minimalizacją do paska + domyślny PDF Podróż na Marsa',
+    message: 'feat(pdf): PDFCraft v0.8.0 PL + Lektor TTS (Chrome Web Speech) z minimalizacją do paska + domyślny PDF Podróż na Marsa',
     categoryPl: 'Polskie Wydanie Web & Lektor',
     url: 'https://github.com/lukasz-sklad/pdf-web',
     isPolishBuild: true,

@@ -13,7 +13,7 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400">
-              <Layers className="h-4 w-4" /> Katalog Aplikacji Online (Oryginalne Nazwy)
+              <Layers className="h-4 w-4" /> Katalog Aplikacji Online
             </div>
             <h2 className="mt-2 text-2xl font-extrabold text-white sm:text-4xl">
               {CRAFT_APPS.length} gotowych polskich aplikacji webowych
@@ -133,7 +133,7 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
                 Pozostałe aplikacje z rodziny *Craft w naszym repozytorium (kolejne w kolejce do spolszczenia)
               </h3>
               <p className="mt-1 text-xs text-zinc-400">
-                Wszystkie działają w tej samej architekturze Rust + egui + WebAssembly. Spolszczamy je stopniowo — „wraz z możliwościami przerobu człowieka”!
+                Wszystkie działają w tej samej architekturze Rust + egui + WebAssembly.
               </p>
             </div>
           </div>
