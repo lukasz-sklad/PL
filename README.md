@@ -21,9 +21,9 @@ Polski portal i interaktywna stacja robocza zbierająca w jednym miejscu wszystk
 
 ---
 
-## 💡 Wątek przewodni: Dlaczego wszystko po polsku? (Wspomnienie „Jajka Polskiego”)
+## 💡 Dlaczego wszystko po polsku? (Wspomnienie „Jajka Polskiego” i tworzenia w miarę sił)
 
-Strona jest w wersji **PL** i wszystko na tej stronie oraz w aplikacjach robimy po polsku — **wraz z możliwościami przerobu człowieka**. Bo fajnie, jak wszystko jest po polsku! Kiedyś istniała legendarna polska strona **Jajko Polskie (`jajkopolskie`)**, gdzie można było przeczytać dokumentację jądra Linuksa po polsku. Czasem nie wiadomo, który język wybrać, żeby coś lepiej zrozumieć — dlatego my trzymamy się **PL**.
+Strona jest w wersji **PL** i wszystko na tej stronie oraz w aplikacjach robimy po polsku — **w miarę wolnego czasu i sił**. Bo fajnie, jak wszystko jest po polsku! Kiedyś istniała legendarna polska strona **Jajko Polskie (`jajkopolskie`)**, gdzie można było przeczytać dokumentację jądra Linuksa po polsku. Czasem nie wiadomo, który język wybrać, żeby coś lepiej zrozumieć — dlatego my trzymamy się **PL**.
 
 > **Wytykanie błędów jest bardzo miło traktowane!** Każda uwaga dotycząca tłumaczeń (jak np. pozostawienie naturalnej nazwy **Magenta** zamiast książkowego „karmazynu”) mobilizuje nas do poprawy tłumaczeń i samych aplikacji!
 
