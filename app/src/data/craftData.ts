@@ -229,7 +229,7 @@ export const CRAFT_APPS: CraftApp[] = [
     translatedStrings: 2624,
     parityPercent: 89,
     wasmSizeCompressedMb: '9,4 MB (gzip)',
-    defaultStateNote: 'Polski interfejs (PL) + Ciemny motyw + Pełna obsługa polskich znaków i dzielenia wyrazów',
+    defaultStateNote: 'Polski interfejs (PL) + Jasny motyw + Pełna obsługa polskich znaków i dzielenia wyrazów',
     urlParams: [
       {
         label: 'Otwórz edytor WordCraft PL',
