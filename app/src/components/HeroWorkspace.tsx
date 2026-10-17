@@ -120,7 +120,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
           <h1 className="mt-4 max-w-4xl text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
             Aplikacje{' '}
             <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-red-400 bg-clip-text text-transparent">
-              Craft po polsku
+              Craft
             </span>{' '}
             w jednym miejscu
           </h1>
