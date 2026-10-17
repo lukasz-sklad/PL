@@ -63,7 +63,7 @@ export const ReactTechSection: React.FC = () => {
 
             <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
               Strona w technologii <span className="text-cyan-400">React</span> — oficjalna{' '}
-              <span className="text-amber-400">polska dokumentacja</span>
+              <span className="text-amber-400">dokumentacja</span>
             </h2>
 
             <p className="text-sm leading-relaxed text-zinc-300">

@@ -19,11 +19,11 @@ interface NavbarProps {
 
 const NAV_ITEMS = [
   { href: '#aplikacje', label: 'Aplikacje' },
-  { href: '#manifest-pl', label: 'Manifest PL' },
+  { href: '#manifest-pl', label: 'Manifest' },
   { href: '#kreator-url', label: 'Kreator ?file=' },
   { href: '#puls-githuba', label: 'GitHub' },
   { href: '#wizualizacje', label: 'Skróty' },
-  { href: '#react-pl', label: 'React PL' },
+  { href: '#react-pl', label: 'React' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({
