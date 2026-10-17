@@ -151,7 +151,7 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
                       v{sib.version}
                     </span>
                   </div>
-                  <div className="mt-0.5 text-[11px] text-amber-300/90">{sib.replaces}</div>
+                  <div className="mt-0.5 text-[11px] font-semibold text-amber-300">{sib.replaces}</div>
                   <p className="mt-2 text-xs leading-relaxed text-zinc-400">{sib.descriptionPl}</p>
                 </div>
                 <div className="mt-3 flex items-center justify-end border-t border-white/5 pt-2.5 text-[11px] text-zinc-400">
