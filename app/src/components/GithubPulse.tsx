@@ -118,7 +118,7 @@ export const GithubPulse: React.FC = () => {
               <Activity className="h-4 w-4" /> Puls Rozwoju &amp; Newsy z GitHuba
             </div>
             <h2 className="mt-2 text-2xl font-extrabold text-white sm:text-4xl">
-              Co nowego w oryginalnych silnikach *Craft i polskich wydaniach
+              Co nowego w oryginalnych silnikach *Craft i naszych wydaniach
             </h2>
             <p className="mt-2 max-w-2xl text-sm text-zinc-400">
               Strumień ostatnich commitów prosto z oficjalnych repozytoriów{' '}
