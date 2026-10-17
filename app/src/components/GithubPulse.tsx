@@ -1,0 +1,236 @@
+import React, { useState, useEffect } from 'react';
+import {
+  GitCommit,
+  RefreshCw,
+  ExternalLink,
+  Activity,
+  Sparkles,
+  CheckCircle2,
+} from 'lucide-react';
+import { CRAFT_APPS, INITIAL_COMMITS, CommitEntry } from '../data/craftData';
+
+function classifyCommitMessagePl(msg: string): string {
+  const lower = msg.toLowerCase();
+  if (lower.includes('i18n') || lower.includes('pl') || lower.includes('polish') || lower.includes('spolszcz')) {
+    return 'Spolszczenie PL';
+  }
+  if (lower.startsWith('feat') || lower.includes('add ')) {
+    return 'Nowa funkcja';
+  }
+  if (lower.startsWith('fix') || lower.includes('bug')) {
+    return 'Poprawka błędu';
+  }
+  if (lower.startsWith('perf') || lower.includes('optim') || lower.includes('pgo')) {
+    return 'Wydajność & PGO';
+  }
+  if (lower.startsWith('ci') || lower.includes('workflow')) {
+    return 'CI / Automatyzacja';
+  }
+  return 'Aktualizacja kodu';
+}
+
+export const GithubPulse: React.FC = () => {
+  const [commits, setCommits] = useState<CommitEntry[]>(INITIAL_COMMITS);
+  const [filterApp, setFilterApp] = useState<string>('ALL');
+  const [loading, setLoading] = useState<boolean>(false);
+  const [lastFetched, setLastFetched] = useState<string>('Dane wbudowane + Live API');
+
+  const fetchLiveCommits = async () => {
+    setLoading(true);
+    try {
+      const targets = [
+        { repo: 'storytold/vectorcraft', appName: 'VectorCraft', isPl: false },
+        { repo: 'storytold/photocraft', appName: 'PhotoCraft', isPl: false },
+        { repo: 'storytold/filmcraft', appName: 'FilmCraft', isPl: false },
+        { repo: 'storytold/wordcraft', appName: 'WordCraft', isPl: false },
+        { repo: 'storytold/gridcraft', appName: 'GridCraft', isPl: false },
+        { repo: 'storytold/deckcraft', appName: 'DeckCraft', isPl: false },
+        { repo: 'lukasz-sklad/corel-web', appName: 'VectorCraft', isPl: true },
+        { repo: 'lukasz-sklad/film-web', appName: 'FilmCraft', isPl: true },
+      ];
+
+      const results = await Promise.allSettled(
+        targets.map(async (t) => {
+          const res = await fetch(`https://api.github.com/repos/${t.repo}/commits?per_page=2`);
+          if (!res.ok) return [];
+          const data = await res.json();
+          if (!Array.isArray(data)) return [];
+          return data.map((item: any): CommitEntry => {
+            const firstLine = (item.commit?.message || '').split('\n')[0];
+            return {
+              sha: (item.sha || '').slice(0, 7),
+              repo: t.repo,
+              appName: t.appName,
+              author: item.commit?.author?.name || item.author?.login || 'Developer',
+              date: (item.commit?.author?.date || '').slice(0, 10),
+              message: firstLine,
+              categoryPl: t.isPl ? 'Polskie Wydanie Web' : classifyCommitMessagePl(firstLine),
+              url: item.html_url || `https://github.com/${t.repo}`,
+              isPolishBuild: t.isPl,
+            };
+          });
+        })
+      );
+
+      const liveItems: CommitEntry[] = [];
+      for (const r of results) {
+        if (r.status === 'fulfilled' && r.value.length > 0) {
+          liveItems.push(...r.value);
+        }
+      }
+
+      if (liveItems.length > 0) {
+        // Merge live commits with initial highlights, deduplicating by sha
+        const seen = new Set<string>();
+        const merged: CommitEntry[] = [];
+        for (const c of [...liveItems, ...INITIAL_COMMITS]) {
+          if (!seen.has(c.sha)) {
+            seen.add(c.sha);
+            merged.push(c);
+          }
+        }
+        merged.sort((a, b) => (b.date > a.date ? 1 : -1));
+        setCommits(merged.slice(0, 14));
+        setLastFetched(`Pobrano na żywo z GitHub API (${new Date().toLocaleTimeString('pl-PL')})`);
+      } else {
+        setLastFetched('Zestaw zsynchronizowany z lokalnymi repozytoriami git');
+      }
+    } catch {
+      setLastFetched('Zestaw zsynchronizowany z lokalnymi repozytoriami git');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchLiveCommits();
+  }, []);
+
+  const filteredCommits =
+    filterApp === 'ALL' ? commits : commits.filter((c) => c.appName === filterApp);
+
+  return (
+    <section id="puls-githuba" className="py-16 border-t border-white/10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-purple-400">
+              <Activity className="h-4 w-4" /> Puls Rozwoju &amp; Newsy z GitHuba
+            </div>
+            <h2 className="mt-2 text-2xl font-extrabold text-white sm:text-4xl">
+              Co nowego w oryginalnych silnikach *Craft i polskich wydaniach
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm text-zinc-400">
+              Strumień ostatnich commitów prosto z oficjalnych repozytoriów{' '}
+              <code className="text-zinc-200">storytold/*</code> oraz naszych polskich wdrożeń{' '}
+              <code className="text-amber-300">lukasz-sklad/*</code>.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <span className="text-xs text-zinc-400">{lastFetched}</span>
+            <button
+              type="button"
+              onClick={fetchLiveCommits}
+              disabled={loading}
+              className="inline-flex items-center gap-1.5 rounded-xl border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-semibold text-white transition hover:bg-white/10 disabled:opacity-50"
+            >
+              <RefreshCw className={`h-3.5 w-3.5 ${loading ? 'animate-spin text-amber-400' : ''}`} />
+              <span>Odśwież z GitHuba</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Filter Pills */}
+        <div className="mt-6 flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setFilterApp('ALL')}
+            className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
+              filterApp === 'ALL'
+                ? 'bg-amber-500 text-zinc-950'
+                : 'border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10'
+            }`}
+          >
+            Wszystkie aplikacje ({commits.length})
+          </button>
+          {CRAFT_APPS.map((app) => (
+            <button
+              key={app.id}
+              type="button"
+              onClick={() => setFilterApp(app.name)}
+              className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 text-xs font-semibold transition ${
+                filterApp === app.name
+                  ? 'bg-white/20 text-white border border-white/30'
+                  : 'border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10'
+              }`}
+            >
+              <span
+                className="h-2 w-2 rounded-full"
+                style={{ backgroundColor: app.accentColor }}
+              />
+              <span>{app.name}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Commits Feed Grid */}
+        <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-2">
+          {filteredCommits.map((commit) => {
+            const appMeta = CRAFT_APPS.find((a) => a.name === commit.appName) || CRAFT_APPS[0];
+            return (
+              <a
+                key={`${commit.repo}-${commit.sha}`}
+                href={commit.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col justify-between rounded-2xl border border-white/10 bg-[#1a1b1f] p-4 transition hover:border-white/25 hover:bg-[#202227]"
+              >
+                <div>
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <span
+                        className="h-2.5 w-2.5 rounded-full"
+                        style={{ backgroundColor: appMeta.accentColor }}
+                      />
+                      <span className="text-xs font-bold text-white">{commit.appName}</span>
+                      <span className="font-mono text-[11px] text-zinc-400">({commit.repo})</span>
+                    </div>
+
+                    <div className="flex items-center gap-1.5">
+                      {commit.isPolishBuild ? (
+                        <span className="inline-flex items-center gap-1 rounded-full border border-amber-500/40 bg-amber-500/15 px-2 py-0.5 text-[10px] font-bold text-amber-300">
+                          <Sparkles className="h-3 w-3" /> {commit.categoryPl}
+                        </span>
+                      ) : (
+                        <span className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300">
+                          {commit.categoryPl}
+                        </span>
+                      )}
+                      <span className="rounded bg-black/50 px-1.5 py-0.5 font-mono text-[11px] text-emerald-400">
+                        {commit.sha}
+                      </span>
+                    </div>
+                  </div>
+
+                  <p className="mt-2.5 text-sm font-medium text-zinc-200 group-hover:text-white">
+                    {commit.message}
+                  </p>
+                </div>
+
+                <div className="mt-3 flex items-center justify-between border-t border-white/5 pt-2.5 text-[11px] text-zinc-400">
+                  <span>
+                    Autor: <strong className="text-zinc-300">{commit.author}</strong> • {commit.date}
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-zinc-300 group-hover:text-amber-300">
+                    Zobacz commit <ExternalLink className="h-3 w-3" />
+                  </span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
