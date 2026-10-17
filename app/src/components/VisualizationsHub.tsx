@@ -156,11 +156,11 @@ export const VisualizationsHub: React.FC = () => {
 
         {/* Part 2: Comparison Table (Modeled on vectorcraft.app) */}
         <div className="rounded-3xl border border-white/10 bg-[#18191c] p-6 sm:p-10">
-          <div className="max-w-3xl">
-            <h3 className="text-2xl font-extrabold text-white sm:text-3xl">
+          <div>
+            <h3 className="text-xl font-extrabold text-white sm:text-2xl lg:text-3xl tracking-tight sm:whitespace-nowrap">
               Dlaczego warto korzystać z polskich aplikacji Craft?
             </h3>
-            <p className="mt-2 text-sm text-zinc-400">
+            <p className="mt-2 text-sm text-zinc-400 max-w-3xl">
               Porównanie naszego otwartoźródłowego ekosystemu WebAssembly z zamkniętymi chmurami
               subskrypcyjnymi:
             </p>

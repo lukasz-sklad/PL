@@ -122,8 +122,7 @@ export const GithubPulse: React.FC = () => {
             </h2>
             <p className="mt-2 max-w-2xl text-sm text-zinc-400">
               Strumień ostatnich commitów prosto z oficjalnych repozytoriów{' '}
-              <code className="text-zinc-200">storytold/*</code> oraz naszych polskich wdrożeń{' '}
-              <code className="text-amber-300">lukasz-sklad/*</code>.
+              <code className="text-zinc-200">storytold/*</code> oraz naszych wdrożeń.
             </p>
           </div>
 
