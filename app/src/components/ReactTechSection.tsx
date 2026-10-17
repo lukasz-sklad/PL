@@ -10,7 +10,7 @@ const CODE_SNIPPETS = [
     id: 'react-pl',
     title: 'Komponent React PL (?file=)',
     explanation:
-      'W React używamy hooków useState oraz useMemo (opisanych po polsku na pl.react.dev), aby reagować na wpisywany adres pliku i dobierać odpowiednią aplikację Craft:',
+      'W React używamy hooków useState oraz useMemo (opisanych na pl.react.dev), aby reagować na wpisywany adres pliku i dobierać odpowiednią aplikację Craft:',
     code: `import { useState, useMemo } from 'react'; // -> https://pl.react.dev/reference/react
 
 export function KreatorLinkuCraft() {
