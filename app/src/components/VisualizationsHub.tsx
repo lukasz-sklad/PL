@@ -158,7 +158,7 @@ export const VisualizationsHub: React.FC = () => {
         <div className="rounded-3xl border border-white/10 bg-[#18191c] p-6 sm:p-10">
           <div>
             <h3 className="text-xl font-extrabold text-white sm:text-2xl lg:text-3xl tracking-tight sm:whitespace-nowrap">
-              Dlaczego warto korzystać z polskich aplikacji Craft?
+              Dlaczego warto korzystać z naszych aplikacji Craft?
             </h3>
             <p className="mt-2 text-sm text-zinc-400 max-w-3xl">
               Porównanie naszego otwartoźródłowego ekosystemu WebAssembly z zamkniętymi chmurami
