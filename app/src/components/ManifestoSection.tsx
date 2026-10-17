@@ -66,15 +66,14 @@ export const ManifestoSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-6">
             <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
               Dlaczego trzymamy się polskiego?{' '}
-              <span className="text-amber-400">Wspomnienie „Jajka Polskiego”</span> i ludzkich
-              możliwości przerobu
+              <span className="text-amber-400">Wspomnienie „Jajka Polskiego”</span> i tworzenia w miarę sił
             </h2>
 
             <div className="space-y-4 text-sm sm:text-base leading-relaxed text-zinc-300">
               <p>
                 Ta strona — podobnie jak wszystkie zebrane na niej aplikacje — jest{' '}
                 <strong className="text-white">w wersji PL i wszystko tutaj będzie po polsku</strong>,
-                rozwijane uczciwie <strong className="text-amber-300">wraz z możliwościami przerobu człowieka</strong>.
+                rozwijane uczciwie <strong className="text-amber-300">w miarę wolnego czasu i sił</strong>.
                 Dlaczego? Bo po prostu fajnie, jak wszystko jest po polsku!
               </p>
 

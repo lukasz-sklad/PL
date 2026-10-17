@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
             </div>
             <p className="leading-relaxed text-zinc-400">
               Polski portal zbierający w jednym miejscu aplikacje z rodziny *Craft. Wszystko po polsku
-              — „wraz z możliwościami przerobu człowieka” i z ukłonem dla legendarnego Jajka Polskiego.
+              — w miarę wolnego czasu i sił, z ukłonem dla legendarnego Jajka Polskiego.
             </p>
             <div className="flex flex-wrap gap-2 text-[11px] text-zinc-300">
               <a
