@@ -8,5 +8,15 @@
   "assets": {
     "directory": "./dist/web",
     "not_found_handling": "single-page-application"
-  }
+  },
+  "routes": [
+    {
+      "pattern": "craft.lmk.one/*",
+      "zone_name": "lmk.one"
+    },
+    {
+      "pattern": "pl.lmk.one/*",
+      "zone_name": "lmk.one"
+    }
+  ]
 }
