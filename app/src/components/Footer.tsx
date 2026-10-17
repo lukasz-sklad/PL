@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
           {/* Col 2: Direct Web Apps */}
           <div>
             <div className="font-bold uppercase tracking-wider text-zinc-200">
-              Polskie Aplikacje Web
+              Aplikacje Web
             </div>
             <ul className="mt-3 space-y-2">
               {CRAFT_APPS.map((app) => (
@@ -67,24 +67,12 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Col 3: Polish Docs & Community */}
+          {/* Col 3: Docs & Code */}
           <div>
             <div className="font-bold uppercase tracking-wider text-zinc-200">
-              Dokumentacja PL i Kod
+              Dokumentacja i Kod
             </div>
             <ul className="mt-3 space-y-2">
-              <li>
-                <a
-                  href="https://pl.react.dev/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-cyan-300 hover:underline"
-                >
-                  <Code2 className="h-3.5 w-3.5" />
-                  <span>Polska Dokumentacja React (pl.react.dev)</span>
-                  <ExternalLink className="h-3 w-3" />
-                </a>
-              </li>
               <li>
                 <a
                   href="https://github.com/lukasz-sklad/PL"
@@ -92,7 +80,7 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-zinc-300 hover:text-white"
                 >
-                  <span>Repozytorium tej strony (lukasz-sklad/PL)</span>
+                  <span>Repozytorium portalu (lukasz-sklad/PL)</span>
                   <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
@@ -103,7 +91,7 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-zinc-300 hover:text-white"
                 >
-                  <span>VectorCraft Web PL (lukasz-sklad/corel-web)</span>
+                  <span>VectorCraft Web (lukasz-sklad/corel-web)</span>
                   <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
@@ -114,7 +102,52 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-zinc-300 hover:text-white"
                 >
-                  <span>FilmCraft Web PL (lukasz-sklad/film-web)</span>
+                  <span>FilmCraft Web (lukasz-sklad/film-web)</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/lukasz-sklad/excel-web"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-zinc-300 hover:text-white"
+                >
+                  <span>GridCraft Web (lukasz-sklad/excel-web)</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/lukasz-sklad/deck-web"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-zinc-300 hover:text-white"
+                >
+                  <span>DeckCraft Web (lukasz-sklad/deck-web)</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/lukasz-sklad/pdf-web"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-zinc-300 hover:text-white"
+                >
+                  <span>PDFCraft Web (lukasz-sklad/pdf-web)</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </li>
+              <li className="pt-1 border-t border-white/5">
+                <a
+                  href="https://pl.react.dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-cyan-300 hover:underline"
+                >
+                  <Code2 className="h-3.5 w-3.5" />
+                  <span>Polska Dokumentacja React (pl.react.dev)</span>
                   <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
