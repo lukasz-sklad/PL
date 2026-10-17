@@ -408,14 +408,6 @@ export const SIBLING_APPS: SiblingCraftApp[] = [
     upstreamRepo: 'storytold/soundcraft',
     statusPl: 'Lokalnie w katalogu /app/soundcraft',
   },
-  {
-    name: 'PrintCraft',
-    replaces: 'Cura / PrusaSlicer',
-    version: '0.2.1',
-    descriptionPl: 'Przygotowanie modeli 3D (.stl, .3mf) do druku i generowanie ścieżek G-code.',
-    upstreamRepo: 'storytold/printcraft',
-    statusPl: 'Lokalnie w katalogu /app/printcraft',
-  },
 ];
 
 export interface CommitEntry {
