@@ -7,5 +7,15 @@
   "assets": {
     "directory": "./dist/web",
     "not_found_handling": "single-page-application"
-  }
+  },
+  "routes": [
+    {
+      "pattern": "craft.lmk.one",
+      "custom_domain": true
+    },
+    {
+      "pattern": "pl.lmk.one",
+      "custom_domain": true
+    }
+  ]
 }
