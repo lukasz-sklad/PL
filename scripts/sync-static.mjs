@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
 const distWebDir = path.join(rootDir, 'dist', 'web');
 
-// Ensure .nojekyll, CNAME, and _headers exist in dist/web and root
+// Ensure .nojekyll, CNAME, _headers, and .assetsignore exist in dist/web and root
 const cnameContent = 'craft.lmk.one\n';
 const headersContent = `/*
   Access-Control-Allow-Origin: *
@@ -19,6 +19,7 @@ const headersContent = `/*
 fs.writeFileSync(path.join(distWebDir, '.nojekyll'), '');
 fs.writeFileSync(path.join(distWebDir, 'CNAME'), cnameContent);
 fs.writeFileSync(path.join(distWebDir, '_headers'), headersContent);
+fs.writeFileSync(path.join(distWebDir, '.assetsignore'), '*.gz\n');
 
 // Sync dist/web/index.html, favicon.svg, and assets/ to repository root
 // so GitHub Pages and Cloudflare Pages (Output: . or dist/web) work out of the box!

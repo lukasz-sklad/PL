@@ -1,0 +1,11 @@
+{
+  "name": "pl-craft",
+  "compatibility_date": "2026-10-12",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "./dist/web",
+    "not_found_handling": "single-page-application"
+  }
+}
