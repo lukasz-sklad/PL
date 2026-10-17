@@ -154,15 +154,15 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
                   <div className="mt-0.5 text-[11px] text-amber-300/90">{sib.replaces}</div>
                   <p className="mt-2 text-xs leading-relaxed text-zinc-400">{sib.descriptionPl}</p>
                 </div>
-                <div className="mt-3 flex items-center justify-between border-t border-white/5 pt-2.5 text-[11px] text-zinc-400">
-                  <span className="truncate">{sib.statusPl}</span>
+                <div className="mt-3 flex items-center justify-end border-t border-white/5 pt-2.5 text-[11px] text-zinc-400">
                   <a
                     href={`https://github.com/${sib.upstreamRepo}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-zinc-300 hover:text-amber-300 shrink-0 ml-2"
+                    title={`Repozytorium ${sib.upstreamRepo}`}
+                    className="inline-flex items-center gap-1.5 text-zinc-300 hover:text-amber-300"
                   >
-                    <FolderGit2 className="h-3.5 w-3.5" />
+                    <FolderGit2 className="h-4 w-4" />
                   </a>
                 </div>
               </div>
