@@ -118,17 +118,6 @@ export const Footer: React.FC = () => {
                   <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://vectorcraft.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-zinc-400 hover:text-amber-300"
-                >
-                  <span>Oryginalny wzorzec: vectorcraft.app</span>
-                  <ExternalLink className="h-3 w-3" />
-                </a>
-              </li>
             </ul>
           </div>
 
