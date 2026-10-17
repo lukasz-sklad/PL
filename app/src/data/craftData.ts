@@ -72,8 +72,8 @@ export const CRAFT_APPS: CraftApp[] = [
       },
       {
         label: 'Otwórz dowolny plik .cdr / .svg z sieci',
-        exampleUrl: 'https://corel.lmk.one/?file=https://filedn.eu/lPq6O1K7j8DR1n7JwTuYjYz/cdr/zawiercie_logo.cdr',
-        description: 'Pobiera plik bezpośrednio z URL (obsługuje pCloud, własne serwery oraz automatyczny mostek CORS).',
+        exampleUrl: 'https://corel.lmk.one/?file=https://raw.githubusercontent.com/lukasz-sklad/corel-web/main/zawiercie_logo.cdr',
+        description: 'Pobiera plik bezpośrednio z URL (obsługuje GitHub, własne serwery oraz automatyczny mostek CORS).',
       },
     ],
     formats: ['.cdr (v1–X3 RIFF oraz X4+ ZIP)', '.svg', '.ai / .pdf', '.eps', '.vectorcraft', '.png / .webp'],
@@ -83,7 +83,7 @@ export const CRAFT_APPS: CraftApp[] = [
       'Obsługa wielowarstwowych obszarów roboczych (Artboards), gradientów, wzorków i tekstu na ścieżce',
       'Pełne polskie tłumaczenie (ponad 4 650 fraz UI, menu i narzędzi)',
     ],
-    sampleFileUrl: 'https://filedn.eu/lPq6O1K7j8DR1n7JwTuYjYz/cdr/zawiercie_logo.cdr',
+    sampleFileUrl: 'https://raw.githubusercontent.com/lukasz-sklad/corel-web/main/zawiercie_logo.cdr',
     shortcuts: [
       { key: 'V', action: 'Narzędzie Zaznaczanie (Selection)', category: 'Narzędzia' },
       { key: 'A', action: 'Zaznaczanie bezpośrednie węzłów', category: 'Narzędzia' },
@@ -448,7 +448,7 @@ export const INITIAL_COMMITS: CommitEntry[] = [
     appName: 'VectorCraft',
     author: 'lukasz-sklad',
     date: '2026-10-17',
-    message: 'feat(web): Domyślne wczytywanie zawiercie_logo.cdr, parametry ?new oraz ?file= z mostkiem CORS dla pCloud (filedn.eu)',
+    message: 'feat(web): Domyślne wczytywanie zawiercie_logo.cdr, parametry ?new oraz ?file= z automatycznym mostkiem CORS',
     categoryPl: 'Polskie Wydanie Web',
     url: 'https://github.com/lukasz-sklad/corel-web',
     isPolishBuild: true,

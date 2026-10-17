@@ -14,7 +14,7 @@ const CODE_SNIPPETS = [
     code: `import { useState, useMemo } from 'react'; // -> https://pl.react.dev/reference/react
 
 export function KreatorLinkuCraft() {
-  const [adresPliku, setAdresPliku] = useState('https://filedn.eu/.../zawiercie_logo.cdr');
+  const [adresPliku, setAdresPliku] = useState('https://raw.githubusercontent.com/lukasz-sklad/corel-web/main/zawiercie_logo.cdr');
 
   const aplikacjaDocelowa = useMemo(() => {
     if (adresPliku.endsWith('.cdr')) return 'https://corel.lmk.one';
@@ -34,7 +34,7 @@ export function KreatorLinkuCraft() {
     id: 'cors-wasm',
     title: 'Mostek CORS + WebAssembly',
     explanation:
-      'Gdy serwer chmurowy (np. pCloud filedn.eu) nie zwraca nagłówka CORS, nasze aplikacje webowe automatycznie przełączają pobieranie na mostek lmk.one/api/cors:',
+      'Gdy zewnętrzny serwer nie zwraca nagłówka CORS, nasze aplikacje webowe automatycznie przełączają pobieranie na mostek lmk.one/api/cors:',
     code: `async function fetchWithCorsFallback(fileUrl) {
   try {
     const resp = await fetch(fileUrl, { mode: 'cors' });

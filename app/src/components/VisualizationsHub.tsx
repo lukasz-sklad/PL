@@ -195,7 +195,7 @@ export const VisualizationsHub: React.FC = () => {
                   <td className="py-3.5 pr-4 font-medium text-white">Otwieranie plików .cdr, .psd, .mp4 z linku (?file=)</td>
                   <td className="py-3.5 px-4 bg-amber-500/[0.06] text-emerald-300 font-semibold">
                     <span className="inline-flex items-center gap-1.5">
-                      <Check className="h-4 w-4 text-emerald-400" /> Tak! Jednym linkiem URL (z wbudowanym mostkiem CORS dla pCloud)
+                      <Check className="h-4 w-4 text-emerald-400" /> Tak! Jednym linkiem URL (z wbudowanym mostkiem CORS)
                     </span>
                   </td>
                   <td className="py-3.5 px-4 text-zinc-400">

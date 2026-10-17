@@ -13,19 +13,19 @@ import { CRAFT_APPS } from '../data/craftData';
 
 const PRESET_FILES = [
   {
-    label: 'Herb Zawiercia (.cdr z pCloud filedn.eu)',
+    label: 'Herb Zawiercia (.cdr z GitHuba)',
     appId: 'vectorcraft',
-    fileUrl: 'https://filedn.eu/lPq6O1K7j8DR1n7JwTuYjYz/cdr/zawiercie_logo.cdr',
+    fileUrl: 'https://raw.githubusercontent.com/lukasz-sklad/corel-web/main/zawiercie_logo.cdr',
   },
   {
-    label: 'Herb Zawiercia (.cdr lokalny serwer)',
+    label: 'Wektorowy Tygrys (.svg Wikimedia)',
     appId: 'vectorcraft',
-    fileUrl: 'https://corel.lmk.one/zawiercie_logo.cdr',
+    fileUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Ghostscript_Tiger.svg',
   },
   {
-    label: 'Przykładowy klip wideo (.mp4 w FilmCraft)',
+    label: 'Przykładowy klip wideo (.mp4 CC0 w FilmCraft)',
     appId: 'filmcraft',
-    fileUrl: 'https://lmk.one/sample.mp4',
+    fileUrl: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
   },
   {
     label: 'Grafika rastrowa (.png w PhotoCraft)',
@@ -36,7 +36,7 @@ const PRESET_FILES = [
 
 export const UrlWizard: React.FC = () => {
   const [inputUrl, setInputUrl] = useState(
-    'https://filedn.eu/lPq6O1K7j8DR1n7JwTuYjYz/cdr/zawiercie_logo.cdr'
+    'https://raw.githubusercontent.com/lukasz-sklad/corel-web/main/zawiercie_logo.cdr'
   );
   const [selectedAppId, setSelectedAppId] = useState<string>('auto');
   const [modeNew, setModeNew] = useState(false);
@@ -102,7 +102,7 @@ export const UrlWizard: React.FC = () => {
               </div>
 
               <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
-                Otwieraj pliki bezpośrednio z adresu URL (pCloud, chmura, własny serwer)
+                Otwieraj pliki bezpośrednio z adresu URL (GitHub, chmura, własny serwer)
               </h2>
 
               <p className="text-sm text-zinc-300 leading-relaxed">
@@ -147,7 +147,7 @@ export const UrlWizard: React.FC = () => {
                   value={inputUrl}
                   disabled={modeNew}
                   onChange={(e) => setInputUrl(e.target.value)}
-                  placeholder="https://filedn.eu/.../twoj_plik.cdr"
+                  placeholder="https://raw.githubusercontent.com/.../plik.cdr"
                   className="w-full rounded-xl border border-white/15 bg-black/50 px-4 py-3 font-mono text-xs sm:text-sm text-white placeholder-zinc-500 focus:border-amber-400 focus:outline-none disabled:opacity-50"
                 />
               </div>
@@ -248,18 +248,18 @@ export const UrlWizard: React.FC = () => {
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-xs text-zinc-300 space-y-2">
                 <div className="flex items-center gap-2 font-bold text-white">
                   <ShieldCheck className="h-4 w-4 text-emerald-400" />
-                  Jak działa otwieranie z pCloud (filedn.eu) i obcych serwerów?
+                  Jak działa otwieranie plików z zewnętrznych serwerów?
                 </div>
                 <p className="text-zinc-400 leading-relaxed">
-                  Niektóre dyski chmurowe (np. pCloud <code className="text-zinc-200">filedn.eu</code>) nie
-                  wysyłają nagłówka <code className="text-zinc-200">Access-Control-Allow-Origin</code>. Nasze
-                  aplikacje webowe najpierw próbują pobrać plik bezpośrednio, a w razie blokady CORS
+                  Niektóre zewnętrzne serwery nie wysyłają nagłówka{' '}
+                  <code className="text-zinc-200">Access-Control-Allow-Origin</code>. Nasze aplikacje
+                  webowe najpierw próbują pobrać plik bezpośrednio, a w razie blokady CORS
                   automatycznie przełączają się na bezserwerowy mostek{' '}
                   <code className="text-amber-300">lmk.one/api/cors</code>!
                 </p>
                 <div className="flex items-center justify-between rounded-lg bg-black/40 px-3 py-2 font-mono text-[11px] text-zinc-300">
                   <span className="flex items-center gap-1.5">
-                    <Cloud className="h-3.5 w-3.5 text-sky-400" /> pCloud / URL
+                    <Cloud className="h-3.5 w-3.5 text-sky-400" /> Zewnętrzny URL
                   </span>
                   <span className="text-amber-400">──►</span>
                   <span>Mostek CORS</span>
