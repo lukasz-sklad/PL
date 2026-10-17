@@ -16,7 +16,7 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
               <Layers className="h-4 w-4" /> Katalog Aplikacji Online
             </div>
             <h2 className="mt-2 text-2xl font-extrabold text-white sm:text-4xl">
-              {CRAFT_APPS.length} gotowych polskich aplikacji webowych
+              {CRAFT_APPS.length} gotowych aplikacji webowych
             </h2>
             <p className="mt-2 max-w-2xl text-sm text-zinc-400">
               Każda aplikacja zachowuje swoją oryginalną nazwę z ekosystemu{' '}
