@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  HeartHandshake,
   MessageSquarePlus,
   Sparkles,
   BookOpen,
@@ -65,10 +64,6 @@ export const ManifestoSection: React.FC = () => {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 items-start">
           {/* Left 7 Cols: The Story & Jajko Polskie Tribute */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-3.5 py-1 text-xs font-bold text-red-300">
-              <HeartHandshake className="h-4 w-4" /> Wątek przewodni strony • 100% Po Polsku
-            </div>
-
             <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
               Dlaczego trzymamy się polskiego?{' '}
               <span className="text-amber-400">Wspomnienie „Jajka Polskiego”</span> i ludzkich
