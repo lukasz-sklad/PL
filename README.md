@@ -1,6 +1,6 @@
 # 🇵🇱 Polska Stacja *Craft (`craft.lmk.one` / `pl.lmk.one`)
 
-Polski portal i interaktywna stacja robocza zbierająca w jednym miejscu wszystkie spolszczone aplikacje webowe oraz natywne z rodziny **\*Craft** (wzorowana na [vectorcraft.app](https://vectorcraft.app/), z zachowaniem oryginalnych nazw programów).
+Polski portal i interaktywna stacja robocza zbierająca w jednym miejscu wszystkie spolszczone aplikacje webowe oraz natywne z rodziny **\*Craft**.
 
 ## 🌐 Adresy portalu
 - **https://craft.lmk.one/** (`https://lmk.one/craft`)
