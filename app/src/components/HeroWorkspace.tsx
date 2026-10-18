@@ -4,7 +4,6 @@ import {
   Play,
   Maximize2,
   CheckCircle2,
-  Sparkles,
   Copy,
   Check,
   Terminal,
@@ -104,8 +103,8 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
         {/* Top Pill Badge */}
         <div className="flex flex-col items-center text-center">
           <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-xs text-zinc-300 backdrop-blur">
-            <span className="inline-flex items-center gap-1 font-semibold text-amber-400">
-              <Sparkles className="h-3.5 w-3.5" /> 100% Po Polsku
+            <span className="font-semibold text-amber-400">
+              Po Polsku
             </span>
             <span className="text-zinc-600">•</span>
             <span>Działają od ręki</span>
