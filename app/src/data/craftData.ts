@@ -552,7 +552,7 @@ export const INITIAL_COMMITS: CommitEntry[] = [
     sha: '08cd437',
     repo: 'lukasz-sklad/light-web',
     appName: 'LightCraft',
-    author: 'lukasz-sklad',
+    author: 'Lucas Kalinowski',
     date: '2026-10-18',
     message: 'feat(web): Wydanie LightCraft Web 0.8.0 (PL + Ciemny motyw + WebGPU/WebGL2 + obsługa ?file= z automatyczną sekwencją)',
     categoryPl: 'Polskie Wydanie Web',
