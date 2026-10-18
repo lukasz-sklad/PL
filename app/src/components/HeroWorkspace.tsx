@@ -190,6 +190,14 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
         {/* Top Header Text */}
         <div className="flex justify-start">
           <div className="inline-flex flex-wrap items-center gap-2.5 text-[1rem] text-zinc-300">
+            <span className="inline-flex items-center gap-1.5 font-semibold text-emerald-400">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              </span>
+              <span>Online: {activeApp.name}</span>
+            </span>
+            <span className="text-zinc-600">•</span>
             <span className="font-semibold text-amber-400">
               Po Polsku
             </span>
@@ -206,7 +214,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
       </div>
 
       {/* Resizable Studio Window */}
-      <div className="mt-2.5 px-1 sm:px-2 flex flex-col items-center">
+      <div className="mt-2.5 px-1 sm:px-2 flex justify-center">
         <div
           ref={windowRef}
           style={{
@@ -639,29 +647,6 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
             </svg>
           </div>
         </div>
-
-        {/* Status i powrót do karty za ramką */}
-        {liveIframe && !isFullscreen && (
-          <div className="mt-3 flex flex-wrap items-center justify-between gap-3 text-xs text-zinc-400 w-full max-w-[1645px] px-3 py-2 rounded-xl border border-white/10 bg-[#16171a]/80 backdrop-blur">
-            <div className="flex items-center gap-2.5">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-              </span>
-              <span className="text-zinc-300">
-                Online: <strong className="text-white font-semibold">{activeApp.name}</strong>
-              </span>
-            </div>
-            <button
-              type="button"
-              onClick={() => setLiveIframe(false)}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-amber-300 transition hover:border-amber-500/40 hover:bg-amber-500/10 hover:text-white"
-            >
-              <MonitorPlay className="h-3.5 w-3.5" />
-              <span>Tryb: Interaktywny</span>
-            </button>
-          </div>
-        )}
       </div>
     </section>
   );
