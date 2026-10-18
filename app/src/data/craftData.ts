@@ -11,6 +11,7 @@ export interface CraftApp {
   replaces: string;
   version: string;
   primaryUrl: string;
+  displayDomain?: string;
   altUrls: { label: string; url: string }[];
   upstreamRepo: string;
   plWebRepo: string;
@@ -607,6 +608,7 @@ export const CRAFT_APPS: CraftApp[] = [
     replaces: 'Autodesk Fusion 360 / SolidWorks / FreeCAD',
     version: '0.15.0',
     primaryUrl: 'https://solid.lmk.one/?url=ceownik_druk3d_10cm.stl&orbit=continuous',
+    displayDomain: 'solidcraft.lmk',
     altUrls: [
       { label: 'solid.lmk.one (Ceownik STL + Orbit)', url: 'https://solid.lmk.one/?url=ceownik_druk3d_10cm.stl&orbit=continuous' },
       { label: 'Ciągły obrót + Centrowanie (?orbit=continuous&fit=1)', url: 'https://solid.lmk.one/?url=ceownik_druk3d_10cm.stl&orbit=continuous&fit=1' },

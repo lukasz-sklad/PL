@@ -94,7 +94,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                           <div>
                             <div className="text-xs font-semibold text-white">{app.name}</div>
                             <div className="text-[11px] text-zinc-400">
-                              {app.primaryUrl.replace('https://', '').replace(/\/$/, '')}
+                              {app.displayDomain || (app.id === 'solidcraft' ? 'solidcraft.lmk' : app.primaryUrl.replace('https://', '').split('?')[0].replace(/\/$/, ''))}
                             </div>
                           </div>
                         </button>
