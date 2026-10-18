@@ -98,7 +98,9 @@ export const Footer: React.FC = () => {
                       style={{ backgroundColor: app.accentColor }}
                     />
                     <span className="font-medium text-zinc-200">{app.name}</span>
-                    <span>— {app.primaryUrl.replace('https://', '').replace(/\/$/, '')}</span>
+                    {app.id !== 'solidcraft' && (
+                      <span>— {app.primaryUrl.replace('https://', '').replace(/\/$/, '')}</span>
+                    )}
                   </a>
                 </li>
               ))}

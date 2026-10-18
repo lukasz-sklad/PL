@@ -205,73 +205,8 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
         </div>
       </div>
 
-      {/* Resizable Studio Window & Side Info Panel (po lewej stronie ramki) */}
-      <div className="mt-2.5 px-1 sm:px-2 flex flex-col min-[1800px]:flex-row items-center min-[1800px]:items-start justify-center gap-4">
-        {activeApp.id === 'solidcraft' && !isFullscreen && (
-          <aside className="w-full max-w-[1645px] min-[1800px]:w-[380px] shrink-0 rounded-2xl border border-white/10 bg-[#16171a]/95 p-4 sm:p-5 text-xs text-zinc-300 shadow-2xl backdrop-blur">
-            <div className="flex items-center gap-2 font-bold text-amber-400 text-sm mb-3 pb-2 border-b border-white/10">
-              <Terminal className="h-4 w-4" />
-              <span>Parametry URL SolidCraft:</span>
-            </div>
-            <ul className="space-y-2.5 text-[12px] leading-relaxed">
-              <li className="flex items-start gap-2">
-                <span className="text-amber-400 font-bold shrink-0">•</span>
-                <span>
-                  <code className="text-emerald-300 font-mono font-semibold">&orbit=continuous</code> / <code className="text-emerald-300 font-mono font-semibold">&spin=1</code> / <code className="text-emerald-300 font-mono font-semibold">&turntable=1</code> — <span className="text-zinc-300">ciągły obrót orbitalny detalu 360° (efekt gramofonu),</span>
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-amber-400 font-bold shrink-0">•</span>
-                <span>
-                  <code className="text-emerald-300 font-mono font-semibold">&fit=1</code> / <code className="text-emerald-300 font-mono font-semibold">&center=1</code> / <code className="text-emerald-300 font-mono font-semibold">&view=fit</code> — <span className="text-zinc-300">automatyczne dopasowanie odległości kamery i wycentrowanie bryły w kadrze,</span>
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-amber-400 font-bold shrink-0">•</span>
-                <span>
-                  <code className="text-emerald-300 font-mono font-semibold">&theme=light</code> / <code className="text-emerald-300 font-mono font-semibold">&theme=dark</code> — <span className="text-zinc-300">natychmiastowe uruchomienie w motywie jasnym lub ciemnym bez białego błysku (plus synchronizacja w czasie rzeczywistym),</span>
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-amber-400 font-bold shrink-0">•</span>
-                <span>
-                  <code className="text-emerald-300 font-mono font-semibold">&lang=pl</code> / <code className="text-emerald-300 font-mono font-semibold">&lang=en</code> — <span className="text-zinc-300">wymuszenie języka polskiego lub angielskiego,</span>
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-amber-400 font-bold shrink-0">•</span>
-                <span>
-                  <code className="text-emerald-300 font-mono font-semibold">&url=https://...</code> / <code className="text-emerald-300 font-mono font-semibold">&file=...</code> — <span className="text-zinc-300">wczytanie dowolnego modelu .stl, .step, .stp, .obj, .gltf z sieci,</span>
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-amber-400 font-bold shrink-0">•</span>
-                <span>
-                  <code className="text-emerald-300 font-mono font-semibold">?sample</code> — <span className="text-zinc-300">wygenerowanie parametrycznej płytki inżynieryjnej B-Rep ze skryptu silnika,</span>
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-amber-400 font-bold shrink-0">•</span>
-                <span>
-                  <code className="text-emerald-300 font-mono font-semibold">?new</code> — <span className="text-zinc-300">start z czystym obszarem roboczym CAD i płaszczyznami bazowymi XYZ,</span>
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-amber-400 font-bold shrink-0">•</span>
-                <span>
-                  <code className="text-emerald-300 font-mono font-semibold">?webgl</code> / <code className="text-emerald-300 font-mono font-semibold">?webgpu</code> — <span className="text-zinc-300">przełączanie silnika graficznego między WebGL2 a WebGPU,</span>
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-amber-400 font-bold shrink-0">•</span>
-                <span>
-                  <code className="text-emerald-300 font-mono font-semibold">?recover=1</code> — <span className="text-zinc-300">opcjonalne wywołanie okna przywracania sesji.</span>
-                </span>
-              </li>
-            </ul>
-          </aside>
-        )}
-
+      {/* Resizable Studio Window */}
+      <div className="mt-2.5 px-1 sm:px-2 flex justify-center">
         <div
           ref={windowRef}
           style={{
@@ -482,6 +417,72 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                         ))}
                       </div>
                     </div>
+
+                    {/* Parametry URL SolidCraft (pod formatami plików) */}
+                    {activeApp.id === 'solidcraft' && (
+                      <div className="mt-6 border-t border-white/10 pt-5">
+                        <div className="text-xs font-semibold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+                          <Terminal className="h-3.5 w-3.5" />
+                          <span>Parametry URL SolidCraft:</span>
+                        </div>
+                        <ul className="mt-3 space-y-2 text-[12px] leading-relaxed text-zinc-300">
+                          <li className="flex items-start gap-2">
+                            <span className="text-amber-400 font-bold shrink-0">•</span>
+                            <span>
+                              <code className="text-emerald-300 font-mono font-semibold">&orbit=continuous</code> / <code className="text-emerald-300 font-mono font-semibold">&spin=1</code> / <code className="text-emerald-300 font-mono font-semibold">&turntable=1</code> — <span className="text-zinc-300">ciągły obrót orbitalny detalu 360° (efekt gramofonu),</span>
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-amber-400 font-bold shrink-0">•</span>
+                            <span>
+                              <code className="text-emerald-300 font-mono font-semibold">&fit=1</code> / <code className="text-emerald-300 font-mono font-semibold">&center=1</code> / <code className="text-emerald-300 font-mono font-semibold">&view=fit</code> — <span className="text-zinc-300">automatyczne dopasowanie odległości kamery i wycentrowanie bryły w kadrze,</span>
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-amber-400 font-bold shrink-0">•</span>
+                            <span>
+                              <code className="text-emerald-300 font-mono font-semibold">&theme=light</code> / <code className="text-emerald-300 font-mono font-semibold">&theme=dark</code> — <span className="text-zinc-300">natychmiastowe uruchomienie w motywie jasnym lub ciemnym bez białego błysku (plus synchronizacja w czasie rzeczywistym),</span>
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-amber-400 font-bold shrink-0">•</span>
+                            <span>
+                              <code className="text-emerald-300 font-mono font-semibold">&lang=pl</code> / <code className="text-emerald-300 font-mono font-semibold">&lang=en</code> — <span className="text-zinc-300">wymuszenie języka polskiego lub angielskiego,</span>
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-amber-400 font-bold shrink-0">•</span>
+                            <span>
+                              <code className="text-emerald-300 font-mono font-semibold">&url=https://...</code> / <code className="text-emerald-300 font-mono font-semibold">&file=...</code> — <span className="text-zinc-300">wczytanie dowolnego modelu .stl, .step, .stp, .obj, .gltf z sieci,</span>
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-amber-400 font-bold shrink-0">•</span>
+                            <span>
+                              <code className="text-emerald-300 font-mono font-semibold">?sample</code> — <span className="text-zinc-300">wygenerowanie parametrycznej płytki inżynieryjnej B-Rep ze skryptu silnika,</span>
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-amber-400 font-bold shrink-0">•</span>
+                            <span>
+                              <code className="text-emerald-300 font-mono font-semibold">?new</code> — <span className="text-zinc-300">start z czystym obszarem roboczym CAD i płaszczyznami bazowymi XYZ,</span>
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-amber-400 font-bold shrink-0">•</span>
+                            <span>
+                              <code className="text-emerald-300 font-mono font-semibold">?webgl</code> / <code className="text-emerald-300 font-mono font-semibold">?webgpu</code> — <span className="text-zinc-300">przełączanie silnika graficznego między WebGL2 a WebGPU,</span>
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-amber-400 font-bold shrink-0">•</span>
+                            <span>
+                              <code className="text-emerald-300 font-mono font-semibold">?recover=1</code> — <span className="text-zinc-300">opcjonalne wywołanie okna przywracania sesji.</span>
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+                    )}
                   </div>
 
                   {/* Primary Launch Buttons */}
