@@ -600,6 +600,70 @@ export const CRAFT_APPS: CraftApp[] = [
       { key: 'Ctrl+Shift+N', action: 'Nowe ścieżki audio / MIDI (New Tracks)', category: 'Ścieżki' },
     ],
   },
+  {
+    id: 'solidcraft',
+    name: 'SolidCraft',
+    taglinePl: 'Modelowanie parametryczne CAD 3D, bryły inżynierskie, eksport STL i obsługa STEP',
+    replaces: 'Autodesk Fusion 360 / SolidWorks / FreeCAD',
+    version: '0.15.0',
+    primaryUrl: 'https://solid.lmk.one/',
+    altUrls: [
+      { label: 'solid.lmk.one (Domyślnie: Ceownik STL)', url: 'https://solid.lmk.one/' },
+      { label: 'Czysty edytor (?new)', url: 'https://solid.lmk.one/?new' },
+      { label: 'lmk.one/solid', url: 'https://lmk.one/solid' },
+    ],
+    upstreamRepo: 'tangency-labs/solidcraft',
+    plWebRepo: 'lukasz-sklad/solid-web',
+    accentColor: '#0284C7',
+    badgeBg: 'bg-sky-500/15 border-sky-500/40',
+    badgeText: 'text-sky-300',
+    gradientFrom: 'from-sky-500/20',
+    gradientTo: 'to-blue-600/5',
+    translatedStrings: 1561,
+    parityPercent: 88,
+    wasmSizeCompressedMb: '18,4 MB (gzip)',
+    defaultStateNote: 'Polski interfejs (PL) + Akceleracja WebGPU/WebGL2 + Domyślnie otwiera ceownik_druk3d_10cm.stl',
+    urlParams: [
+      {
+        label: 'Domyślny start (z ceownikiem STL)',
+        exampleUrl: 'https://solid.lmk.one/',
+        description: 'Automatycznie wczytuje przykładowy model 3D ceownik_druk3d_10cm.stl gotowy do druku i analizy.',
+      },
+      {
+        label: 'Czysty edytor CAD',
+        exampleUrl: 'https://solid.lmk.one/?new',
+        description: 'Otwiera pustą przestrzeń 3D ze zdefiniowanym układem współrzędnych i płaszczyznami szkicu.',
+      },
+      {
+        label: 'Otwórz dowolny model STL/STEP/OBJ z sieci',
+        exampleUrl: 'https://solid.lmk.one/?file=https://raw.githubusercontent.com/lukasz-sklad/solid-web/main/ceownik_druk3d_10cm.stl',
+        description: 'Pobiera plik 3D bezpośrednio z adresu URL i renderuje go w przeglądarce.',
+      },
+      {
+        label: 'Wybór motywu (Jasny / Ciemny)',
+        exampleUrl: 'https://solid.lmk.one/?theme=light',
+        description: 'Uruchamia edytor bezpośrednio w motywie jasnym lub ciemnym.',
+      },
+    ],
+    formats: ['.stl (Stereolitografia / Druk 3D)', '.step / .stp (ISO 10303)', '.obj (Wavefront 3D)', '.gltf / .glb', '.solidcraft', '.fcstd (FreeCAD)'],
+    highlights: [
+      'Parametryczne modelowanie bryłowe B-Rep bezpośrednio w przeglądarce i natywnie na SteamOS',
+      'Narzędzia przygotowania do druku 3D z automatycznym generowaniem i weryfikacją siatek STL',
+      'Wymiana danych inżynierskich: import i eksport formatów przemysłowych STEP, IGES i FreeCAD',
+      'W pełni spolonizowany interfejs użytkownika (1561 fraz) oraz dynamiczna zmiana motywów',
+    ],
+    sampleFileUrl: 'https://raw.githubusercontent.com/lukasz-sklad/solid-web/main/ceownik_druk3d_10cm.stl',
+    shortcuts: [
+      { key: 'Spacja', action: 'Obrót widoku 3D / Orbita (Orbit)', category: 'Nawigacja' },
+      { key: 'Śr. przycisk', action: 'Przesuwanie widoku (Pan)', category: 'Nawigacja' },
+      { key: 'Rolka myszy', action: 'Przybliżanie / Oddalanie (Zoom)', category: 'Nawigacja' },
+      { key: 'E', action: 'Wyciągnięcie proste (Extrude)', category: 'Operacje 3D' },
+      { key: 'R', action: 'Wyciągnięcie obrotowe (Revolve)', category: 'Operacje 3D' },
+      { key: 'F', action: 'Zaokrąglenie krawędzi (Fillet)', category: 'Modyfikacja' },
+      { key: 'C', action: 'Fazowanie krawędzi (Chamfer)', category: 'Modyfikacja' },
+      { key: 'Ctrl+S', action: 'Zapisz projekt (.solidcraft)', category: 'Plik' },
+    ],
+  },
 ];
 
 export interface SiblingCraftApp {
@@ -651,6 +715,17 @@ export interface CommitEntry {
 }
 
 export const INITIAL_COMMITS: CommitEntry[] = [
+  {
+    sha: 'eecdd53',
+    repo: 'lukasz-sklad/solid-web',
+    appName: 'SolidCraft',
+    author: 'Lucas Kalinowski',
+    date: '2026-10-18',
+    message: 'feat(web): Wydanie SolidCraft Web 0.15.0 (PL + Motyw Jasny/Ciemny + WebGPU/WebGL2 + ceownik_druk3d_10cm.stl)',
+    categoryPl: 'Wydanie Web',
+    url: 'https://github.com/lukasz-sklad/solid-web',
+    isPolishBuild: true,
+  },
   {
     sha: '173b22d',
     repo: 'lukasz-sklad/sound-web',

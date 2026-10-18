@@ -91,6 +91,16 @@ export const UrlWizard: React.FC = () => {
     ) {
       return CRAFT_APPS.find((a) => a.id === 'soundcraft') || CRAFT_APPS[0];
     }
+    if (
+      lower.endsWith('.stl') ||
+      lower.endsWith('.step') ||
+      lower.endsWith('.stp') ||
+      lower.endsWith('.solidcraft') ||
+      lower.endsWith('.obj') ||
+      lower.endsWith('.fcstd')
+    ) {
+      return CRAFT_APPS.find((a) => a.id === 'solidcraft') || CRAFT_APPS[0];
+    }
     return CRAFT_APPS[0];
   }, [inputUrl, selectedAppId]);
 

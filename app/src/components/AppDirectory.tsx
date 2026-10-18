@@ -26,7 +26,7 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
           </div>
           <div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-zinc-300">
             Łącznie przetłumaczono:{' '}
-            <strong className="text-amber-400 font-mono">14 700+ fraz UI</strong>
+            <strong className="text-amber-400 font-mono">16 200+ fraz UI</strong>
           </div>
         </div>
 
