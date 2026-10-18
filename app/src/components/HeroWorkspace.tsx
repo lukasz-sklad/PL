@@ -5,8 +5,6 @@ import {
   Maximize2,
   Minimize2,
   CheckCircle2,
-  Copy,
-  Check,
   Terminal,
   MonitorPlay,
   RotateCcw,
@@ -40,7 +38,6 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
 }) => {
   const [liveIframe, setLiveIframe] = useState(true);
   const [customIframeUrl, setCustomIframeUrl] = useState<string | null>(null);
-  const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
 
   // Resizable window state (width & body height in px; null = default responsive size)
   const [windowWidth, setWindowWidth] = useState<number | null>(null);
@@ -96,36 +93,6 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
       );
     } catch (_) {}
   }, [theme]);
-
-  const handleCopy = async (url: string) => {
-    let success = false;
-    try {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(url);
-        success = true;
-      }
-    } catch (_) {
-      success = false;
-    }
-    if (!success) {
-      try {
-        const textArea = document.createElement('textarea');
-        textArea.value = url;
-        textArea.style.position = 'fixed';
-        textArea.style.left = '-9999px';
-        textArea.style.top = '-9999px';
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        success = document.execCommand('copy');
-        document.body.removeChild(textArea);
-      } catch (e) {
-        console.warn('Fallback copy failed', e);
-      }
-    }
-    setCopiedUrl(url);
-    setTimeout(() => setCopiedUrl(null), 2500);
-  };
 
   const startResize = (
     e: React.PointerEvent,
@@ -186,41 +153,8 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
         style={{ backgroundColor: activeApp.accentColor }}
       />
 
-      <div className="mx-auto max-w-[1645px] px-2 sm:px-4">
-        {/* Top Header Text */}
-        <div className="flex justify-start">
-          <div className="inline-flex flex-wrap items-center gap-2.5 text-[1rem] text-zinc-300">
-            <span className="inline-flex items-center gap-1.5 font-normal">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-              </span>
-              <span className="text-emerald-500 font-normal">Online:</span>
-              <span
-                className="font-bold tracking-tight"
-                style={{ color: theme === 'dark' ? '#ffffff' : '#000000' }}
-              >
-                {activeApp.name}
-              </span>
-            </span>
-            <span className="text-zinc-600">•</span>
-            <span className="font-semibold text-amber-400">
-              Po Polsku
-            </span>
-            <span className="text-zinc-600">•</span>
-            <span>Działają od ręki</span>
-            <span className="text-zinc-600">•</span>
-            <span className="text-emerald-400 font-medium">
-              Otwartoźródłowe Aplikacje
-            </span>
-            <span className="text-zinc-600">•</span>
-            <span className="text-zinc-400">W duchu „Jajka Polskiego”</span>
-          </div>
-        </div>
-      </div>
-
       {/* Resizable Studio Window */}
-      <div className="mt-2.5 px-1 sm:px-2 flex justify-center">
+      <div className="mt-1 px-1 sm:px-2 flex justify-center">
         <div
           ref={windowRef}
           style={{
@@ -234,41 +168,45 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
         >
           {/* Window Top Chrome Bar */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-[#141517] px-4 py-2.5">
-            <div className="flex items-center gap-2.5">
-              <div className="flex items-center gap-1.5">
+            {/* Left & Center: Traffic Dots + Online App + Odpowiednik + Slogany */}
+            <div className="flex flex-1 flex-wrap items-center gap-2.5 min-w-0">
+              <div className="flex items-center gap-1.5 shrink-0">
                 <span className="h-3 w-3 rounded-full bg-red-500/80" />
                 <span className="h-3 w-3 rounded-full bg-amber-500/80" />
                 <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
               </div>
-              <span className="ml-2 text-xs font-bold text-white">{activeApp.name}</span>
-              <span className="hidden rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300 sm:inline">
+
+              {/* Online: {Nazwa programu} */}
+              <div className="inline-flex items-center gap-1.5 shrink-0 text-xs font-normal">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                </span>
+                <span className="text-emerald-500 font-normal">Online:</span>
+                <span
+                  className="font-bold tracking-tight text-sm"
+                  style={{ color: theme === 'dark' ? '#ffffff' : '#000000' }}
+                >
+                  {activeApp.name}
+                </span>
+              </div>
+
+              {/* Odpowiednik z obramówką */}
+              <span className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300 shrink-0">
                 Odpowiednik: {activeApp.replaces}
               </span>
-            </div>
 
-            {/* Address Bar inside Studio Window */}
-            <div className="flex flex-1 items-center justify-center max-w-xl">
-              <button
-                type="button"
-                onClick={() => handleCopy(currentTargetUrl)}
-                title="Kliknij, aby skopiować pełny adres URL"
-                className="group flex w-full items-center justify-between gap-2 rounded-lg border border-white/10 bg-[#0f1012] px-3 py-1.5 text-xs font-mono text-zinc-300 transition hover:border-amber-500/50 hover:bg-[#141518]"
-              >
-                <span className="truncate text-amber-300 select-all">{currentTargetUrl}</span>
-                <div className="flex items-center gap-1.5 shrink-0">
-                  {copiedUrl === currentTargetUrl ? (
-                    <span className="inline-flex items-center gap-1 rounded bg-emerald-500/20 px-2 py-0.5 text-[11px] font-semibold text-emerald-400">
-                      <Check className="h-3.5 w-3.5" />
-                      <span>Skopiowano!</span>
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1 rounded bg-white/5 px-2 py-0.5 text-[11px] text-zinc-400 transition group-hover:bg-amber-500/20 group-hover:text-amber-300">
-                      <Copy className="h-3 w-3" />
-                      <span>Kopiuj</span>
-                    </span>
-                  )}
-                </div>
-              </button>
+              {/* Slogany oddzielone kropkami */}
+              <div className="hidden sm:inline-flex flex-wrap items-center gap-2 text-xs text-zinc-300">
+                <span className="text-zinc-600">•</span>
+                <span className="font-semibold text-amber-400">Po Polsku</span>
+                <span className="text-zinc-600">•</span>
+                <span>Działają od ręki</span>
+                <span className="text-zinc-600">•</span>
+                <span className="text-emerald-400 font-medium">Otwartoźródłowe Aplikacje</span>
+                <span className="text-zinc-600">•</span>
+                <span className="text-zinc-400">W duchu „Jajka Polskiego”</span>
+              </div>
             </div>
 
             {/* Right Controls: Reset Size / Tryb: Interaktywny / Pełny ekran / Nowe okno */}
