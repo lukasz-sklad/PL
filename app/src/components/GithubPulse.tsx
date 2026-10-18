@@ -64,7 +64,7 @@ export const GithubPulse: React.FC = () => {
               author: item.commit?.author?.name || item.author?.login || 'Developer',
               date: (item.commit?.author?.date || '').slice(0, 10),
               message: firstLine,
-              categoryPl: t.isPl ? 'Polskie Wydanie Web' : classifyCommitMessagePl(firstLine),
+              categoryPl: t.isPl ? 'Wydanie Web' : classifyCommitMessagePl(firstLine),
               url: item.html_url || `https://github.com/${t.repo}`,
               isPolishBuild: t.isPl,
             };
