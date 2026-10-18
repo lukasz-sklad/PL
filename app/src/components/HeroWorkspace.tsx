@@ -168,14 +168,8 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
         >
           {/* Window Top Chrome Bar */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-[#141517] px-4 py-2.5">
-            {/* Left & Center: Traffic Dots + Online App + Odpowiednik + Slogany */}
+            {/* Left & Center: Online App + Odpowiednik + Slogany */}
             <div className="flex flex-1 flex-wrap items-center gap-2.5 min-w-0">
-              <div className="flex items-center gap-1.5 shrink-0">
-                <span className="h-3 w-3 rounded-full bg-red-500/80" />
-                <span className="h-3 w-3 rounded-full bg-amber-500/80" />
-                <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
-              </div>
-
               {/* Online: {Nazwa programu} */}
               <div className="inline-flex items-center gap-1.5 shrink-0 text-xs font-normal">
                 <span className="relative flex h-2 w-2">
