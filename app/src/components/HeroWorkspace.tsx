@@ -275,12 +275,12 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                 onClick={() => setLiveIframe((v) => !v)}
                 className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
                   liveIframe
-                    ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 hover:bg-amber-500/30'
+                    ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
                     : 'bg-white/10 text-zinc-200 hover:bg-white/15'
                 }`}
               >
                 <MonitorPlay className="h-3.5 w-3.5" />
-                <span>{liveIframe ? 'Wróć do karty przeglądu' : 'Załaduj edytor tutaj'}</span>
+                <span>{liveIframe ? 'Tryb: Interaktywny' : 'Załaduj edytor tutaj'}</span>
               </button>
               <button
                 type="button"
@@ -649,7 +649,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
               </span>
               <span className="text-zinc-300">
-                Działający w ramce: <strong className="text-white font-semibold">{activeApp.name}</strong>
+                Online: <strong className="text-white font-semibold">{activeApp.name}</strong>
               </span>
             </div>
             <button
@@ -657,7 +657,8 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
               onClick={() => setLiveIframe(false)}
               className="inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-amber-300 transition hover:border-amber-500/40 hover:bg-amber-500/10 hover:text-white"
             >
-              <span>← Wróć do karty przeglądu</span>
+              <MonitorPlay className="h-3.5 w-3.5" />
+              <span>Tryb: Interaktywny</span>
             </button>
           </div>
         )}
