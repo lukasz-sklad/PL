@@ -68,10 +68,34 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
     } catch (_) {}
   }, [theme]);
 
-  const handleCopy = (url: string) => {
-    navigator.clipboard.writeText(url);
+  const handleCopy = async (url: string) => {
+    let success = false;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(url);
+        success = true;
+      }
+    } catch (_) {
+      success = false;
+    }
+    if (!success) {
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-9999px';
+        textArea.style.top = '-9999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        success = document.execCommand('copy');
+        document.body.removeChild(textArea);
+      } catch (e) {
+        console.warn('Fallback copy failed', e);
+      }
+    }
     setCopiedUrl(url);
-    setTimeout(() => setCopiedUrl(null), 2000);
+    setTimeout(() => setCopiedUrl(null), 2500);
   };
 
   const startResize = (
@@ -180,23 +204,27 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
 
             {/* Address Bar inside Studio Window */}
             <div className="flex flex-1 items-center justify-center max-w-xl">
-              <div className="flex w-full items-center justify-between gap-2 rounded-lg border border-white/10 bg-[#0f1012] px-3 py-1 text-xs font-mono text-zinc-300">
-                <span className="truncate text-amber-300">{currentTargetUrl}</span>
-                <div className="flex items-center gap-1 shrink-0">
-                  <button
-                    type="button"
-                    onClick={() => handleCopy(currentTargetUrl)}
-                    title="Kopiuj adres URL"
-                    className="rounded p-1 text-zinc-400 hover:bg-white/10 hover:text-white"
-                  >
-                    {copiedUrl === currentTargetUrl ? (
-                      <Check className="h-3.5 w-3.5 text-emerald-400" />
-                    ) : (
-                      <Copy className="h-3.5 w-3.5" />
-                    )}
-                  </button>
+              <button
+                type="button"
+                onClick={() => handleCopy(currentTargetUrl)}
+                title="Kliknij, aby skopiować pełny adres URL"
+                className="group flex w-full items-center justify-between gap-2 rounded-lg border border-white/10 bg-[#0f1012] px-3 py-1.5 text-xs font-mono text-zinc-300 transition hover:border-amber-500/50 hover:bg-[#141518]"
+              >
+                <span className="truncate text-amber-300 select-all">{currentTargetUrl}</span>
+                <div className="flex items-center gap-1.5 shrink-0">
+                  {copiedUrl === currentTargetUrl ? (
+                    <span className="inline-flex items-center gap-1 rounded bg-emerald-500/20 px-2 py-0.5 text-[11px] font-semibold text-emerald-400">
+                      <Check className="h-3.5 w-3.5" />
+                      <span>Skopiowano!</span>
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-1 rounded bg-white/5 px-2 py-0.5 text-[11px] text-zinc-400 transition group-hover:bg-amber-500/20 group-hover:text-amber-300">
+                      <Copy className="h-3 w-3" />
+                      <span>Kopiuj</span>
+                    </span>
+                  )}
                 </div>
-              </div>
+              </button>
             </div>
 
             {/* Right Controls: Reset Size / Toggle Live Iframe / Full Window */}
