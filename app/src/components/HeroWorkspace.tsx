@@ -3,6 +3,7 @@ import {
   ExternalLink,
   Play,
   Maximize2,
+  Minimize2,
   CheckCircle2,
   Copy,
   Check,
@@ -45,9 +46,37 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
   const [windowWidth, setWindowWidth] = useState<number | null>(null);
   const [windowHeight, setWindowHeight] = useState<number | null>(null);
   const [isResizing, setIsResizing] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const windowRef = useRef<HTMLDivElement | null>(null);
   const bodyRef = useRef<HTMLDivElement | null>(null);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
+
+  // Sync fullscreen state with document.fullscreenElement
+  useEffect(() => {
+    const onFullscreenChange = () => {
+      setIsFullscreen(Boolean(document.fullscreenElement));
+    };
+    document.addEventListener('fullscreenchange', onFullscreenChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', onFullscreenChange);
+    };
+  }, []);
+
+  const toggleFullscreen = async () => {
+    try {
+      if (!document.fullscreenElement) {
+        if (windowRef.current?.requestFullscreen) {
+          await windowRef.current.requestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          await document.exitFullscreen();
+        }
+      }
+    } catch (err) {
+      console.warn('Błąd przełączania trybu pełnoekranowego:', err);
+    }
+  };
 
   // Reset custom URL when user changes active application
   useEffect(() => {
@@ -181,12 +210,13 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
         <div
           ref={windowRef}
           style={{
-            width: windowWidth ? `${windowWidth}px` : undefined,
-            maxWidth: windowWidth ? '98vw' : '82.5rem',
+            width: isFullscreen ? '100vw' : windowWidth ? `${windowWidth}px` : undefined,
+            maxWidth: isFullscreen ? '100vw' : windowWidth ? '98vw' : '82.5rem',
+            height: isFullscreen ? '100vh' : undefined,
           }}
-          className={`relative mx-auto overflow-hidden rounded-2xl border border-white/15 bg-[#1b1c1f] shadow-2xl ${
-            isResizing ? 'select-none ring-2 ring-amber-500/50' : ''
-          }`}
+          className={`relative mx-auto overflow-hidden bg-[#1b1c1f] shadow-2xl transition-all ${
+            isFullscreen ? 'rounded-none border-0' : 'rounded-2xl border border-white/15'
+          } ${isResizing ? 'select-none ring-2 ring-amber-500/50' : ''}`}
         >
           {/* Window Top Chrome Bar */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-[#141517] px-4 py-2.5">
@@ -227,9 +257,9 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
               </button>
             </div>
 
-            {/* Right Controls: Reset Size / Toggle Live Iframe / Full Window */}
+            {/* Right Controls: Reset Size / Tryb: Interaktywny / Pełny ekran / Nowe okno */}
             <div className="flex items-center gap-2">
-              {isCustomSized && (
+              {isCustomSized && !isFullscreen && (
                 <button
                   type="button"
                   onClick={resetWindowSize}
@@ -250,16 +280,35 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                 }`}
               >
                 <MonitorPlay className="h-3.5 w-3.5" />
-                {liveIframe ? 'Tryb: Interaktywny Zamknij!' : 'Załaduj edytor tutaj'}
+                <span>{liveIframe ? 'Tryb: Interaktywny' : 'Załaduj edytor tutaj'}</span>
+              </button>
+              <button
+                type="button"
+                onClick={toggleFullscreen}
+                title={isFullscreen ? 'Opuść pełny ekran (Esc)' : 'Włącz tryb pełnoekranowy (Fullscreen)'}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-2.5 py-1.5 text-xs font-semibold text-zinc-200 transition hover:bg-white/10 hover:text-white"
+              >
+                {isFullscreen ? (
+                  <>
+                    <Minimize2 className="h-3.5 w-3.5" />
+                    <span className="hidden sm:inline">Opuść pełny ekran</span>
+                  </>
+                ) : (
+                  <>
+                    <Maximize2 className="h-3.5 w-3.5 text-amber-400" />
+                    <span>Pełny ekran</span>
+                  </>
+                )}
               </button>
               <a
                 href={currentTargetUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                title="Otwórz aplikację w nowej karcie"
                 className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500 px-3 py-1.5 text-xs font-bold text-zinc-950 transition hover:bg-amber-400"
               >
-                <span>Pełne okno</span>
-                <Maximize2 className="h-3.5 w-3.5" />
+                <span>Nowe okno</span>
+                <ExternalLink className="h-3.5 w-3.5" />
               </a>
             </div>
           </div>
@@ -268,12 +317,14 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
           <div
             ref={bodyRef}
             style={{
-              height: windowHeight
+              height: isFullscreen
+                ? 'calc(100vh - 49px)'
+                : windowHeight
                 ? `${windowHeight}px`
                 : liveIframe
                 ? '580px'
                 : undefined,
-              minHeight: liveIframe ? '420px' : '470px',
+              minHeight: isFullscreen ? 'calc(100vh - 49px)' : liveIframe ? '420px' : '470px',
             }}
             className="relative overflow-y-auto"
           >
