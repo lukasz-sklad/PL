@@ -199,7 +199,7 @@ export const Footer: React.FC = () => {
             </div>
             <p className="text-[11px] leading-relaxed text-zinc-400">
               Widzisz literówkę lub niezgrabne tłumaczenie w którejś aplikacji? Daj znać! Każda uwaga
-              mobilizuje nas do dalszego ulepszania wersji.
+              mobilizuje nas do dalszego ulepszania.
             </p>
             <a
               href="https://github.com/lukasz-sklad/PL/issues"
