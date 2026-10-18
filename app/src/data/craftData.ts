@@ -467,6 +467,74 @@ export const CRAFT_APPS: CraftApp[] = [
       { key: '\\', action: 'Szybki podgląd oryginału', category: 'Widok' },
     ],
   },
+  {
+    id: 'figcraft',
+    name: 'FigCraft',
+    taglinePl: 'Nowoczesne projektowanie interfejsów UI/UX, wektorowe prototypowanie i obsługa plików Figma',
+    replaces: 'Figma / Sketch / Penpot',
+    version: '0.7.0',
+    primaryUrl: 'https://fig.lmk.one/',
+    altUrls: [
+      { label: 'fig.lmk.one (Domyślnie: PL + Ciemny motyw)', url: 'https://fig.lmk.one/' },
+      { label: 'figcraft.lmk.one', url: 'https://figcraft.lmk.one/' },
+      { label: 'lmk.one/fig', url: 'https://lmk.one/fig' },
+      { label: 'lmk.one/figcraft', url: 'https://lmk.one/figcraft' },
+      { label: 'lmk.one/figma', url: 'https://lmk.one/figma' },
+    ],
+    upstreamRepo: 'storytold/figcraft',
+    plWebRepo: 'lukasz-sklad/fig-web',
+    accentColor: '#0D99FF',
+    badgeBg: 'bg-sky-500/15 border-sky-500/40',
+    badgeText: 'text-sky-300',
+    gradientFrom: 'from-sky-500/20',
+    gradientTo: 'to-purple-600/5',
+    translatedStrings: 2325,
+    parityPercent: 89,
+    wasmSizeCompressedMb: '8,2 MB (gzip)',
+    defaultStateNote: 'Polski interfejs (PL) + Ciemny motyw + Akceleracja WebGPU / WebGL2 + Obsługa ?file=',
+    urlParams: [
+      {
+        label: 'Uruchom edytor FigCraft PL',
+        exampleUrl: 'https://fig.lmk.one/',
+        description: 'Otwiera środowisko projektowania wektorowego UI/UX z pełnym polskim interfejsem.',
+      },
+      {
+        label: 'Wczytaj projekt z adresu URL (?file=)',
+        exampleUrl: 'https://fig.lmk.one/?file=https://lmk.one/design.fig',
+        description: 'Automatycznie pobiera projekt przez mostek CORS, importuje i otwiera na płótnie.',
+      },
+      {
+        label: 'Wymuś język interfejsu (?lang=pl)',
+        exampleUrl: 'https://fig.lmk.one/?lang=pl',
+        description: 'Wymusza wybrany język (polski lub angielski) bez względu na ustawienia przeglądarki.',
+      },
+      {
+        label: 'Dołącz do sesji na żywo (#join=)',
+        exampleUrl: 'https://fig.lmk.one/#join=invite-code',
+        description: 'Dołącza bezpośrednio do współdzielonej sesji kolaboracji na żywo.',
+      },
+    ],
+    formats: ['.fig (Figma)', '.figcraft', '.svg', '.json', '.png', '.jpg', '.webp'],
+    highlights: [
+      'Projektowanie wektorowe interfejsów (ramki, komponenty, warianty, autolayout, style i zmienne)',
+      'Bezpośrednie otwieranie i import natywnych plików Figma (.fig)',
+      'Współpraca na żywo (Live Collaboration) i interaktywne prototypowanie',
+      'Pełne polskie tłumaczenie (ponad 2 320 fraz UI, narzędzi, inspektora i poleceń)',
+    ],
+    sampleFileUrl: 'https://fig.lmk.one/',
+    shortcuts: [
+      { key: 'V', action: 'Wskaźnik / Zaznaczanie (Move)', category: 'Narzędzia' },
+      { key: 'F', action: 'Ramka (Frame)', category: 'Narzędzia' },
+      { key: 'R', action: 'Prostokąt (Rectangle)', category: 'Kształty' },
+      { key: 'O', action: 'Elipsa / Okrąg (Ellipse)', category: 'Kształty' },
+      { key: 'P', action: 'Pióro (Pen) – wektory Béziera', category: 'Rysowanie' },
+      { key: 'T', action: 'Tekst (Text)', category: 'Typografia' },
+      { key: 'Shift+A', action: 'Dodaj automatyczny układ (Auto Layout)', category: 'Układ' },
+      { key: 'Ctrl+Alt+K', action: 'Utwórz komponent (Create Component)', category: 'Komponenty' },
+      { key: 'Ctrl+G', action: 'Grupuj zaznaczenie (Group Selection)', category: 'Obiekty' },
+      { key: 'Spacja', action: 'Rączka – przesuwanie płótna (Hand)', category: 'Widok' },
+    ],
+  },
 ];
 
 export interface SiblingCraftApp {
@@ -526,6 +594,17 @@ export interface CommitEntry {
 }
 
 export const INITIAL_COMMITS: CommitEntry[] = [
+  {
+    sha: '47438dd',
+    repo: 'lukasz-sklad/fig-web',
+    appName: 'FigCraft',
+    author: 'Lucas Kalinowski',
+    date: '2026-10-18',
+    message: 'feat(web): Wydanie FigCraft Web 0.7.0 (PL + Ciemny motyw + WebGPU/WebGL2 + obsługa ?file= i #join=)',
+    categoryPl: 'Polskie Wydanie Web',
+    url: 'https://github.com/lukasz-sklad/fig-web',
+    isPolishBuild: true,
+  },
   {
     sha: 'pdf080pl',
     repo: 'lukasz-sklad/pdf-web',
