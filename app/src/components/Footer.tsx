@@ -62,11 +62,11 @@ export const Footer: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block transition-transform hover:scale-105 active:scale-95"
-                    title="Postaw kawę dla lmk.one na buycoffee.to"
+                    title="Postaw kawę dla Lucas.One na buycoffee.to"
                   >
                     <img
-                      src="./postaw-kawe-bialo-zielone.png"
-                      alt="Postaw kawę na buycoffee.to/lmk.one"
+                      src="https://buycoffee.to/static/img/share/share-button-primary--pl.png"
+                      alt="Postaw kawę dla Lucas.One na buycoffee.to"
                       className="h-8 w-auto rounded shadow-sm hover:opacity-95"
                       loading="lazy"
                     />

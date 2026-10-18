@@ -29,7 +29,12 @@ if (fs.existsSync(rootAssetsDir)) {
 }
 fs.cpSync(path.join(distWebDir, 'assets'), rootAssetsDir, { recursive: true });
 fs.copyFileSync(path.join(distWebDir, 'index.html'), path.join(rootDir, 'index.html'));
-const staticRootFiles = ['favicon.svg', 'postaw-kawe-bialo-zielone.png', 'QR_buycoffee.png'];
+const staticRootFiles = [
+  'favicon.svg',
+  'postaw-kawe-bialo-zielone.png',
+  'QR_buycoffee.png',
+  'share-button-primary--pl.png',
+];
 for (const file of staticRootFiles) {
   if (fs.existsSync(path.join(distWebDir, file))) {
     fs.copyFileSync(path.join(distWebDir, file), path.join(rootDir, file));
