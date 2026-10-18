@@ -67,6 +67,30 @@ export const UrlWizard: React.FC = () => {
     if (lower.endsWith('.pptx') || lower.endsWith('.odp')) {
       return CRAFT_APPS.find((a) => a.id === 'deckcraft')!;
     }
+    if (lower.endsWith('.pdf')) {
+      return CRAFT_APPS.find((a) => a.id === 'pdfcraft') || CRAFT_APPS[0];
+    }
+    if (lower.endsWith('.fig')) {
+      return CRAFT_APPS.find((a) => a.id === 'figcraft') || CRAFT_APPS[0];
+    }
+    if (lower.endsWith('.dng') || lower.endsWith('.cr2') || lower.endsWith('.nef') || lower.endsWith('.arw') || lower.endsWith('.raw')) {
+      return CRAFT_APPS.find((a) => a.id === 'lightcraft') || CRAFT_APPS[0];
+    }
+    if (
+      lower.endsWith('.scraftz') ||
+      lower.endsWith('.scraft') ||
+      lower.endsWith('.wav') ||
+      lower.endsWith('.flac') ||
+      lower.endsWith('.mp3') ||
+      lower.endsWith('.ogg') ||
+      lower.endsWith('.aif') ||
+      lower.endsWith('.aiff') ||
+      lower.endsWith('.caf') ||
+      lower.endsWith('.mid') ||
+      lower.endsWith('.midi')
+    ) {
+      return CRAFT_APPS.find((a) => a.id === 'soundcraft') || CRAFT_APPS[0];
+    }
     return CRAFT_APPS[0];
   }, [inputUrl, selectedAppId]);
 

@@ -535,6 +535,71 @@ export const CRAFT_APPS: CraftApp[] = [
       { key: 'Spacja', action: 'Rączka – przesuwanie płótna (Hand)', category: 'Widok' },
     ],
   },
+  {
+    id: 'soundcraft',
+    name: 'SoundCraft',
+    taglinePl: 'Cyfrowa stacja robocza audio (DAW), edycja wielościeżkowa, syntezatory, mikser i mastering',
+    replaces: 'Avid Pro Tools / Reaper / Audition',
+    version: '0.9.0',
+    primaryUrl: 'https://sound.lmk.one/',
+    altUrls: [
+      { label: 'sound.lmk.one', url: 'https://sound.lmk.one/' },
+      { label: 'Czysta sesja (?empty)', url: 'https://sound.lmk.one/?empty' },
+      { label: 'Tryb WebGL2 (?webgl)', url: 'https://sound.lmk.one/?webgl' },
+      { label: 'lmk.one/sound', url: 'https://lmk.one/sound' },
+    ],
+    upstreamRepo: 'storytold/soundcraft',
+    plWebRepo: 'lukasz-sklad/sound-web',
+    accentColor: '#10B981',
+    badgeBg: 'bg-emerald-500/15 border-emerald-500/40',
+    badgeText: 'text-emerald-300',
+    gradientFrom: 'from-emerald-500/20',
+    gradientTo: 'to-teal-600/5',
+    translatedStrings: 0,
+    parityPercent: 88,
+    wasmSizeCompressedMb: '5,3 MB (gzip)',
+    defaultStateNote: 'Polski loader + Ciemny motyw + Dźwięk WebAudio + Akceleracja WebGPU/WebGL2',
+    urlParams: [
+      {
+        label: 'Domyślny start (sesja demonstracyjna)',
+        exampleUrl: 'https://sound.lmk.one/',
+        description: 'Uruchamia aplikację z gotową sesją demonstracyjną do natychmiastowego odsłuchu.',
+      },
+      {
+        label: 'Pusta sesja robocza',
+        exampleUrl: 'https://sound.lmk.one/?empty',
+        description: 'Otwiera pusty obszar roboczy przygotowany na nowe ścieżki i nagrania.',
+      },
+      {
+        label: 'Otwórz dowolny plik sesji lub audio z sieci',
+        exampleUrl: 'https://sound.lmk.one/?file=https://example.com/demo.wav',
+        description: 'Pobiera plik (.scraftz, .scraft, .wav, .flac, .mp3, .mid) bezpośrednio z URL (z mostkiem CORS).',
+      },
+      {
+        label: 'Wymuszenie trybu zgodności WebGL2',
+        exampleUrl: 'https://sound.lmk.one/?webgl',
+        description: 'Uruchamia renderer w trybie WebGL2 dla starszych przeglądarek i układów graficznych.',
+      },
+    ],
+    formats: ['.scraftz (kompletna sesja)', '.scraft', '.wav', '.flac', '.mp3', '.ogg', '.aif / .aiff', '.caf', '.mid / .midi'],
+    highlights: [
+      'Wielościeżkowy mikser audio z tłumikami, wysyłkami (Sends) i insertami efektów',
+      'Wbudowane syntezatory, sampler, wskaźniki wysterowania i edytor pianolowy (Piano Roll / MIDI)',
+      'Odsłuch w czasie rzeczywistym przez WebAudio API bez potrzeby instalacji wtyczek',
+      'Akceleracja sprzętowa WebGPU z automatycznym przełączaniem na WebGL2',
+    ],
+    sampleFileUrl: 'https://sound.lmk.one/',
+    shortcuts: [
+      { key: 'Spacja', action: 'Start / Stop odtwarzania (Play / Stop)', category: 'Transport' },
+      { key: 'Enter', action: 'Powrót na początek osi czasu (Rewind to Start)', category: 'Transport' },
+      { key: 'F1', action: 'Tryb edycji: Shuffle', category: 'Tryby edycji' },
+      { key: 'F2', action: 'Tryb edycji: Slip', category: 'Tryby edycji' },
+      { key: 'F3', action: 'Tryb edycji: Spot', category: 'Tryby edycji' },
+      { key: 'F4', action: 'Tryb edycji: Grid (Siatka)', category: 'Tryby edycji' },
+      { key: 'Ctrl+=', action: 'Przełącz widok Okno Miksera / Okno Edycji', category: 'Widok' },
+      { key: 'Ctrl+Shift+N', action: 'Nowe ścieżki audio / MIDI (New Tracks)', category: 'Ścieżki' },
+    ],
+  },
 ];
 
 export interface SiblingCraftApp {
@@ -571,14 +636,6 @@ export const SIBLING_APPS: SiblingCraftApp[] = [
     upstreamRepo: 'storytold/effectcraft',
     statusPl: 'Lokalnie w katalogu /app/effectcraft',
   },
-  {
-    name: 'SoundCraft',
-    replaces: 'Adobe Audition / Reaper',
-    version: '0.3.0',
-    descriptionPl: 'Edycja fal dźwiękowych, redukcja szumów, spektrogram i mastering wielościeżkowy.',
-    upstreamRepo: 'storytold/soundcraft',
-    statusPl: 'Lokalnie w katalogu /app/soundcraft',
-  },
 ];
 
 export interface CommitEntry {
@@ -594,6 +651,17 @@ export interface CommitEntry {
 }
 
 export const INITIAL_COMMITS: CommitEntry[] = [
+  {
+    sha: '173b22d',
+    repo: 'lukasz-sklad/sound-web',
+    appName: 'SoundCraft',
+    author: 'Lucas Kalinowski',
+    date: '2026-10-18',
+    message: 'feat(web): Wydanie SoundCraft Web 0.9.0 (Ciemny motyw + WebGPU/WebGL2 + WebAudio + obsługa ?file= i ?empty)',
+    categoryPl: 'Polskie Wydanie Web',
+    url: 'https://github.com/lukasz-sklad/sound-web',
+    isPolishBuild: true,
+  },
   {
     sha: '47438dd',
     repo: 'lukasz-sklad/fig-web',

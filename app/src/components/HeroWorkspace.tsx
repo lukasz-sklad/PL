@@ -110,7 +110,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
             <span>Działają od ręki</span>
             <span className="text-zinc-600">•</span>
             <span className="text-emerald-400 font-medium">
-              Ponad 12 290 przetłumaczonych fraz UI
+              Otwartoźródłowe Aplikacje
             </span>
             <span className="text-zinc-600">•</span>
             <span className="text-zinc-400">W duchu „Jajka Polskiego”</span>
