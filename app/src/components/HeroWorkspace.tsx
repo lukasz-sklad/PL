@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   ExternalLink,
   Play,
@@ -11,15 +11,31 @@ import {
   RotateCcw,
 } from 'lucide-react';
 import { CRAFT_APPS, CraftApp } from '../data/craftData';
+import { ThemeMode } from './Navbar';
 
 interface HeroWorkspaceProps {
   activeApp: CraftApp;
   onSelectApp: (app: CraftApp) => void;
+  theme: ThemeMode;
+}
+
+export function applyThemeToUrl(baseUrl: string, theme: ThemeMode): string {
+  const isLight = theme === 'light';
+  const targetTheme = isLight ? 'light' : 'dark';
+  try {
+    const url = new URL(baseUrl, window.location.origin);
+    url.searchParams.set('theme', targetTheme);
+    return url.toString();
+  } catch {
+    const sep = baseUrl.includes('?') ? '&' : '?';
+    return `${baseUrl}${sep}theme=${targetTheme}`;
+  }
 }
 
 export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
   activeApp,
   onSelectApp,
+  theme,
 }) => {
   const [liveIframe, setLiveIframe] = useState(true);
   const [customIframeUrl, setCustomIframeUrl] = useState<string | null>(null);
@@ -31,8 +47,26 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
   const [isResizing, setIsResizing] = useState(false);
   const windowRef = useRef<HTMLDivElement | null>(null);
   const bodyRef = useRef<HTMLDivElement | null>(null);
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
-  const currentTargetUrl = customIframeUrl || activeApp.primaryUrl;
+  // Reset custom URL when user changes active application
+  useEffect(() => {
+    setCustomIframeUrl(null);
+  }, [activeApp.id]);
+
+  const baseTargetUrl = customIframeUrl || activeApp.primaryUrl;
+  const currentTargetUrl = applyThemeToUrl(baseTargetUrl, theme);
+
+  // Live theme synchronization to embedded iframe via postMessage
+  useEffect(() => {
+    const targetTheme = theme === 'light' ? 'light' : 'dark';
+    try {
+      iframeRef.current?.contentWindow?.postMessage(
+        { type: 'set_theme', theme: targetTheme },
+        '*'
+      );
+    } catch (_) {}
+  }, [theme]);
 
   const handleCopy = (url: string) => {
     navigator.clipboard.writeText(url);
@@ -218,6 +252,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
             {liveIframe ? (
               <div className="relative h-full w-full bg-[#111214]">
                 <iframe
+                  ref={iframeRef}
                   key={currentTargetUrl}
                   src={currentTargetUrl}
                   title={`${activeApp.name} Live WebAssembly`}
@@ -225,6 +260,16 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                     isResizing ? 'pointer-events-none' : ''
                   }`}
                   allow="clipboard-read; clipboard-write; fullscreen"
+                  onLoad={() => {
+                    const isLight = theme === 'light';
+                    const targetTheme = isLight ? 'light' : 'dark';
+                    try {
+                      iframeRef.current?.contentWindow?.postMessage(
+                        { type: 'set_theme', theme: targetTheme },
+                        '*'
+                      );
+                    } catch (_) {}
+                  }}
                 />
                 <div className="absolute bottom-3 left-3 flex items-center gap-2 rounded-xl border border-white/15 bg-[#151617]/90 px-3 py-1.5 text-xs text-zinc-300 backdrop-blur">
                   <span>Działający w ramce: {activeApp.name}</span>

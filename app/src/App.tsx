@@ -36,7 +36,11 @@ export function App() {
         onSelectTheme={setTheme}
       />
       <main>
-        <HeroWorkspace activeApp={activeApp} onSelectApp={setActiveApp} />
+        <HeroWorkspace
+          activeApp={activeApp}
+          onSelectApp={setActiveApp}
+          theme={theme}
+        />
         <AppDirectory onSelectApp={setActiveApp} />
         <ManifestoSection />
         <UrlWizard />
