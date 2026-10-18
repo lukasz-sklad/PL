@@ -606,9 +606,10 @@ export const CRAFT_APPS: CraftApp[] = [
     taglinePl: 'Modelowanie parametryczne CAD 3D, bryły inżynierskie, eksport STL i obsługa STEP',
     replaces: 'Autodesk Fusion 360 / SolidWorks / FreeCAD',
     version: '0.15.0',
-    primaryUrl: 'https://solid.lmk.one/',
+    primaryUrl: 'https://solid.lmk.one/?url=ceownik_druk3d_10cm.stl&orbit=continuous',
     altUrls: [
-      { label: 'solid.lmk.one (Domyślnie: Ceownik STL)', url: 'https://solid.lmk.one/' },
+      { label: 'solid.lmk.one (Ceownik STL + Continuous Orbit)', url: 'https://solid.lmk.one/?url=ceownik_druk3d_10cm.stl&orbit=continuous' },
+      { label: 'Wersja demonstracyjna (?sample&orbit=continuous)', url: 'https://solid.lmk.one/?sample&orbit=continuous' },
       { label: 'Czysty edytor (?new)', url: 'https://solid.lmk.one/?new' },
       { label: 'lmk.one/solid', url: 'https://lmk.one/solid' },
     ],
@@ -625,9 +626,9 @@ export const CRAFT_APPS: CraftApp[] = [
     defaultStateNote: 'Polski interfejs (PL) + Akceleracja WebGPU/WebGL2 + Domyślnie otwiera ceownik_druk3d_10cm.stl',
     urlParams: [
       {
-        label: 'Domyślny start (z ceownikiem STL)',
-        exampleUrl: 'https://solid.lmk.one/',
-        description: 'Automatycznie wczytuje przykładowy model 3D ceownik_druk3d_10cm.stl gotowy do druku i analizy.',
+        label: 'Domyślny start (Ceownik STL + Continuous Orbit)',
+        exampleUrl: 'https://solid.lmk.one/?url=ceownik_druk3d_10cm.stl&orbit=continuous',
+        description: 'Automatycznie wczytuje model 3D ceownik_druk3d_10cm.stl, centruje widok i uruchamia płynną ciągłą rotację 3D.',
       },
       {
         label: 'Czysty edytor CAD',
@@ -635,14 +636,19 @@ export const CRAFT_APPS: CraftApp[] = [
         description: 'Otwiera pustą przestrzeń 3D ze zdefiniowanym układem współrzędnych i płaszczyznami szkicu.',
       },
       {
-        label: 'Otwórz dowolny model STL/STEP/OBJ z sieci',
-        exampleUrl: 'https://solid.lmk.one/?file=https://raw.githubusercontent.com/lukasz-sklad/solid-web/main/ceownik_druk3d_10cm.stl',
-        description: 'Pobiera plik 3D bezpośrednio z adresu URL i renderuje go w przeglądarce.',
+        label: 'Wybór motywu (Jasny / Ciemny)',
+        exampleUrl: 'https://solid.lmk.one/?url=ceownik_druk3d_10cm.stl&orbit=continuous&theme=light',
+        description: 'Uruchamia edytor bezpośrednio w motywie jasnym lub ciemnym bez białego błysku.',
       },
       {
-        label: 'Wybór motywu (Jasny / Ciemny)',
-        exampleUrl: 'https://solid.lmk.one/?theme=light',
-        description: 'Uruchamia edytor bezpośrednio w motywie jasnym lub ciemnym.',
+        label: 'Wbudowany projekt przykładowy',
+        exampleUrl: 'https://solid.lmk.one/?sample&orbit=continuous',
+        description: 'Otwiera przykładowy model mechaniczny ze skryptu z automatyczną rotacją 3D.',
+      },
+      {
+        label: 'Otwórz dowolny model STL/STEP/OBJ z sieci',
+        exampleUrl: 'https://solid.lmk.one/?url=https://solid.lmk.one/ceownik_druk3d_10cm.stl&orbit=continuous',
+        description: 'Pobiera plik 3D bezpośrednio z adresu URL i renderuje go w przeglądarce z centrowaniem i obrotem.',
       },
     ],
     formats: ['.stl (Stereolitografia / Druk 3D)', '.step / .stp (ISO 10303)', '.obj (Wavefront 3D)', '.gltf / .glb', '.solidcraft', '.fcstd (FreeCAD)'],
@@ -652,7 +658,7 @@ export const CRAFT_APPS: CraftApp[] = [
       'Wymiana danych inżynierskich: import i eksport formatów przemysłowych STEP, IGES i FreeCAD',
       'W pełni spolonizowany interfejs użytkownika (1561 fraz) oraz dynamiczna zmiana motywów',
     ],
-    sampleFileUrl: 'https://raw.githubusercontent.com/lukasz-sklad/solid-web/main/ceownik_druk3d_10cm.stl',
+    sampleFileUrl: 'https://solid.lmk.one/ceownik_druk3d_10cm.stl',
     shortcuts: [
       { key: 'Spacja', action: 'Obrót widoku 3D / Orbita (Orbit)', category: 'Nawigacja' },
       { key: 'Śr. przycisk', action: 'Przesuwanie widoku (Pan)', category: 'Nawigacja' },
