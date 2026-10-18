@@ -210,8 +210,8 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
         <div
           ref={windowRef}
           style={{
-            width: isFullscreen ? '100vw' : windowWidth ? `${windowWidth}px` : undefined,
-            maxWidth: isFullscreen ? '100vw' : windowWidth ? '98vw' : '82.5rem',
+            width: isFullscreen ? '100vw' : windowWidth ? `${windowWidth}px` : 'min(100%, 1645px)',
+            maxWidth: isFullscreen ? '100vw' : windowWidth ? '98vw' : '1645px',
             height: isFullscreen ? '100vh' : undefined,
           }}
           className={`relative mx-auto overflow-hidden bg-[#1b1c1f] shadow-2xl transition-all ${
@@ -322,9 +322,9 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                 : windowHeight
                 ? `${windowHeight}px`
                 : liveIframe
-                ? '580px'
+                ? 'calc(1078px - 49px)'
                 : undefined,
-              minHeight: isFullscreen ? 'calc(100vh - 49px)' : liveIframe ? '420px' : '470px',
+              minHeight: isFullscreen ? 'calc(100vh - 49px)' : liveIframe ? '680px' : '470px',
             }}
             className="relative overflow-y-auto"
           >
