@@ -280,7 +280,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                 }`}
               >
                 <MonitorPlay className="h-3.5 w-3.5" />
-                <span>{liveIframe ? 'Tryb: Interaktywny' : 'Załaduj edytor tutaj'}</span>
+                <span>{liveIframe ? 'Tryb: Interaktywny' : 'Załaduj edytor'}</span>
               </button>
               <button
                 type="button"
@@ -485,7 +485,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                       style={{ backgroundColor: activeApp.accentColor }}
                     >
                       <Play className="h-4 w-4 fill-current" />
-                      <span>Otwórz {activeApp.name} w nowej karcie</span>
+                      <span>{activeApp.name} w nowej karcie</span>
                       <ExternalLink className="h-4 w-4" />
                     </a>
 
@@ -495,7 +495,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                       className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                     >
                       <MonitorPlay className="h-4 w-4 text-amber-400" />
-                      <span>Uruchom tutaj w ramce na stronie</span>
+                      <span>Uruchom tutaj</span>
                     </button>
                   </div>
                 </div>
