@@ -187,9 +187,9 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
       />
 
       <div className="mx-auto max-w-[1645px] px-2 sm:px-4">
-        {/* Top Header Pill Badge */}
+        {/* Top Header Text */}
         <div className="flex justify-start">
-          <div className="inline-flex flex-wrap items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-[1rem] text-zinc-300 backdrop-blur-md shadow-sm">
+          <div className="inline-flex flex-wrap items-center gap-2.5 text-[1rem] text-zinc-300">
             <span className="font-semibold text-amber-400">
               Po Polsku
             </span>
