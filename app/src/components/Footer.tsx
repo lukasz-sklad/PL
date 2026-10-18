@@ -39,6 +39,23 @@ export const Footer: React.FC = () => {
                 lmk.one
               </a>
             </div>
+
+            <div className="pt-2">
+              <a
+                href="https://buycoffee.to/lmk.one"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block transition-transform hover:scale-105 active:scale-95"
+                title="Postaw kawę dla lmk.one na buycoffee.to"
+              >
+                <img
+                  src="./postaw-kawe-bialo-zielone.png"
+                  alt="Postaw kawę na buycoffee.to/lmk.one"
+                  className="h-9 w-auto rounded-lg shadow-sm hover:opacity-95"
+                  loading="lazy"
+                />
+              </a>
+            </div>
           </div>
 
           {/* Col 2: Direct Web Apps */}
@@ -161,7 +178,7 @@ export const Footer: React.FC = () => {
             </div>
             <p className="text-[11px] leading-relaxed text-zinc-400">
               Widzisz literówkę lub niezgrabne tłumaczenie w którejś aplikacji? Daj znać! Każda uwaga
-              mobilizuje nas do dalszego ulepszania polskich wersji.
+              mobilizuje nas do dalszego ulepszania wersji.
             </p>
             <a
               href="https://github.com/lukasz-sklad/PL/issues"

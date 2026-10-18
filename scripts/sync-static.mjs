@@ -32,6 +32,12 @@ fs.copyFileSync(path.join(distWebDir, 'index.html'), path.join(rootDir, 'index.h
 if (fs.existsSync(path.join(distWebDir, 'favicon.svg'))) {
   fs.copyFileSync(path.join(distWebDir, 'favicon.svg'), path.join(rootDir, 'favicon.svg'));
 }
+if (fs.existsSync(path.join(distWebDir, 'postaw-kawe-bialo-zielone.png'))) {
+  fs.copyFileSync(
+    path.join(distWebDir, 'postaw-kawe-bialo-zielone.png'),
+    path.join(rootDir, 'postaw-kawe-bialo-zielone.png')
+  );
+}
 fs.writeFileSync(path.join(rootDir, '.nojekyll'), '');
 fs.writeFileSync(path.join(rootDir, 'CNAME'), cnameContent);
 fs.writeFileSync(path.join(rootDir, '_headers'), headersContent);
