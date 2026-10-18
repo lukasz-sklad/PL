@@ -65,7 +65,7 @@ export const Footer: React.FC = () => {
                     title="Postaw kawę dla Lucas.One na buycoffee.to"
                   >
                     <img
-                      src="https://buycoffee.to/static/img/share/share-button-primary--pl.png"
+                      src="./postaw-kawe-2.png"
                       alt="Postaw kawę dla Lucas.One na buycoffee.to"
                       className="h-8 w-auto rounded shadow-sm hover:opacity-95"
                       loading="lazy"

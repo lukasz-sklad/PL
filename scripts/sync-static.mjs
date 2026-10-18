@@ -32,6 +32,7 @@ fs.copyFileSync(path.join(distWebDir, 'index.html'), path.join(rootDir, 'index.h
 const staticRootFiles = [
   'favicon.svg',
   'postaw-kawe-bialo-zielone.png',
+  'postaw-kawe-2.png',
   'QR_buycoffee.png',
   'share-button-primary--pl.png',
 ];
