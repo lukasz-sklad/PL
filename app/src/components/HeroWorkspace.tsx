@@ -21,7 +21,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
   activeApp,
   onSelectApp,
 }) => {
-  const [liveIframe, setLiveIframe] = useState(false);
+  const [liveIframe, setLiveIframe] = useState(true);
   const [customIframeUrl, setCustomIframeUrl] = useState<string | null>(null);
   const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
 
@@ -100,9 +100,9 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Top Pill Badge */}
+        {/* Top Header Text without envelope */}
         <div className="flex flex-col items-center text-center">
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-xs text-zinc-300 backdrop-blur">
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 text-xs text-zinc-300">
             <span className="font-semibold text-amber-400">
               Po Polsku
             </span>
@@ -115,68 +115,16 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
             <span className="text-zinc-600">•</span>
             <span className="text-zinc-400">W duchu „Jajka Polskiego”</span>
           </div>
-
-          <h1 className="mt-4 max-w-4xl text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
-            Aplikacje{' '}
-            <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-red-400 bg-clip-text text-transparent">
-              Craft
-            </span>{' '}
-            w jednym miejscu
-          </h1>
-
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">
-            Otwartoźródłowe aplikacje webowe napisane w{' '}
-            <strong className="text-white">Rust + WebAssembly</strong>.
-          </p>
-        </div>
-
-        {/* App Selector Dock (All 6 Original Names) */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-          {CRAFT_APPS.map((app) => {
-            const isSelected = app.id === activeApp.id;
-            return (
-              <button
-                key={app.id}
-                type="button"
-                onClick={() => {
-                  onSelectApp(app);
-                  setCustomIframeUrl(null);
-                }}
-                className={`group relative flex items-center gap-2.5 rounded-2xl border px-4 py-2.5 text-left transition-all ${
-                  isSelected
-                    ? 'border-white/30 bg-white/12 text-white shadow-lg ring-1 ring-white/20'
-                    : 'border-white/10 bg-[#1c1d1f]/80 text-zinc-400 hover:border-white/20 hover:bg-white/[0.06] hover:text-zinc-200'
-                }`}
-              >
-                <span
-                  className="h-3 w-3 rounded-full transition-transform group-hover:scale-110"
-                  style={{
-                    backgroundColor: app.accentColor,
-                    boxShadow: isSelected ? `0 0 12px ${app.accentColor}` : undefined,
-                  }}
-                />
-                <div>
-                  <div className="flex items-center gap-1.5 text-xs font-bold sm:text-sm">
-                    <span>{app.name}</span>
-                    <span className="rounded bg-white/10 px-1.5 py-0.5 text-[10px] font-mono text-zinc-300">
-                      v{app.version}
-                    </span>
-                  </div>
-                  <div className="text-[10px] text-zinc-400">{app.replaces}</div>
-                </div>
-              </button>
-            );
-          })}
         </div>
       </div>
 
       {/* Resizable Studio Window Wrapper (can stretch wider than max-w-7xl up to full viewport!) */}
-      <div className="mt-6 px-3 sm:px-6">
+      <div className="mt-4 px-1 sm:px-2">
         <div
           ref={windowRef}
           style={{
             width: windowWidth ? `${windowWidth}px` : undefined,
-            maxWidth: windowWidth ? '98vw' : '80rem',
+            maxWidth: windowWidth ? '98vw' : '82.5rem',
           }}
           className={`relative mx-auto overflow-hidden rounded-2xl border border-white/15 bg-[#1b1c1f] shadow-2xl ${
             isResizing ? 'select-none ring-2 ring-amber-500/50' : ''

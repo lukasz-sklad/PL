@@ -11,7 +11,9 @@ import { ReactTechSection } from './components/ReactTechSection';
 import { Footer } from './components/Footer';
 
 export function App() {
-  const [activeApp, setActiveApp] = useState<CraftApp>(CRAFT_APPS[0]);
+  const [activeApp, setActiveApp] = useState<CraftApp>(
+    () => CRAFT_APPS.find((a) => a.id === 'figcraft') || CRAFT_APPS[0]
+  );
   const [theme, setTheme] = useState<ThemeMode>(() => {
     const saved = localStorage.getItem('pl_craft_theme_v2');
     if (saved === 'light' || saved === 'sepia' || saved === 'dark') {
