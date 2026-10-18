@@ -105,7 +105,7 @@ export const UrlWizard: React.FC = () => {
   }, [inputUrl, selectedAppId]);
 
   const generatedLink = useMemo(() => {
-    const base = detectedApp.primaryUrl.replace(/\/$/, '');
+    const base = detectedApp.primaryUrl.split('?')[0].replace(/\/$/, '');
     const params: string[] = [];
     if (modeNew) {
       params.push('new');
@@ -200,7 +200,7 @@ export const UrlWizard: React.FC = () => {
                     </option>
                     {CRAFT_APPS.map((a) => (
                       <option key={a.id} value={a.id}>
-                        {a.name} ({a.primaryUrl.replace('https://', '').replace(/\/$/, '')})
+                        {a.name} ({a.primaryUrl.replace('https://', '').split('?')[0].replace(/\/$/, '')})
                       </option>
                     ))}
                   </select>
