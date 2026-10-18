@@ -41,20 +41,41 @@ export const Footer: React.FC = () => {
             </div>
 
             <div className="pt-2">
-              <a
-                href="https://buycoffee.to/lmk.one"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block transition-transform hover:scale-105 active:scale-95"
-                title="Postaw kawę dla lmk.one na buycoffee.to"
-              >
-                <img
-                  src="./postaw-kawe-bialo-zielone.png"
-                  alt="Postaw kawę na buycoffee.to/lmk.one"
-                  className="h-9 w-auto rounded-lg shadow-sm hover:opacity-95"
-                  loading="lazy"
-                />
-              </a>
+              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-2.5">
+                <a
+                  href="https://buycoffee.to/lmk.one"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block shrink-0 rounded-xl bg-white p-1 transition hover:opacity-90 active:scale-95 shadow-sm"
+                  title="Zeskanuj kod QR aparatem w telefonie, aby postawić kawę"
+                >
+                  <img
+                    src="./QR_buycoffee.png"
+                    alt="QR Kod - Postaw kawę na buycoffee.to/lmk.one"
+                    className="h-16 w-16 rounded-lg object-contain"
+                    loading="lazy"
+                  />
+                </a>
+                <div className="flex flex-col justify-center space-y-1.5">
+                  <a
+                    href="https://buycoffee.to/lmk.one"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block transition-transform hover:scale-105 active:scale-95"
+                    title="Postaw kawę dla lmk.one na buycoffee.to"
+                  >
+                    <img
+                      src="./postaw-kawe-bialo-zielone.png"
+                      alt="Postaw kawę na buycoffee.to/lmk.one"
+                      className="h-8 w-auto rounded shadow-sm hover:opacity-95"
+                      loading="lazy"
+                    />
+                  </a>
+                  <span className="text-[10px] text-zinc-400">
+                    Zeskanuj telefonem lub kliknij
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
 

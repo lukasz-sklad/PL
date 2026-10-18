@@ -29,14 +29,11 @@ if (fs.existsSync(rootAssetsDir)) {
 }
 fs.cpSync(path.join(distWebDir, 'assets'), rootAssetsDir, { recursive: true });
 fs.copyFileSync(path.join(distWebDir, 'index.html'), path.join(rootDir, 'index.html'));
-if (fs.existsSync(path.join(distWebDir, 'favicon.svg'))) {
-  fs.copyFileSync(path.join(distWebDir, 'favicon.svg'), path.join(rootDir, 'favicon.svg'));
-}
-if (fs.existsSync(path.join(distWebDir, 'postaw-kawe-bialo-zielone.png'))) {
-  fs.copyFileSync(
-    path.join(distWebDir, 'postaw-kawe-bialo-zielone.png'),
-    path.join(rootDir, 'postaw-kawe-bialo-zielone.png')
-  );
+const staticRootFiles = ['favicon.svg', 'postaw-kawe-bialo-zielone.png', 'QR_buycoffee.png'];
+for (const file of staticRootFiles) {
+  if (fs.existsSync(path.join(distWebDir, file))) {
+    fs.copyFileSync(path.join(distWebDir, file), path.join(rootDir, file));
+  }
 }
 fs.writeFileSync(path.join(rootDir, '.nojekyll'), '');
 fs.writeFileSync(path.join(rootDir, 'CNAME'), cnameContent);
