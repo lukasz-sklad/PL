@@ -179,17 +179,17 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
   const isCustomSized = windowWidth !== null || windowHeight !== null;
 
   return (
-    <section id="top" className="relative overflow-hidden pt-8 pb-16 sm:pt-12">
+    <section id="top" className="relative overflow-hidden pt-3 pb-16 sm:pt-4">
       {/* Subtle Ambient Glow */}
       <div
         className="pointer-events-none absolute top-0 left-1/2 -z-10 h-[520px] w-[980px] -translate-x-1/2 rounded-full opacity-20 blur-[130px] transition-all duration-700"
         style={{ backgroundColor: activeApp.accentColor }}
       />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Top Header Text without envelope */}
-        <div className="flex flex-col items-center text-center">
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 text-xs text-zinc-300">
+      <div className="mx-auto max-w-[1645px] px-2 sm:px-4">
+        {/* Top Header Pill Badge */}
+        <div className="flex justify-start">
+          <div className="inline-flex flex-wrap items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-[1rem] text-zinc-300 backdrop-blur-md shadow-sm">
             <span className="font-semibold text-amber-400">
               Po Polsku
             </span>
@@ -206,7 +206,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
       </div>
 
       {/* Resizable Studio Window Wrapper (can stretch wider than max-w-7xl up to full viewport!) */}
-      <div className="mt-4 px-1 sm:px-2">
+      <div className="mt-2.5 px-1 sm:px-2">
         <div
           ref={windowRef}
           style={{
