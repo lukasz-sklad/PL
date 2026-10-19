@@ -1,5 +1,4 @@
-import React from 'react';
-import { ExternalLink, Sparkles, Check, Layers, ArrowUpRight, FolderGit2 } from 'lucide-react';
+import { Sparkles, Layers, ArrowUpRight, FolderGit2 } from 'lucide-react';
 import { CRAFT_APPS, SIBLING_APPS, CraftApp } from '../data/craftData';
 
 interface AppDirectoryProps {
@@ -33,7 +32,12 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
           {CRAFT_APPS.map((app) => (
             <div
               key={app.id}
-              className={`group relative flex flex-col justify-between rounded-2xl border border-white/10 bg-gradient-to-b ${app.gradientFrom} ${app.gradientTo} bg-[#1a1b1e] p-6 transition-all hover:border-white/25 hover:shadow-xl`}
+              onClick={() => {
+                onSelectApp(app);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              title="Kliknij, aby wczytać podgląd na górze"
+              className={`group relative flex flex-col justify-between rounded-2xl border border-white/10 bg-gradient-to-b ${app.gradientFrom} ${app.gradientTo} bg-[#1a1b1e] p-6 transition-all hover:border-white/25 hover:shadow-xl cursor-pointer`}
             >
               <div>
                 {/* Header */}
@@ -85,6 +89,7 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
                         href={u.url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="flex items-center justify-between rounded-lg px-2 py-1 text-xs text-zinc-300 transition hover:bg-white/10 hover:text-amber-300"
                       >
                         <span className="truncate font-mono">{u.label}</span>
@@ -95,27 +100,17 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
                 </div>
               </div>
 
-              {/* Card Footer Actions */}
-              <div className="mt-5 flex items-center justify-between gap-2 pt-4 border-t border-white/10">
-                <button
-                  type="button"
-                  onClick={() => {
-                    onSelectApp(app);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className="rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-xs font-semibold text-zinc-200 transition hover:bg-white/10 hover:text-white"
-                >
-                  Podgląd na górze ↑
-                </button>
+              {/* Card Footer: Repo Link */}
+              <div className="mt-5 flex items-center justify-end border-t border-white/10 pt-4 text-[11px] text-zinc-400">
                 <a
-                  href={app.primaryUrl}
+                  href={`https://github.com/${app.upstreamRepo}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold text-zinc-950 transition hover:brightness-110"
-                  style={{ backgroundColor: app.accentColor }}
+                  onClick={(e) => e.stopPropagation()}
+                  title={`Repozytorium ${app.upstreamRepo}`}
+                  className="inline-flex items-center gap-1.5 text-zinc-300 hover:text-amber-300"
                 >
-                  <span>{app.name}</span>
-                  <ExternalLink className="h-3.5 w-3.5" />
+                  <FolderGit2 className="h-4 w-4" />
                 </a>
               </div>
             </div>
