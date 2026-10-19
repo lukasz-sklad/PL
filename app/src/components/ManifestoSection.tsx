@@ -65,7 +65,6 @@ export const ManifestoSection: React.FC = () => {
           {/* Left 7 Cols: The Story & Jajko Polskie Tribute */}
           <div className="lg:col-span-7 space-y-6">
             <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-              Dlaczego trzymamy się polskiego?{' '}
               <span className="text-amber-400">Wspomnienie „Jajka Polskiego”</span> i tworzenia w miarę sił
             </h2>
 
