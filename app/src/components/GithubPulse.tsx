@@ -126,7 +126,7 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({ activeAppName = 'Solid
           }
         }
         merged.sort((a, b) => (b.date > a.date ? 1 : -1));
-        setCommits(merged.slice(0, 14));
+        setCommits(merged);
         setLastFetched(`Pobrano na żywo z GitHub API (${new Date().toLocaleTimeString('pl-PL')})`);
       } else {
         setLastFetched('Zestaw zsynchronizowany z lokalnymi repozytoriami git');
@@ -143,7 +143,9 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({ activeAppName = 'Solid
   }, []);
 
   const filteredCommits =
-    filterApp === 'ALL' ? commits : commits.filter((c) => c.appName === filterApp);
+    filterApp === 'ALL'
+      ? commits.slice(0, 14)
+      : commits.filter((c) => c.appName.toLowerCase() === filterApp.toLowerCase());
 
   return (
     <section id="puls-githuba" className="py-16 border-t border-white/10">
@@ -215,65 +217,71 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({ activeAppName = 'Solid
         </div>
 
         {/* Commits Feed Grid */}
-        <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-2">
-          {filteredCommits.map((commit) => {
-            const appMeta = CRAFT_APPS.find((a) => a.name === commit.appName) || CRAFT_APPS[0];
-            return (
-              <a
-                key={`${commit.repo}-${commit.sha}`}
-                href={
-                  commit.url.includes('/commit/')
-                    ? commit.url
-                    : `${commit.url.replace(/\/$/, '')}/commit/${commit.sha}`
-                }
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col justify-between rounded-2xl border border-white/10 bg-[#1a1b1f] p-4 transition hover:border-white/25 hover:bg-[#202227]"
-              >
-                <div>
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <div className="flex items-center gap-2">
-                      <span
-                        className="h-2.5 w-2.5 rounded-full"
-                        style={{ backgroundColor: appMeta.accentColor }}
-                      />
-                      <span className="text-xs font-bold text-white">{commit.appName}</span>
-                      <span className="font-mono text-[11px] text-zinc-400">({commit.repo})</span>
+        {filteredCommits.length === 0 ? (
+          <div className="mt-6 rounded-2xl border border-white/10 bg-[#1a1b1f] p-8 text-center text-zinc-400">
+            Brak zarejestrowanych commitów dla programu {filterApp}.
+          </div>
+        ) : (
+          <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-2">
+            {filteredCommits.map((commit) => {
+              const appMeta = CRAFT_APPS.find((a) => a.name === commit.appName) || CRAFT_APPS[0];
+              return (
+                <a
+                  key={`${commit.repo}-${commit.sha}`}
+                  href={
+                    commit.url.includes('/commit/')
+                      ? commit.url
+                      : `${commit.url.replace(/\/$/, '')}/commit/${commit.sha}`
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col justify-between rounded-2xl border border-white/10 bg-[#1a1b1f] p-4 transition hover:border-white/25 hover:bg-[#202227]"
+                >
+                  <div>
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex items-center gap-2">
+                        <span
+                          className="h-2.5 w-2.5 rounded-full"
+                          style={{ backgroundColor: appMeta.accentColor }}
+                        />
+                        <span className="text-xs font-bold text-white">{commit.appName}</span>
+                        <span className="font-mono text-[11px] text-zinc-400">({commit.repo})</span>
+                      </div>
+
+                      <div className="flex items-center gap-1.5">
+                        {commit.isPolishBuild ? (
+                          <span className="inline-flex items-center gap-1 rounded-full border border-amber-500/40 bg-amber-500/15 px-2 py-0.5 text-[10px] font-bold text-amber-300">
+                            <Sparkles className="h-3 w-3" /> {commit.categoryPl}
+                          </span>
+                        ) : (
+                          <span className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300">
+                            {commit.categoryPl}
+                          </span>
+                        )}
+                        <span className="rounded bg-black/50 px-1.5 py-0.5 font-mono text-[11px] text-emerald-400">
+                          {commit.sha}
+                        </span>
+                      </div>
                     </div>
 
-                    <div className="flex items-center gap-1.5">
-                      {commit.isPolishBuild ? (
-                        <span className="inline-flex items-center gap-1 rounded-full border border-amber-500/40 bg-amber-500/15 px-2 py-0.5 text-[10px] font-bold text-amber-300">
-                          <Sparkles className="h-3 w-3" /> {commit.categoryPl}
-                        </span>
-                      ) : (
-                        <span className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300">
-                          {commit.categoryPl}
-                        </span>
-                      )}
-                      <span className="rounded bg-black/50 px-1.5 py-0.5 font-mono text-[11px] text-emerald-400">
-                        {commit.sha}
-                      </span>
-                    </div>
+                    <p className="mt-2.5 text-sm font-medium text-zinc-200 group-hover:text-white">
+                      {commit.message}
+                    </p>
                   </div>
 
-                  <p className="mt-2.5 text-sm font-medium text-zinc-200 group-hover:text-white">
-                    {commit.message}
-                  </p>
-                </div>
-
-                <div className="mt-3 flex items-center justify-between border-t border-white/5 pt-2.5 text-[11px] text-zinc-400">
-                  <span>
-                    Autor: <strong className="text-zinc-300">{commit.author}</strong> • {commit.date}
-                  </span>
-                  <span className="inline-flex items-center gap-1 text-zinc-300 group-hover:text-amber-300">
-                    Zobacz commit <ExternalLink className="h-3 w-3" />
-                  </span>
-                </div>
-              </a>
-            );
-          })}
-        </div>
+                  <div className="mt-3 flex items-center justify-between border-t border-white/5 pt-2.5 text-[11px] text-zinc-400">
+                    <span>
+                      Autor: <strong className="text-zinc-300">{commit.author}</strong> • {commit.date}
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-zinc-300 group-hover:text-amber-300">
+                      Zobacz commit <ExternalLink className="h-3 w-3" />
+                    </span>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        )}
       </div>
     </section>
   );
