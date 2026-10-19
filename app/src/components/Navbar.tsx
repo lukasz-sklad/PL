@@ -116,20 +116,20 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
         </div>
 
-        {/* Center: Uniform, Aligned Navigation Buttons */}
-        <nav className="hidden items-center gap-1.5 lg:flex">
+        {/* Center: Uniform, Aligned Navigation Buttons - Rozciągnięte menu */}
+        <nav className="hidden md:flex flex-1 items-center justify-center gap-2 px-2">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="inline-flex h-9 items-center justify-center rounded-xl border border-white/10 bg-[#1e2022] px-3.5 text-xs font-medium text-zinc-200 transition hover:border-amber-500/40 hover:text-white"
+              className="inline-flex h-9 flex-1 max-w-[130px] items-center justify-center rounded-xl border border-white/10 bg-[#1e2022] px-2.5 text-xs font-medium text-zinc-200 transition hover:border-amber-500/40 hover:text-white"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        {/* Right: Uniform Theme Switcher (Sepia / Jasny / Ciemny) + Launch */}
+        {/* Right: Uniform Theme Switcher (Sepia / Jasny / Ciemny) */}
         <div className="flex items-center gap-2">
           <div
             role="group"
@@ -176,16 +176,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="hidden sm:inline">Ciemny</span>
             </button>
           </div>
-
-          <a
-            href={activeApp.primaryUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-9 items-center gap-1.5 rounded-xl bg-amber-500 px-3.5 text-xs font-semibold text-zinc-950 transition hover:bg-amber-400"
-          >
-            <span className="hidden md:inline">{activeApp.name}</span>
-            <ExternalLink className="h-3.5 w-3.5" />
-          </a>
         </div>
       </div>
     </header>

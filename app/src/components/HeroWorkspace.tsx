@@ -170,7 +170,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-[#141517] px-4 py-2.5">
             {/* Left: Online App + Odpowiednik */}
             <div className="flex flex-1 flex-wrap items-center gap-2.5 min-w-0">
-              {/* Online: {Nazwa programu} */}
+              {/* Online: {Nazwa programu} + Otwórz w nowej karcie */}
               <div className="inline-flex items-center gap-1.5 shrink-0 text-xs font-normal">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -183,6 +183,15 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                 >
                   {activeApp.name}
                 </span>
+                <a
+                  href={currentTargetUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={`Otwórz ${activeApp.name} w nowej karcie`}
+                  className="inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 p-1 text-zinc-300 transition hover:border-amber-500/40 hover:bg-amber-500/20 hover:text-amber-300"
+                >
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
               </div>
 
               {/* Odpowiednik z obramówką */}
