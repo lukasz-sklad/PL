@@ -168,7 +168,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
         >
           {/* Window Top Chrome Bar */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-[#141517] px-4 py-2.5">
-            {/* Left & Center: Online App + Odpowiednik + Slogany */}
+            {/* Left: Online App + Odpowiednik */}
             <div className="flex flex-1 flex-wrap items-center gap-2.5 min-w-0">
               {/* Online: {Nazwa programu} */}
               <div className="inline-flex items-center gap-1.5 shrink-0 text-xs font-normal">
@@ -189,18 +189,6 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
               <span className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300 shrink-0">
                 Odpowiednik: {activeApp.replaces}
               </span>
-
-              {/* Slogany oddzielone kropkami */}
-              <div className="hidden sm:inline-flex flex-wrap items-center gap-2 text-xs text-zinc-300">
-                <span className="text-zinc-600">•</span>
-                <span className="font-semibold text-amber-400">Po Polsku</span>
-                <span className="text-zinc-600">•</span>
-                <span>Działają od ręki</span>
-                <span className="text-zinc-600">•</span>
-                <span className="text-emerald-400 font-medium">Otwartoźródłowe Aplikacje</span>
-                <span className="text-zinc-600">•</span>
-                <span className="text-zinc-400">W duchu „Jajka Polskiego”</span>
-              </div>
             </div>
 
             {/* Right Controls: Reset Size / Tryb: Interaktywny / Pełny ekran */}
