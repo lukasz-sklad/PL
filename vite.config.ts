@@ -5,7 +5,7 @@ import path from 'node:path';
 
 export default defineConfig({
   root: 'app',
-  base: './',
+  base: '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
