@@ -38,11 +38,21 @@ function classifyCommitMessagePl(msg: string): string {
   return 'Aktualizacja kodu';
 }
 
-export const GithubPulse: React.FC = () => {
+interface GithubPulseProps {
+  activeAppName?: string;
+}
+
+export const GithubPulse: React.FC<GithubPulseProps> = ({ activeAppName = 'SolidCraft' }) => {
   const [commits, setCommits] = useState<CommitEntry[]>(INITIAL_COMMITS);
-  const [filterApp, setFilterApp] = useState<string>('ALL');
+  const [filterApp, setFilterApp] = useState<string>(activeAppName);
   const [loading, setLoading] = useState<boolean>(false);
   const [lastFetched, setLastFetched] = useState<string>('Dane wbudowane + Live API');
+
+  useEffect(() => {
+    if (activeAppName) {
+      setFilterApp(activeAppName);
+    }
+  }, [activeAppName]);
 
   const fetchLiveCommits = async () => {
     setLoading(true);
@@ -173,30 +183,35 @@ export const GithubPulse: React.FC = () => {
             onClick={() => setFilterApp('ALL')}
             className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
               filterApp === 'ALL'
-                ? 'bg-amber-500 text-zinc-950'
+                ? 'bg-amber-500 text-zinc-950 font-extrabold shadow-sm'
                 : 'border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10'
             }`}
           >
             Wszystkie aplikacje ({commits.length})
           </button>
-          {CRAFT_APPS.map((app) => (
-            <button
-              key={app.id}
-              type="button"
-              onClick={() => setFilterApp(app.name)}
-              className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 text-xs font-semibold transition ${
-                filterApp === app.name
-                  ? 'bg-white/20 text-white border border-white/30'
-                  : 'border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10'
-              }`}
-            >
-              <span
-                className="h-2 w-2 rounded-full"
-                style={{ backgroundColor: app.accentColor }}
-              />
-              <span>{app.name}</span>
-            </button>
-          ))}
+          {CRAFT_APPS.map((app) => {
+            const count = commits.filter((c) => c.appName.toLowerCase() === app.name.toLowerCase()).length;
+            const isSelected = filterApp.toLowerCase() === app.name.toLowerCase();
+            return (
+              <button
+                key={app.id}
+                type="button"
+                onClick={() => setFilterApp(app.name)}
+                className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 text-xs font-semibold transition ${
+                  isSelected
+                    ? 'bg-white/25 text-white border border-white/40 shadow-sm'
+                    : 'border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10'
+                }`}
+              >
+                <span
+                  className="h-2 w-2 rounded-full"
+                  style={{ backgroundColor: app.accentColor }}
+                />
+                <span>{app.name}</span>
+                {count > 0 && <span className="text-[10px] opacity-60">({count})</span>}
+              </button>
+            );
+          })}
         </div>
 
         {/* Commits Feed Grid */}

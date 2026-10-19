@@ -44,7 +44,7 @@ export function App() {
         <AppDirectory onSelectApp={setActiveApp} />
         <ManifestoSection />
         <UrlWizard />
-        <GithubPulse />
+        <GithubPulse activeAppName={activeApp.name} />
         <VisualizationsHub />
         <ReactTechSection />
       </main>
