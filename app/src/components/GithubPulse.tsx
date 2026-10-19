@@ -189,7 +189,7 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({ activeAppName = 'Solid
                 : 'border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10'
             }`}
           >
-            Wszystkie aplikacje ({commits.length})
+            Aplikacje ({commits.length})
           </button>
           {CRAFT_APPS.map((app) => {
             const count = commits.filter((c) => c.appName.toLowerCase() === app.name.toLowerCase()).length;
