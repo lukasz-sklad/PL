@@ -6,6 +6,8 @@ import {
   Activity,
   Sparkles,
   CheckCircle2,
+  ChevronDown,
+  ChevronUp,
 } from 'lucide-react';
 import { CRAFT_APPS, INITIAL_COMMITS, CommitEntry } from '../data/craftData';
 
@@ -45,12 +47,14 @@ interface GithubPulseProps {
 export const GithubPulse: React.FC<GithubPulseProps> = ({ activeAppName = 'SolidCraft' }) => {
   const [commits, setCommits] = useState<CommitEntry[]>(INITIAL_COMMITS);
   const [filterApp, setFilterApp] = useState<string>(activeAppName);
+  const [showAllFourteen, setShowAllFourteen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [lastFetched, setLastFetched] = useState<string>('Dane wbudowane + Live API');
 
   useEffect(() => {
     if (activeAppName) {
       setFilterApp(activeAppName);
+      setShowAllFourteen(false);
     }
   }, [activeAppName]);
 
@@ -142,9 +146,12 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({ activeAppName = 'Solid
     fetchLiveCommits();
   }, []);
 
+  const allFourteen = commits.slice(0, 14);
   const filteredCommits =
     filterApp === 'ALL'
-      ? commits.slice(0, 14)
+      ? showAllFourteen
+        ? allFourteen
+        : allFourteen.slice(0, 10)
       : commits.filter((c) => c.appName.toLowerCase() === filterApp.toLowerCase());
 
   return (
@@ -182,7 +189,10 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({ activeAppName = 'Solid
         <div className="mt-6 flex flex-wrap items-center gap-2">
           <button
             type="button"
-            onClick={() => setFilterApp('ALL')}
+            onClick={() => {
+              setFilterApp('ALL');
+              setShowAllFourteen(false);
+            }}
             className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
               filterApp === 'ALL'
                 ? 'bg-amber-500 text-zinc-950 font-extrabold shadow-sm'
@@ -198,7 +208,10 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({ activeAppName = 'Solid
               <button
                 key={app.id}
                 type="button"
-                onClick={() => setFilterApp(app.name)}
+                onClick={() => {
+                  setFilterApp(app.name);
+                  setShowAllFourteen(false);
+                }}
                 className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 text-xs font-semibold transition ${
                   isSelected
                     ? 'bg-white/25 text-white border border-white/40 shadow-sm'
@@ -280,6 +293,28 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({ activeAppName = 'Solid
                 </a>
               );
             })}
+          </div>
+        )}
+
+        {/* Minimalist reveal toggle for remaining 4 commits in ALL view */}
+        {filterApp === 'ALL' && allFourteen.length > 10 && (
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAllFourteen((prev) => !prev)}
+              className="group inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-[#1a1b1f] px-3.5 py-1.5 text-xs text-zinc-400 transition hover:border-amber-400/40 hover:bg-[#22242a] hover:text-white"
+              title={showAllFourteen ? 'Zwiń do 10 commitów' : 'Wyświetl pozostałe 4 commity (razem 14)'}
+              aria-label={showAllFourteen ? 'Zwiń do 10 commitów' : 'Wyświetl pozostałe 4 commity (razem 14)'}
+            >
+              <span className="font-mono text-[11px] font-semibold">
+                {showAllFourteen ? 'Zwiń' : '+4'}
+              </span>
+              {showAllFourteen ? (
+                <ChevronUp className="h-3.5 w-3.5 transition group-hover:text-amber-400" />
+              ) : (
+                <ChevronDown className="h-3.5 w-3.5 transition group-hover:text-amber-400" />
+              )}
+            </button>
           </div>
         )}
       </div>
