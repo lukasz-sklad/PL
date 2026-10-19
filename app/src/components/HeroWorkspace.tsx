@@ -203,7 +203,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
               </div>
             </div>
 
-            {/* Right Controls: Reset Size / Tryb: Interaktywny / Pełny ekran / Nowe okno */}
+            {/* Right Controls: Reset Size / Tryb: Interaktywny / Pełny ekran */}
             <div className="flex items-center gap-2">
               {isCustomSized && !isFullscreen && (
                 <button
@@ -246,16 +246,6 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                   </>
                 )}
               </button>
-              <a
-                href={currentTargetUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Otwórz aplikację w nowej karcie"
-                className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500 px-3 py-1.5 text-xs font-bold text-zinc-950 transition hover:bg-amber-400"
-              >
-                <span>Nowe okno</span>
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>
             </div>
           </div>
 
