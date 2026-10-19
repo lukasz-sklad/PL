@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
   ExternalLink,
-  Play,
   Maximize2,
   Minimize2,
   CheckCircle2,
@@ -408,26 +407,15 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                     )}
                   </div>
 
-                  {/* Primary Launch Buttons */}
+                  {/* Primary Launch Button */}
                   <div className="mt-8 flex flex-wrap items-center gap-3 pt-4 border-t border-white/10">
-                    <a
-                      href={activeApp.primaryUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-zinc-950 shadow-lg transition hover:brightness-110"
-                      style={{ backgroundColor: activeApp.accentColor }}
-                    >
-                      <Play className="h-4 w-4 fill-current" />
-                      <span>{activeApp.name} w nowej karcie</span>
-                      <ExternalLink className="h-4 w-4" />
-                    </a>
-
                     <button
                       type="button"
                       onClick={() => setLiveIframe(true)}
-                      className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                      className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-zinc-950 shadow-lg transition hover:brightness-110"
+                      style={{ backgroundColor: activeApp.accentColor }}
                     >
-                      <MonitorPlay className="h-4 w-4 text-amber-400" />
+                      <MonitorPlay className="h-4 w-4 fill-current" />
                       <span>Uruchom tutaj</span>
                     </button>
                   </div>
