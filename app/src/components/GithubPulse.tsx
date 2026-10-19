@@ -39,14 +39,22 @@ export const GithubPulse: React.FC = () => {
     setLoading(true);
     try {
       const targets = [
+        { repo: 'lukasz-sklad/solid-web', appName: 'SolidCraft', isPl: true },
+        { repo: 'lukasz-sklad/corel-web', appName: 'VectorCraft', isPl: true },
+        { repo: 'lukasz-sklad/film-web', appName: 'FilmCraft', isPl: true },
+        { repo: 'lukasz-sklad/sound-web', appName: 'SoundCraft', isPl: true },
+        { repo: 'lukasz-sklad/fig-web', appName: 'FigCraft', isPl: true },
+        { repo: 'lukasz-sklad/pdf-web', appName: 'PDFCraft', isPl: true },
+        { repo: 'lukasz-sklad/light-web', appName: 'LightCraft', isPl: true },
+        { repo: 'lukasz-sklad/deck-web', appName: 'DeckCraft', isPl: true },
+        { repo: 'lukasz-sklad/excel-web', appName: 'GridCraft', isPl: true },
+        { repo: 'lukasz-sklad/PL', appName: 'Portal PL', isPl: true },
         { repo: 'storytold/vectorcraft', appName: 'VectorCraft', isPl: false },
         { repo: 'storytold/photocraft', appName: 'PhotoCraft', isPl: false },
         { repo: 'storytold/filmcraft', appName: 'FilmCraft', isPl: false },
         { repo: 'storytold/wordcraft', appName: 'WordCraft', isPl: false },
         { repo: 'storytold/gridcraft', appName: 'GridCraft', isPl: false },
         { repo: 'storytold/deckcraft', appName: 'DeckCraft', isPl: false },
-        { repo: 'lukasz-sklad/corel-web', appName: 'VectorCraft', isPl: true },
-        { repo: 'lukasz-sklad/film-web', appName: 'FilmCraft', isPl: true },
       ];
 
       const results = await Promise.allSettled(
@@ -57,15 +65,17 @@ export const GithubPulse: React.FC = () => {
           if (!Array.isArray(data)) return [];
           return data.map((item: any): CommitEntry => {
             const firstLine = (item.commit?.message || '').split('\n')[0];
+            const fullSha = item.sha || '';
+            const shortSha = fullSha.slice(0, 7);
             return {
-              sha: (item.sha || '').slice(0, 7),
+              sha: shortSha,
               repo: t.repo,
               appName: t.appName,
               author: item.commit?.author?.name || item.author?.login || 'Developer',
               date: (item.commit?.author?.date || '').slice(0, 10),
               message: firstLine,
               categoryPl: t.isPl ? 'Wydanie Web' : classifyCommitMessagePl(firstLine),
-              url: item.html_url || `https://github.com/${t.repo}`,
+              url: item.html_url || `https://github.com/${t.repo}/commit/${fullSha || shortSha}`,
               isPolishBuild: t.isPl,
             };
           });
@@ -180,7 +190,11 @@ export const GithubPulse: React.FC = () => {
             return (
               <a
                 key={`${commit.repo}-${commit.sha}`}
-                href={commit.url}
+                href={
+                  commit.url.includes('/commit/')
+                    ? commit.url
+                    : `${commit.url.replace(/\/$/, '')}/commit/${commit.sha}`
+                }
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex flex-col justify-between rounded-2xl border border-white/10 bg-[#1a1b1f] p-4 transition hover:border-white/25 hover:bg-[#202227]"
