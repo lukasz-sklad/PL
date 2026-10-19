@@ -114,7 +114,7 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
                   className="inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold text-zinc-950 transition hover:brightness-110"
                   style={{ backgroundColor: app.accentColor }}
                 >
-                  <span>Otwórz {app.name}</span>
+                  <span>{app.name}</span>
                   <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               </div>
