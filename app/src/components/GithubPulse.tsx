@@ -11,20 +11,29 @@ import { CRAFT_APPS, INITIAL_COMMITS, CommitEntry } from '../data/craftData';
 
 function classifyCommitMessagePl(msg: string): string {
   const lower = msg.toLowerCase();
-  if (lower.includes('i18n') || lower.includes('pl') || lower.includes('polish') || lower.includes('spolszcz')) {
+  if (
+    /\b(i18n|l10n|polish|polski|polska|spolszczenie|spolszcz)\b/i.test(msg) ||
+    /\bpl\b/i.test(msg) ||
+    lower.includes('pl.json') ||
+    lower.includes('pl.tsv') ||
+    lower.includes('pl.po')
+  ) {
     return 'Spolszczenie PL';
   }
-  if (lower.startsWith('feat') || lower.includes('add ')) {
+  if (lower.startsWith('feat') || lower.includes('add ') || lower.includes('nowa funkcja')) {
     return 'Nowa funkcja';
   }
-  if (lower.startsWith('fix') || lower.includes('bug')) {
+  if (lower.startsWith('fix') || lower.includes('bug') || lower.includes('poprawka')) {
     return 'Poprawka błędu';
   }
-  if (lower.startsWith('perf') || lower.includes('optim')) {
+  if (lower.startsWith('perf') || lower.includes('optim') || lower.includes('optymalizac')) {
     return 'Optymalizacja';
   }
-  if (lower.startsWith('ci') || lower.includes('workflow')) {
+  if (lower.startsWith('ci') || lower.includes('workflow') || lower.includes('action')) {
     return 'CI / Automatyzacja';
+  }
+  if (lower.startsWith('docs') || lower.includes('readme')) {
+    return 'Dokumentacja';
   }
   return 'Aktualizacja kodu';
 }
