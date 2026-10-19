@@ -753,6 +753,17 @@ export interface CommitEntry {
 
 export const INITIAL_COMMITS: CommitEntry[] = [
   {
+    sha: '9d9cb99',
+    repo: 'storytold/figcraft',
+    appName: 'FigCraft',
+    author: 'BFlat (Maintainer)',
+    date: '2026-10-20',
+    message: 'Merge pull request #812 from lukasz-sklad/feat/polish-translation: Oficjalne przyjęcie pełnego spolszczenia FigCraft (pl) do upstreamu!',
+    categoryPl: 'Spolszczenie',
+    url: 'https://github.com/storytold/figcraft/commit/9d9cb9915a1c136c02a22fe0755023b55c4176a2',
+    isPolishBuild: true,
+  },
+  {
     sha: '3aef9a1',
     repo: 'lukasz-sklad/solid-web',
     appName: 'SolidCraft',

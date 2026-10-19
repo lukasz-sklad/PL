@@ -64,6 +64,8 @@ export const GithubPulse: React.FC = () => {
         { repo: 'storytold/wordcraft', appName: 'WordCraft', isPl: false },
         { repo: 'storytold/gridcraft', appName: 'GridCraft', isPl: false },
         { repo: 'storytold/deckcraft', appName: 'DeckCraft', isPl: false },
+        { repo: 'storytold/figcraft', appName: 'FigCraft', isPl: false },
+        { repo: 'storytold/solidcraft', appName: 'SolidCraft', isPl: false },
       ];
 
       const results = await Promise.allSettled(
