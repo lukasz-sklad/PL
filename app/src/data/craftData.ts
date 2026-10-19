@@ -717,7 +717,7 @@ export const SIBLING_APPS: SiblingCraftApp[] = [
     name: 'WordCraft',
     replaces: 'Microsoft Word / Notatnik / LibreOffice',
     version: '0.7.0',
-    descriptionPl: 'W trakcie prac: wdrożenie ciemnego motywu (Dark Mode), optymalizacja startu w ramce oraz obsługa szybkich notatek.',
+    descriptionPl: 'W trakcie prac: wdrożenie ciemnego motywu (Dark Mode), optymalizacja startu w ramce.',
     upstreamRepo: 'storytold/wordcraft',
     statusPl: 'W trakcie poprawek ciemnego motywu i web',
   },
