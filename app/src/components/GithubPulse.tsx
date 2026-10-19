@@ -78,16 +78,21 @@ export const GithubPulse: React.FC = () => {
             const firstLine = (item.commit?.message || '').split('\n')[0];
             const fullSha = item.sha || '';
             const shortSha = fullSha.slice(0, 7);
+            let authorName = item.commit?.author?.name || item.author?.login || 'Developer';
+            if (firstLine.includes('from lukasz-sklad')) {
+              authorName = `Lucas (Zatwierdził: ${authorName})`;
+            }
+            const isPolish = t.isPl || classifyCommitMessagePl(firstLine) === 'Spolszczenie';
             return {
               sha: shortSha,
               repo: t.repo,
               appName: t.appName,
-              author: item.commit?.author?.name || item.author?.login || 'Developer',
+              author: authorName,
               date: (item.commit?.author?.date || '').slice(0, 10),
               message: firstLine,
               categoryPl: t.isPl ? 'Wydanie Web' : classifyCommitMessagePl(firstLine),
               url: item.html_url || `https://github.com/${t.repo}/commit/${fullSha || shortSha}`,
-              isPolishBuild: t.isPl,
+              isPolishBuild: isPolish,
             };
           });
         })

@@ -756,7 +756,7 @@ export const INITIAL_COMMITS: CommitEntry[] = [
     sha: '9d9cb99',
     repo: 'storytold/figcraft',
     appName: 'FigCraft',
-    author: 'BFlat (Maintainer)',
+    author: 'Lucas (Zatwierdził: BFlat)',
     date: '2026-10-20',
     message: 'Merge pull request #812 from lukasz-sklad/feat/polish-translation: Oficjalne przyjęcie pełnego spolszczenia FigCraft (pl) do upstreamu!',
     categoryPl: 'Spolszczenie',
