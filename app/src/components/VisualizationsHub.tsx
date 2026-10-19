@@ -27,7 +27,7 @@ export const VisualizationsHub: React.FC = () => {
             <Sparkles className="h-4 w-4" /> Interaktywne Wizualizacje Ekosystemu PL
           </div>
           <h2 className="mt-2 text-2xl font-extrabold text-white sm:text-4xl">
-            Statystyki tłumaczeń PL oraz interaktywne skróty klawiszowe
+            Statystyki tłumaczeń oraz interaktywne skróty klawiszowe
           </h2>
 
           <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12">
