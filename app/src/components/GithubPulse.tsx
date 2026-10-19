@@ -18,7 +18,7 @@ function classifyCommitMessagePl(msg: string): string {
     lower.includes('pl.tsv') ||
     lower.includes('pl.po')
   ) {
-    return 'Spolszczenie PL';
+    return 'Spolszczenie';
   }
   if (lower.startsWith('feat') || lower.includes('add ') || lower.includes('nowa funkcja')) {
     return 'Nowa funkcja';
