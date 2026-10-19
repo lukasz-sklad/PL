@@ -19,9 +19,7 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
               {CRAFT_APPS.length} gotowych aplikacji webowych
             </h2>
             <p className="mt-2 max-w-2xl text-sm text-zinc-400">
-              Każda aplikacja zachowuje swoją oryginalną nazwę z ekosystemu{' '}
-              <strong className="text-zinc-200">*Craft</strong>, ale uruchamia się od razu po polsku,
-              w ciemnym motywie i działa bezpośrednio w Twojej przeglądarce.
+              W Twojej przeglądarce.
             </p>
           </div>
           <div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-zinc-300">
