@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { CRAFT_APPS, CraftApp } from './data/craftData';
+import { CRAFT_APPS, CraftApp, INITIAL_COMMITS } from './data/craftData';
 import { Navbar, ThemeMode } from './components/Navbar';
 import { HeroWorkspace } from './components/HeroWorkspace';
 import { AppDirectory } from './components/AppDirectory';
@@ -143,11 +143,25 @@ export function resolveAppFromLocation(): CraftApp | undefined {
   return undefined;
 }
 
+export function getDefaultAppByLatestCommit(): CraftApp {
+  // Sort initial commits by date descending to ensure the most recent is first
+  const sorted = [...INITIAL_COMMITS].sort((a, b) => (b.date > a.date ? 1 : -1));
+  for (const commit of sorted) {
+    const match = CRAFT_APPS.find(
+      (a) =>
+        a.name.toLowerCase() === commit.appName.toLowerCase() ||
+        a.id.toLowerCase() === commit.appName.toLowerCase()
+    );
+    if (match) return match;
+  }
+  return CRAFT_APPS.find((a) => a.id === 'solidcraft') || CRAFT_APPS[0];
+}
+
 export function App() {
   const [activeApp, setActiveApp] = useState<CraftApp>(() => {
     const fromUrl = resolveAppFromLocation();
     if (fromUrl) return fromUrl;
-    return CRAFT_APPS.find((a) => a.id === 'solidcraft') || CRAFT_APPS[0];
+    return getDefaultAppByLatestCommit();
   });
 
   const [theme, setTheme] = useState<ThemeMode>(() => {
@@ -170,8 +184,7 @@ export function App() {
       if (resolved) {
         setActiveApp(resolved);
       } else {
-        const defaultApp = CRAFT_APPS.find((a) => a.id === 'solidcraft') || CRAFT_APPS[0];
-        setActiveApp(defaultApp);
+        setActiveApp(getDefaultAppByLatestCommit());
       }
     };
     window.addEventListener('popstate', onPopState);
