@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
               <span className="text-sm font-bold text-white">*Craft Polska (lmk.one)</span>
             </div>
             <p className="leading-relaxed text-zinc-400">
-              Polski portal zbierający w jednym miejscu aplikacje z rodziny *Craft. Wszystko po polsku
+              Portal zbierający w jednym miejscu aplikacje z rodziny *Craft. Wszystko po polsku
               — w miarę wolnego czasu i sił, z ukłonem dla legendarnego Jajka Polskiego.
             </p>
             <div className="flex flex-wrap gap-2 text-[11px] text-zinc-300">
