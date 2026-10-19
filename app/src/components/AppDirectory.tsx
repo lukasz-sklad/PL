@@ -123,10 +123,10 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
             <div>
               <h3 className="text-lg font-bold text-white flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-amber-400" />
-                Pozostałe aplikacje z rodziny *Craft w naszym repozytorium (kolejne w kolejce ...)
+                Aktualnie na warsztacie i w przygotowaniu (kolejne na tapecie)
               </h3>
               <p className="mt-1 text-xs text-zinc-400">
-                Wszystkie działają w tej samej architekturze Rust + egui + WebAssembly.
+                Aplikacje, które aktywnie modyfikujemy, ulepszamy lub przygotowujemy do kolejnych wydań.
               </p>
             </div>
           </div>
