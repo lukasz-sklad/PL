@@ -3,11 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Craft — VectorCraft, PhotoCraft, WordCraft, GridCraft, DeckCraft, FilmCraft</title>
+    <title>*Craft Polska — Darmowe aplikacje online: Photoshop, Corel, Illustrator, CAD, Word, Excel, Premiere</title>
+    
+    <!-- Podstawowe Meta Tagi SEO -->
     <meta
       name="description"
-      content="Polski portal otwartoźródłowych aplikacji webowych z rodziny Craft (VectorCraft, PhotoCraft, WordCraft, GridCraft, DeckCraft, FilmCraft). Wszystko po polsku, w duchu Jajka Polskiego."
+      content="Polski portal otwartoźródłowych aplikacji webowych z rodziny *Craft: PhotoCraft (Photoshop), VectorCraft (Corel .cdr / Illustrator), WordCraft (Word), GridCraft (Excel), FilmCraft (Premiere), SolidCraft (CAD/STL). 100% po polsku, w przeglądarce, bez instalacji i bez opłat."
     />
+    <meta
+      name="keywords"
+      content="darmowy photoshop online, alternatywa coreldraw online, edytor cdr w przeglądarce, darmowy illustrator online, pakiet biurowy open source, cad online stl, druk 3d stl przeglądarka, montaż wideo online, darmowy excel online, rust webassembly grafika, craft polska, jajko polskie"
+    />
+    <meta name="author" content="Lucas Kalinowski (*Craft Polska)" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://craft.lmk.one/" />
+    <meta name="theme-color" content="#151617" />
+
+    <!-- Open Graph (Facebook, Discord, LinkedIn, Wykop) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="*Craft Polska" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:url" content="https://craft.lmk.one/" />
+    <meta property="og:title" content="*Craft Polska — Darmowe aplikacje online: Photoshop, Corel, CAD, Word, Excel" />
+    <meta
+      property="og:description"
+      content="Darmowe polskie aplikacje graficzne, biurowe i inżynieryjne w Twojej przeglądarce. Bez rejestracji, technologia Rust + WebAssembly."
+    />
+    <meta property="og:image" content="https://craft.lmk.one/share-button-primary--pl.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="*Craft Polska — Darmowe aplikacje online w przeglądarce" />
+    <meta
+      name="twitter:description"
+      content="Alternatywa dla programów Adobe i pakietu Office: PhotoCraft, VectorCraft, WordCraft, GridCraft, FilmCraft, SolidCraft."
+    />
+    <meta name="twitter:image" content="https://craft.lmk.one/share-button-primary--pl.png" />
+
+    <!-- Ikony i fonty -->
     <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=2" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,10 +50,113 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Dane strukturalne Google Schema.org (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://craft.lmk.one/#website",
+          "url": "https://craft.lmk.one/",
+          "name": "*Craft Polska",
+          "description": "Polski portal otwartoźródłowych aplikacji webowych WebAssembly",
+          "inLanguage": "pl-PL"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "VectorCraft",
+          "operatingSystem": "Web Browser, Windows, Linux, macOS",
+          "applicationCategory": "DesignApplication",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PLN" },
+          "description": "Darmowy edytor grafiki wektorowej online, otwieranie plików CorelDRAW (.cdr) i Illustrator w przeglądarce",
+          "url": "https://corel.lmk.one/"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "PhotoCraft",
+          "operatingSystem": "Web Browser, Windows, Linux, macOS",
+          "applicationCategory": "DesignApplication",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PLN" },
+          "description": "Edytor grafiki rastrowej, warstw i retuszu zdjęć w standardzie Photoshop online w przeglądarce",
+          "url": "https://photocraft.lmk.one/"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "SolidCraft",
+          "operatingSystem": "Web Browser, Windows, Linux, macOS",
+          "applicationCategory": "EngineeringApplication",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PLN" },
+          "description": "Modelowanie parametryczne CAD 3D, eksport STL, STEP, OBJ bezpośrednio w przeglądarce",
+          "url": "https://solid.lmk.one/"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "WordCraft",
+          "operatingSystem": "Web Browser, Windows, Linux, macOS",
+          "applicationCategory": "OfficeApplication",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PLN" },
+          "description": "Procesor tekstu i skład dokumentów DOCX online po polsku",
+          "url": "https://wordcraft.lmk.one/"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "GridCraft",
+          "operatingSystem": "Web Browser, Windows, Linux, macOS",
+          "applicationCategory": "OfficeApplication",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PLN" },
+          "description": "Arkusz kalkulacyjny XLSX, formuły i wykresy online w WebAssembly",
+          "url": "https://excel.lmk.one/"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "FilmCraft",
+          "operatingSystem": "Web Browser, Windows, Linux, macOS",
+          "applicationCategory": "MultimediaApplication",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PLN" },
+          "description": "Montaż wideo, linia czasu i cięcie filmów online w przeglądarce",
+          "url": "https://film.lmk.one/"
+        }
+      ]
+    }
+    </script>
     <script type="module" crossorigin src="./assets/index-BmvFAszH.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-CYdEUaID.css">
   </head>
   <body class="bg-[#151617] text-[#F5F5F7] antialiased selection:bg-amber-500/30 selection:text-amber-200">
-    <div id="root"></div>
+    <div id="root">
+      <!-- Semantyczny szkielet HTML dla robotów wyszukiwarek (Googlebot) przed załadowaniem Reacta -->
+      <main style="padding: 2rem 1rem; max-width: 960px; margin: 0 auto; font-family: sans-serif; color: #d4d4d8;">
+        <h1 style="color: #ffffff; font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem;">
+          *Craft Polska — Otwartoźródłowe Aplikacje Webowe Online
+        </h1>
+        <p style="color: #fbbf24; font-size: 1.15rem; font-weight: 600; margin-bottom: 1.5rem;">
+          Wszystko po polsku, w Twojej przeglądarce, bez instalacji i bez rejestracji.
+        </p>
+        <p style="line-height: 1.6; margin-bottom: 1.5rem;">
+          Polska platforma zbierająca w jednym miejscu kompletny pakiet programów graficznych, biurowych i inżynieryjnych skompilowanych z języka Rust do WebAssembly. Każda aplikacja działa w 100% lokalnie na Twoim komputerze z pełną akceleracją sprzętową GPU.
+        </p>
+        <section>
+          <h2 style="color: #ffffff; font-size: 1.5rem; margin-bottom: 1rem;">Katalog aplikacji online:</h2>
+          <ul style="line-height: 1.8; padding-left: 1.5rem;">
+            <li><strong>VectorCraft (corel.lmk.one)</strong> — Grafika wektorowa, DTP, obsługa plików CorelDRAW (.cdr) i Illustrator (.ai/.svg).</li>
+            <li><strong>PhotoCraft (photocraft.lmk.one)</strong> — Profesjonalna edycja grafiki rastrowej, warstwy, maski i pędzle jak w Adobe Photoshop (.psd).</li>
+            <li><strong>SolidCraft (solid.lmk.one)</strong> — Modelowanie parametryczne 3D CAD, eksport STL do druku 3D, STEP i OBJ.</li>
+            <li><strong>WordCraft (wordcraft.lmk.one)</strong> — Procesor tekstu i edytor dokumentów DOCX.</li>
+            <li><strong>GridCraft (excel.lmk.one)</strong> — Arkusz kalkulacyjny XLSX, zaawansowane formuły i wykresy.</li>
+            <li><strong>DeckCraft (powerpoint.lmk.one)</strong> — Prezentacje multimedialne i slajdy.</li>
+            <li><strong>FilmCraft (film.lmk.one)</strong> — Nieliniowy montaż wideo z osią czasu na wzór Adobe Premiere.</li>
+            <li><strong>PDFCraft (pdf.lmk.one)</strong> — Przeglądarka i edytor plików PDF z wbudowanym lektorem mowy (TTS).</li>
+            <li><strong>LightCraft (light.lmk.one)</strong> — Cyfrowa ciemnia fotograficzna, wywoływanie plików RAW jak w Lightroom.</li>
+            <li><strong>FigCraft (fig.lmk.one)</strong> — Wektorowe projektowanie interfejsów i prototypowanie jak Figma.</li>
+            <li><strong>SoundCraft (sound.lmk.one)</strong> — Wielotorowa stacja robocza audio (DAW) i edycja dźwięku.</li>
+          </ul>
+        </section>
+        <p style="margin-top: 2rem; font-size: 0.85rem; color: #a1a1aa;">
+          Ładowanie interaktywnego interfejsu *Craft Polska...
+        </p>
+      </main>
+    </div>
   </body>
 </html>

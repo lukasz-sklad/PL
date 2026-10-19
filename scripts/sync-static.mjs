@@ -31,6 +31,8 @@ fs.cpSync(path.join(distWebDir, 'assets'), rootAssetsDir, { recursive: true });
 fs.copyFileSync(path.join(distWebDir, 'index.html'), path.join(rootDir, 'index.html'));
 const staticRootFiles = [
   'favicon.svg',
+  'robots.txt',
+  'sitemap.xml',
   'postaw-kawe-bialo-zielone.png',
   'postaw-kawe-2.png',
   'QR_buycoffee.png',
