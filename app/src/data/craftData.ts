@@ -807,14 +807,14 @@ export const INITIAL_COMMITS: CommitEntry[] = [
     url: 'https://github.com/storytold/soundcraft/commit/c1bf044',
   },
   {
-    sha: '2b86d32',
+    sha: '64c509f',
     repo: 'lukasz-sklad/fig-web',
     appName: 'FigCraft',
     author: 'Lucas',
-    date: '2026-10-18',
-    message: 'feat(web): Obsługa motywu jasny/ciemny (?theme=) oraz postMessage i pełne spolszczenie UI',
+    date: '2026-10-20',
+    message: 'feat: aktualizacja FigCraft Web (synchronizacja z upstream PR #812 + fix motywu Jasny)',
     categoryPl: 'Wydanie Web',
-    url: 'https://github.com/lukasz-sklad/fig-web/commit/2b86d32',
+    url: 'https://github.com/lukasz-sklad/fig-web/commit/64c509f',
     isPolishBuild: true,
   },
   {
