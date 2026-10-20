@@ -35,7 +35,13 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
   onSelectApp,
   theme,
 }) => {
-  const [liveIframe, setLiveIframe] = useState(true);
+  // On mobile (< 640px, matching Tailwind 'sm' breakpoint), do not load heavy WebAssembly iframe by default
+  const [liveIframe, setLiveIframe] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth >= 640;
+    }
+    return false;
+  });
   const [customIframeUrl, setCustomIframeUrl] = useState<string | null>(null);
 
   // Resizable window state (width & body height in px; null = default responsive size)
@@ -74,9 +80,25 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
     }
   };
 
-  // Reset custom URL when user changes active application
+  // Handle mobile breakpoint changes: disable live iframe when resizing down to mobile
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mql = window.matchMedia('(min-width: 640px)');
+    const handleMediaChange = (e: MediaQueryListEvent) => {
+      if (!e.matches) {
+        setLiveIframe(false);
+      }
+    };
+    mql.addEventListener('change', handleMediaChange);
+    return () => mql.removeEventListener('change', handleMediaChange);
+  }, []);
+
+  // Reset custom URL and disable iframe auto-loading when switching apps on mobile
   useEffect(() => {
     setCustomIframeUrl(null);
+    if (typeof window !== 'undefined' && window.innerWidth < 640) {
+      setLiveIframe(false);
+    }
   }, [activeApp.id]);
 
   const baseTargetUrl = customIframeUrl || activeApp.primaryUrl;
@@ -200,13 +222,13 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
             </div>
 
             {/* Right Controls: Reset Size / Tryb: Interaktywny / Pełny ekran */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               {isCustomSized && !isFullscreen && (
                 <button
                   type="button"
                   onClick={resetWindowSize}
                   title="Przywróć domyślny rozmiar okna"
-                  className="inline-flex items-center gap-1 rounded-lg border border-white/15 bg-white/5 px-2.5 py-1.5 text-xs font-medium text-zinc-300 transition hover:bg-white/10 hover:text-white"
+                  className="inline-flex items-center justify-center gap-1 rounded-lg border border-white/15 bg-white/5 p-1.5 sm:px-2.5 sm:py-1.5 text-xs font-medium text-zinc-300 transition hover:bg-white/10 hover:text-white"
                 >
                   <RotateCcw className="h-3.5 w-3.5" />
                   <span className="hidden sm:inline">Resetuj rozmiar</span>
@@ -215,20 +237,31 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
               <button
                 type="button"
                 onClick={() => setLiveIframe((v) => !v)}
-                className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
+                title={
+                  liveIframe
+                    ? 'Tryb interaktywny (kliknij, aby zwinąć edytor)'
+                    : 'Załaduj edytor interaktywny'
+                }
+                className={`inline-flex items-center justify-center gap-1.5 rounded-lg p-1.5 sm:px-3 sm:py-1.5 text-xs font-semibold transition ${
                   liveIframe
                     ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
                     : 'bg-white/10 text-zinc-200 hover:bg-white/15'
                 }`}
               >
                 <MonitorPlay className="h-3.5 w-3.5" />
-                <span>{liveIframe ? 'Tryb: Interaktywny' : 'Załaduj edytor'}</span>
+                <span className="hidden sm:inline">
+                  {liveIframe ? 'Tryb: Interaktywny' : 'Załaduj edytor'}
+                </span>
               </button>
               <button
                 type="button"
                 onClick={toggleFullscreen}
-                title={isFullscreen ? 'Opuść pełny ekran (Esc)' : 'Włącz tryb pełnoekranowy (Fullscreen)'}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-2.5 py-1.5 text-xs font-semibold text-zinc-200 transition hover:bg-white/10 hover:text-white"
+                title={
+                  isFullscreen
+                    ? 'Opuść pełny ekran (Esc)'
+                    : 'Włącz tryb pełnoekranowy (Fullscreen)'
+                }
+                className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/5 p-1.5 sm:px-2.5 sm:py-1.5 text-xs font-semibold text-zinc-200 transition hover:bg-white/10 hover:text-white"
               >
                 {isFullscreen ? (
                   <>
@@ -238,7 +271,7 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                 ) : (
                   <>
                     <Maximize2 className="h-3.5 w-3.5 text-amber-400" />
-                    <span>Pełny ekran</span>
+                    <span className="hidden sm:inline">Pełny ekran</span>
                   </>
                 )}
               </button>
