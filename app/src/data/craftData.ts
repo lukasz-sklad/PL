@@ -717,9 +717,17 @@ export const SIBLING_APPS: SiblingCraftApp[] = [
     name: 'WordCraft',
     replaces: 'Microsoft Word / Notatnik / LibreOffice',
     version: '0.8.0',
-    descriptionPl: 'Wdrożono: wydanie v0.8.0, ciemny motyw startowy (Dark Mode), słownik języka polskiego pl_PL oraz optymalizacje Steam Deck.',
+    descriptionPl: 'Wdrożono: wydanie v0.8.0, ciemny motyw startowy (Dark Mode), słownik języka polskiego pl_PL.',
     upstreamRepo: 'storytold/wordcraft',
     statusPl: 'Wersja 0.8.0 wdrożona na wordcraft.lmk.one',
+  },
+  {
+    name: 'FilmCraft',
+    replaces: 'Adobe Premiere Pro / DaVinci Resolve',
+    version: '0.8.0',
+    descriptionPl: 'Nie wdrożono: Dark w film-web.',
+    upstreamRepo: 'storytold/filmcraft',
+    statusPl: 'Do wdrożenia: motyw Dark w film-web',
   },
   {
     name: 'CadCraft',
