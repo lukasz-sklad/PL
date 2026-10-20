@@ -140,40 +140,40 @@ export const Navbar: React.FC<NavbarProps> = ({
               type="button"
               onClick={() => onSelectTheme('sepia')}
               title="Motyw sepia"
-              className={`inline-flex h-7 items-center gap-1 rounded-lg px-2.5 font-medium transition ${
+              className={`inline-flex h-7 items-center gap-1 rounded-lg px-2 min-[920px]:px-2.5 font-medium transition ${
                 theme === 'sepia'
                   ? 'bg-amber-500 text-zinc-950 font-semibold'
                   : 'text-zinc-300 hover:text-white'
               }`}
             >
               <BookOpen className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">Sepia</span>
+              <span className="hidden min-[920px]:inline">Sepia</span>
             </button>
             <button
               type="button"
               onClick={() => onSelectTheme('light')}
               title="Motyw jasny"
-              className={`inline-flex h-7 items-center gap-1 rounded-lg px-2.5 font-medium transition ${
+              className={`inline-flex h-7 items-center gap-1 rounded-lg px-2 min-[920px]:px-2.5 font-medium transition ${
                 theme === 'light'
                   ? 'bg-amber-500 text-zinc-950 font-semibold'
                   : 'text-zinc-300 hover:text-white'
               }`}
             >
               <Sun className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">Jasny</span>
+              <span className="hidden min-[920px]:inline">Jasny</span>
             </button>
             <button
               type="button"
               onClick={() => onSelectTheme('dark')}
               title="Motyw ciemny"
-              className={`inline-flex h-7 items-center gap-1 rounded-lg px-2.5 font-medium transition ${
+              className={`inline-flex h-7 items-center gap-1 rounded-lg px-2 min-[920px]:px-2.5 font-medium transition ${
                 theme === 'dark'
                   ? 'bg-amber-500 text-zinc-950 font-semibold'
                   : 'text-zinc-300 hover:text-white'
               }`}
             >
               <Moon className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">Ciemny</span>
+              <span className="hidden min-[920px]:inline">Ciemny</span>
             </button>
           </div>
         </div>
