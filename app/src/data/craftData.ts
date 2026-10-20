@@ -214,7 +214,7 @@ export const CRAFT_APPS: CraftApp[] = [
     name: 'WordCraft',
     taglinePl: 'Edytor tekstu i dokumentów biurowych (.docx, .odt, .md) ze stylami i tabelami',
     replaces: 'Microsoft Word / LibreOffice Writer',
-    version: '0.7.0',
+    version: '0.8.0',
     primaryUrl: 'https://wordcraft.lmk.one/',
     altUrls: [
       { label: 'wordcraft.lmk.one', url: 'https://wordcraft.lmk.one/' },
@@ -227,10 +227,10 @@ export const CRAFT_APPS: CraftApp[] = [
     badgeText: 'text-sky-300',
     gradientFrom: 'from-sky-500/20',
     gradientTo: 'to-blue-600/5',
-    translatedStrings: 2624,
-    parityPercent: 89,
-    wasmSizeCompressedMb: '9,4 MB (gzip)',
-    defaultStateNote: 'Polski interfejs (PL) + Jasny motyw + Pełna obsługa polskich znaków i dzielenia wyrazów',
+    translatedStrings: 2706,
+    parityPercent: 91,
+    wasmSizeCompressedMb: '14,1 MB (gzip)',
+    defaultStateNote: 'Polski interfejs (PL) + Ciemny motyw studyjny (Dark Mode) + Wbudowany słownik języka polskiego (pl_PL)',
     urlParams: [
       {
         label: 'Otwórz edytor WordCraft PL',
@@ -716,10 +716,10 @@ export const SIBLING_APPS: SiblingCraftApp[] = [
   {
     name: 'WordCraft',
     replaces: 'Microsoft Word / Notatnik / LibreOffice',
-    version: '0.7.0',
-    descriptionPl: 'W trakcie prac: wdrożenie ciemnego motywu (Dark Mode), optymalizacja startu w ramce.',
+    version: '0.8.0',
+    descriptionPl: 'Wdrożono: wydanie v0.8.0, ciemny motyw startowy (Dark Mode), słownik języka polskiego pl_PL oraz optymalizacje Steam Deck.',
     upstreamRepo: 'storytold/wordcraft',
-    statusPl: 'W trakcie poprawek ciemnego motywu i web',
+    statusPl: 'Wersja 0.8.0 wdrożona na wordcraft.lmk.one',
   },
   {
     name: 'CadCraft',
