@@ -18,15 +18,13 @@ interface HeroWorkspaceProps {
 }
 
 export function applyThemeToUrl(baseUrl: string, theme: ThemeMode): string {
-  const isLight = theme === 'light';
-  const targetTheme = isLight ? 'light' : 'dark';
   try {
     const url = new URL(baseUrl, window.location.origin);
-    url.searchParams.set('theme', targetTheme);
+    url.searchParams.set('theme', theme);
     return url.toString();
   } catch {
     const sep = baseUrl.includes('?') ? '&' : '?';
-    return `${baseUrl}${sep}theme=${targetTheme}`;
+    return `${baseUrl}${sep}theme=${theme}`;
   }
 }
 
@@ -106,10 +104,9 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
 
   // Live theme synchronization to embedded iframe via postMessage
   useEffect(() => {
-    const targetTheme = theme === 'light' ? 'light' : 'dark';
     try {
       iframeRef.current?.contentWindow?.postMessage(
-        { type: 'set_theme', theme: targetTheme },
+        { type: 'set_theme', theme },
         '*'
       );
     } catch (_) {}
@@ -305,11 +302,9 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                   }`}
                   allow="clipboard-read; clipboard-write; fullscreen"
                   onLoad={() => {
-                    const isLight = theme === 'light';
-                    const targetTheme = isLight ? 'light' : 'dark';
                     try {
                       iframeRef.current?.contentWindow?.postMessage(
-                        { type: 'set_theme', theme: targetTheme },
+                        { type: 'set_theme', theme },
                         '*'
                       );
                     } catch (_) {}
