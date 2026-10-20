@@ -20,6 +20,7 @@ export function KreatorLinkuCraft() {
     if (adresPliku.endsWith('.cdr')) return 'https://corel.lmk.one';
     if (adresPliku.endsWith('.mp4')) return 'https://film.lmk.one';
     if (adresPliku.endsWith('.psd')) return 'https://photocraft.lmk.one';
+    if (adresPliku.endsWith('.idml') || adresPliku.endsWith('.designcraft')) return 'https://design.lmk.one';
     return 'https://vectorcraft.lmk.one';
   }, [adresPliku]);
 

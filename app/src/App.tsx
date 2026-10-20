@@ -23,6 +23,7 @@ export const APP_CANONICAL_SLUGS: Record<string, string> = {
   filmcraft: 'film',
   soundcraft: 'sound',
   lightcraft: 'light',
+  designcraft: 'design',
 };
 
 // Aliases accepted from URL pathname, query parameters, or hash
@@ -97,6 +98,13 @@ export const APP_ALIASES: Record<string, string> = {
   raw: 'lightcraft',
   lightroom: 'lightcraft',
   lightcraft: 'lightcraft',
+
+  // DesignCraft (InDesign / DTP)
+  design: 'designcraft',
+  indesign: 'designcraft',
+  idml: 'designcraft',
+  dtp: 'designcraft',
+  designcraft: 'designcraft',
 };
 
 export function resolveAppFromLocation(): CraftApp | undefined {
