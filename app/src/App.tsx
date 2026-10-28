@@ -175,16 +175,16 @@ export function App() {
   });
 
   const [theme, setTheme] = useState<ThemeMode>(() => {
-    const saved = localStorage.getItem('pl_craft_theme_v2');
+    const saved = localStorage.getItem('pl_craft_theme_v3');
     if (saved === 'light' || saved === 'sepia' || saved === 'dark') {
       return saved;
     }
-    return 'sepia';
+    return 'dark';
   });
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('pl_craft_theme_v2', theme);
+    localStorage.setItem('pl_craft_theme_v3', theme);
   }, [theme]);
 
   // Synchronize browser history (popstate / back & forward buttons)
