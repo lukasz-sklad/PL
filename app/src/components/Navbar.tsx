@@ -183,7 +183,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="nav-top-btn inline-flex h-8 items-center justify-center rounded-[10px] border border-white/12 bg-white/[0.04] px-3 text-[13px] font-extrabold tracking-tight text-white transition hover:border-amber-500/40 hover:bg-white/[0.08]"
+              className="nav-top-btn inline-flex h-8 items-center justify-center rounded-[10px] border border-white/12 px-3 text-[13px] font-extrabold tracking-tight text-white transition-all duration-150"
             >
               Craft
             </button>
@@ -193,7 +193,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 type="button"
                 onClick={() => setDropdownOpen((v) => !v)}
-                className="nav-top-btn inline-flex h-8 items-center gap-1.5 rounded-[10px] border border-white/12 bg-white/[0.04] px-3 text-xs font-semibold text-zinc-200 transition hover:border-amber-500/40 hover:bg-white/[0.08] hover:text-white"
+                className={`nav-top-btn inline-flex h-8 items-center gap-1.5 rounded-[10px] border border-white/12 px-3 text-xs font-semibold text-zinc-200 transition-all duration-150 ${
+                  dropdownOpen ? 'is-active' : ''
+                }`}
               >
                 <span
                   className="h-2 w-2 rounded-full"
@@ -209,15 +211,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                     className="fixed inset-0 z-40"
                     onClick={() => setDropdownOpen(false)}
                   />
-                  <div className="absolute left-0 mt-1.5 w-72 rounded-2xl border border-white/15 bg-[#1b1c1e] p-2 shadow-2xl z-50">
+                  <div className="nav-dropdown-panel absolute left-0 mt-1.5 w-72 rounded-2xl border border-white/15 bg-[#1b1c1e] p-2 shadow-2xl z-50">
                     <div className="space-y-1">
                       {CRAFT_APPS.map((app) => (
                         <div
                           key={app.id}
-                          className={`flex items-center justify-between rounded-xl px-3 py-1.5 transition ${
-                            app.id === activeApp.id
-                              ? 'bg-white/10 text-white'
-                              : 'text-zinc-300 hover:bg-white/5 hover:text-white'
+                          className={`nav-app-item flex items-center justify-between rounded-xl px-3 py-1.5 transition-all duration-150 ${
+                            app.id === activeApp.id ? 'is-active' : ''
                           }`}
                         >
                           <button
@@ -233,7 +233,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                               style={{ backgroundColor: app.accentColor }}
                             />
                             <div>
-                              <div className="text-xs font-semibold text-white">
+                              <div className="nav-app-title text-xs font-semibold text-white">
                                 {app.name}{' '}
                                 <span className="text-[10px] font-normal text-zinc-400">
                                   v{app.version}
@@ -255,7 +255,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                             target="_blank"
                             rel="noopener noreferrer"
                             title={`Otwórz ${app.name}`}
-                            className="ml-2 rounded-lg bg-white/5 p-1.5 text-zinc-300 hover:bg-amber-500/20 hover:text-amber-300"
+                            className="nav-app-ext ml-2 rounded-lg p-1.5 text-zinc-300 transition-all duration-150"
                           >
                             <ExternalLink className="h-3.5 w-3.5" />
                           </a>
