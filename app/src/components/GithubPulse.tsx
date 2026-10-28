@@ -42,9 +42,13 @@ function classifyCommitMessagePl(msg: string): string {
 
 interface GithubPulseProps {
   activeAppName?: string;
+  onLatestAppDetected?: (appName: string) => void;
 }
 
-export const GithubPulse: React.FC<GithubPulseProps> = ({ activeAppName = 'SolidCraft' }) => {
+export const GithubPulse: React.FC<GithubPulseProps> = ({
+  activeAppName = 'VectorCraft',
+  onLatestAppDetected,
+}) => {
   const [commits, setCommits] = useState<CommitEntry[]>(INITIAL_COMMITS);
   const [filterApp, setFilterApp] = useState<string>(activeAppName);
   const [showAllFourteen, setShowAllFourteen] = useState<boolean>(false);
@@ -131,6 +135,10 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({ activeAppName = 'Solid
         }
         merged.sort((a, b) => (b.date > a.date ? 1 : -1));
         setCommits(merged);
+        const latestPl = merged.find((c) => c.isPolishBuild && c.appName !== 'Portal PL');
+        if (latestPl && onLatestAppDetected) {
+          onLatestAppDetected(latestPl.appName);
+        }
         setLastFetched(`Pobrano na żywo z GitHub API (${new Date().toLocaleTimeString('pl-PL')})`);
       } else {
         setLastFetched('Zestaw zsynchronizowany z lokalnymi repozytoriami git');

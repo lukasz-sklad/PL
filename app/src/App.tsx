@@ -152,9 +152,10 @@ export function resolveAppFromLocation(): CraftApp | undefined {
 }
 
 export function getDefaultAppByLatestCommit(): CraftApp {
-  // Sort initial commits by date descending to ensure the most recent is first
+  // Sort initial commits by date descending to ensure the most recent Polish build is first
   const sorted = [...INITIAL_COMMITS].sort((a, b) => (b.date > a.date ? 1 : -1));
   for (const commit of sorted) {
+    if (!commit.isPolishBuild) continue;
     const match = CRAFT_APPS.find(
       (a) =>
         a.name.toLowerCase() === commit.appName.toLowerCase() ||
@@ -162,10 +163,11 @@ export function getDefaultAppByLatestCommit(): CraftApp {
     );
     if (match) return match;
   }
-  return CRAFT_APPS.find((a) => a.id === 'solidcraft') || CRAFT_APPS[0];
+  return CRAFT_APPS.find((a) => a.id === 'vectorcraft') || CRAFT_APPS[0];
 }
 
 export function App() {
+  const [userSelectedApp, setUserSelectedApp] = useState<boolean>(() => Boolean(resolveAppFromLocation()));
   const [activeApp, setActiveApp] = useState<CraftApp>(() => {
     const fromUrl = resolveAppFromLocation();
     if (fromUrl) return fromUrl;
@@ -200,6 +202,7 @@ export function App() {
   }, []);
 
   const handleSelectApp = useCallback((app: CraftApp) => {
+    setUserSelectedApp(true);
     setActiveApp(app);
     const slug = APP_CANONICAL_SLUGS[app.id] || app.id;
     const currentSegments = window.location.pathname.toLowerCase().split('/').filter(Boolean);
@@ -235,7 +238,21 @@ export function App() {
         <AppDirectory onSelectApp={handleSelectApp} />
         <ManifestoSection />
         <UrlWizard />
-        <GithubPulse activeAppName={activeApp.name} />
+        <GithubPulse
+          activeAppName={activeApp.name}
+          onLatestAppDetected={(appName) => {
+            if (!userSelectedApp && !resolveAppFromLocation()) {
+              const match = CRAFT_APPS.find(
+                (a) =>
+                  a.name.toLowerCase() === appName.toLowerCase() ||
+                  a.id.toLowerCase() === appName.toLowerCase()
+              );
+              if (match && match.id !== activeApp.id) {
+                setActiveApp(match);
+              }
+            }
+          }}
+        />
         <VisualizationsHub />
         <ReactTechSection />
       </main>
