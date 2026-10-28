@@ -229,3 +229,36 @@ html[data-theme="sepia"] select {
 ::-webkit-scrollbar-thumb:hover {
   background: #45484d;
 }
+
+/* =========================================================
+   UŁATWIENIA DOSTĘPU (WCAG / ACCESSIBILITY)
+   ========================================================= */
+html[data-a11y-contrast] body {
+  contrast: 1.25;
+}
+html[data-a11y-contrast] * {
+  border-color: rgba(250, 204, 21, 0.55) !important;
+}
+html[data-a11y-dyslexia] body {
+  letter-spacing: 0.035em !important;
+  word-spacing: 0.08em !important;
+  line-height: 1.75 !important;
+}
+html[data-a11y-links] a {
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+}
+html[data-a11y-focus] *:focus-visible,
+html[data-a11y-focus] button:focus,
+html[data-a11y-focus] a:focus {
+  outline: 3px solid #f59e0b !important;
+  outline-offset: 2px !important;
+}
+html[data-a11y-motion] *,
+html[data-a11y-motion] *::before,
+html[data-a11y-motion] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
