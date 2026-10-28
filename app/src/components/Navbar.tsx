@@ -183,7 +183,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="inline-flex h-8 items-center justify-center rounded-[10px] border border-white/12 bg-white/[0.04] px-3 text-[13px] font-extrabold tracking-tight text-white transition hover:border-amber-500/40 hover:bg-white/[0.08]"
+              className="nav-top-btn inline-flex h-8 items-center justify-center rounded-[10px] border border-white/12 bg-white/[0.04] px-3 text-[13px] font-extrabold tracking-tight text-white transition hover:border-amber-500/40 hover:bg-white/[0.08]"
             >
               Craft
             </button>
@@ -193,7 +193,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 type="button"
                 onClick={() => setDropdownOpen((v) => !v)}
-                className="inline-flex h-8 items-center gap-1.5 rounded-[10px] border border-white/12 bg-white/[0.04] px-3 text-xs font-semibold text-zinc-200 transition hover:border-amber-500/40 hover:bg-white/[0.08] hover:text-white"
+                className="nav-top-btn inline-flex h-8 items-center gap-1.5 rounded-[10px] border border-white/12 bg-white/[0.04] px-3 text-xs font-semibold text-zinc-200 transition hover:border-amber-500/40 hover:bg-white/[0.08] hover:text-white"
               >
                 <span
                   className="h-2 w-2 rounded-full"
@@ -282,9 +282,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       href={item.href}
                       onClick={() => setActiveHash(item.href)}
                       className={`nav-menu-item inline-flex h-[30px] items-center justify-center rounded-[9px] px-3 text-[12.5px] font-semibold tracking-[-0.01em] transition-all duration-150 ${
-                        isActive
-                          ? 'bg-white/12 text-white shadow-[0_2px_8px_rgba(0,0,0,0.22)]'
-                          : 'text-zinc-300 hover:bg-white/[0.08] hover:text-white'
+                        isActive ? 'is-active' : ''
                       }`}
                     >
                       {item.label}
@@ -462,9 +460,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 title="Motyw Sepia (w programie: Średni szary + Ciemnoszare płótno)"
                 aria-label="Motyw Sepia"
                 aria-pressed={theme === 'sepia'}
-                className={`inline-flex h-7 w-7 items-center justify-center rounded-[9px] transition-all duration-150 ${
+                className={`nav-theme-btn inline-flex h-7 w-7 items-center justify-center rounded-[9px] transition-all duration-150 ${
                   theme === 'sepia'
-                    ? 'bg-amber-500 text-zinc-950 shadow-[0_0_12px_rgba(245,158,11,0.5)]'
+                    ? 'is-active bg-amber-500 text-zinc-950 shadow-[0_0_12px_rgba(245,158,11,0.5)]'
                     : 'text-zinc-300 hover:bg-amber-500/20 hover:text-amber-300 hover:shadow-[0_0_10px_rgba(245,158,11,0.3)]'
                 }`}
               >
@@ -476,9 +474,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 title="Motyw Jasny (w programie: Jasny + Średnioszare płótno)"
                 aria-label="Motyw Jasny"
                 aria-pressed={theme === 'light'}
-                className={`inline-flex h-7 w-7 items-center justify-center rounded-[9px] transition-all duration-150 ${
+                className={`nav-theme-btn inline-flex h-7 w-7 items-center justify-center rounded-[9px] transition-all duration-150 ${
                   theme === 'light'
-                    ? 'bg-amber-500 text-zinc-950 shadow-[0_0_12px_rgba(245,158,11,0.5)]'
+                    ? 'is-active bg-amber-500 text-zinc-950 shadow-[0_0_12px_rgba(245,158,11,0.5)]'
                     : 'text-zinc-300 hover:bg-amber-500/20 hover:text-amber-300 hover:shadow-[0_0_10px_rgba(245,158,11,0.3)]'
                 }`}
               >
@@ -490,9 +488,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 title="Motyw Ciemny (w programie: Ciemno + Ciemnoszare płótno)"
                 aria-label="Motyw Ciemny"
                 aria-pressed={theme === 'dark'}
-                className={`inline-flex h-7 w-7 items-center justify-center rounded-[9px] transition-all duration-150 ${
+                className={`nav-theme-btn inline-flex h-7 w-7 items-center justify-center rounded-[9px] transition-all duration-150 ${
                   theme === 'dark'
-                    ? 'bg-amber-500 text-zinc-950 shadow-[0_0_12px_rgba(245,158,11,0.5)]'
+                    ? 'is-active bg-amber-500 text-zinc-950 shadow-[0_0_12px_rgba(245,158,11,0.5)]'
                     : 'text-zinc-300 hover:bg-amber-500/20 hover:text-amber-300 hover:shadow-[0_0_10px_rgba(245,158,11,0.3)]'
                 }`}
               >
