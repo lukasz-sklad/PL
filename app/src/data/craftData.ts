@@ -41,7 +41,7 @@ export const CRAFT_APPS: CraftApp[] = [
     name: 'VectorCraft',
     taglinePl: 'Grafika wektorowa, ilustracje, DTP i obsługa plików CorelDRAW (.cdr)',
     replaces: 'Adobe Illustrator / CorelDRAW',
-    version: '0.11.0',
+    version: '0.17.0',
     primaryUrl: 'https://corel.lmk.one/',
     altUrls: [
       { label: 'corel.lmk.one (Domyślnie: Herb Zawiercia .cdr)', url: 'https://corel.lmk.one/' },
@@ -777,77 +777,6 @@ export const CRAFT_APPS: CraftApp[] = [
       { key: 'Ctrl+S', action: 'Zapisz projekt (.solidcraft)', category: 'Plik' },
     ],
   },
-  {
-    id: 'craft-ai',
-    name: 'Craft AI',
-    taglinePl: 'Zunifikowany Hub Modeli i Narzędzi AI: SAM 3, FLUX, DALL-E 3, Gemini, ComfyUI dla ekosystemu *craft',
-    replaces: 'Adobe Firefly / Midjourney / ComfyUI / AI Hub',
-    version: '0.1.0',
-    primaryUrl: 'https://ai.lmk.one/',
-    displayDomain: 'ai.lmk.one',
-    altUrls: [
-      { label: 'ai.lmk.one (Domyślnie: PL + Ciemny motyw)', url: 'https://ai.lmk.one/' },
-      { label: 'Zaznaczanie obiektu SAM 3 (?tool=select-subject)', url: 'https://ai.lmk.one/?tool=select-subject' },
-      { label: 'Generowanie obrazu FLUX (?tool=generate-image)', url: 'https://ai.lmk.one/?tool=generate-image' },
-      { label: 'Centrum połączeń i kluczy (?tool=connections)', url: 'https://ai.lmk.one/?tool=connections' },
-      { label: 'lmk.one/ai', url: 'https://lmk.one/ai' },
-    ],
-    upstreamRepo: 'storytold/craft-ai-integrations',
-    plWebRepo: 'lukasz-sklad/ai-web',
-    accentColor: '#A855F7',
-    badgeBg: 'bg-purple-500/15 border-purple-500/40',
-    badgeText: 'text-purple-300',
-    gradientFrom: 'from-purple-500/20',
-    gradientTo: 'to-indigo-600/5',
-    translatedStrings: 420,
-    parityPercent: 88,
-    wasmSizeCompressedMb: '2,0 MB (gzip)',
-    defaultStateNote: 'Polski interfejs (PL) + Ciemny motyw + Selektywne uruchamianie + Bezpieczne klucze w LocalStorage',
-    urlParams: [
-      {
-        label: 'Wybór aktywnego narzędzia (?tool=)',
-        exampleUrl: 'https://ai.lmk.one/?tool=select-subject',
-        description: 'Automatycznie przełącza widok na wybrane narzędzie (np. select-subject, generate-image, remove-background, connections, history).',
-      },
-      {
-        label: 'Wybór modelu AI (?model=)',
-        exampleUrl: 'https://ai.lmk.one/?model=flux-1.1-pro',
-        description: 'Wstępnie ustawia model w selektorze (np. sam3, flux-1.1-pro, dall-e-3, imagen-3, seedance-v1).',
-      },
-      {
-        label: 'Kontekst programu docelowego (?app=)',
-        exampleUrl: 'https://ai.lmk.one/?app=photocraft',
-        description: 'Filtruje i konfiguruje narzędzia pod konkretny program z rodziny *craft (photocraft, vectorcraft, filmcraft, figcraft itd.).',
-      },
-      {
-        label: 'Przekazanie początkowego promptu (?prompt=)',
-        exampleUrl: 'https://ai.lmk.one/?prompt=cyberpunk+cat',
-        description: 'Wypełnia pole promptu tekstem przekazanym w parametrze adresu URL.',
-      },
-      {
-        label: 'Wymuszenie motywu (?theme=light|dark|sepia)',
-        exampleUrl: 'https://ai.lmk.one/?theme=dark',
-        description: 'Ustawia motyw graficzny: ciemny, jasny lub sepię (zsynchronizowany z portalem).',
-      },
-    ],
-    formats: ['JSON (Shared Store Schema v1)', 'CSV (Dziennik audytu)', 'PNG (Maska / Obraz)', 'SVG (Wektory)', 'Safetensors (Wagi SAM 3)'],
-    highlights: [
-      'Wspólna konfiguracja modeli i narzędzi dla wszystkich aplikacji *craft — konfigurujesz raz, używasz wszędzie',
-      'Wsparcie dla lokalnego ComfyUI z segmentacją Meta SAM 3 (wagi 3,45 GB na GPU bez wycieku do chmury)',
-      'Obsługa czołowych dostawców chmurowych: OpenAI (DALL-E 3, GPT-4o), Google Gemini / Vertex, BFL FLUX 1.1 Pro oraz BytePlus Seedance',
-      'Prywatność zero-leakage: wszystkie klucze API i ustawienia przechowywane wyłącznie w LocalStorage przeglądarki',
-      'Pełna responsywność, obsługa postMessage({type: "set_theme"}) oraz bogaty dziennik audytu z eksportem CSV',
-    ],
-    sampleFileUrl: 'https://ai.lmk.one/',
-    shortcuts: [
-      { key: 'Ctrl+Enter', action: 'Uruchom aktywne zadanie AI', category: 'Wykonanie' },
-      { key: 'Esc', action: 'Anuluj trwające zadanie', category: 'Wykonanie' },
-      { key: '1–8', action: 'Szybki wybór narzędzia z paska', category: 'Nawigacja' },
-      { key: 'P', action: 'Przejdź do pola promptu', category: 'Edycja' },
-      { key: 'S', action: 'Przejdź do ustawień i kluczy API', category: 'Nawigacja' },
-      { key: 'H', action: 'Otwórz dziennik audytu i zadań', category: 'Nawigacja' },
-    ],
-  },
 ];
 
 export interface SiblingCraftApp {
@@ -916,14 +845,14 @@ export interface CommitEntry {
 
 export const INITIAL_COMMITS: CommitEntry[] = [
   {
-    sha: 'cf3294d',
-    repo: 'lukasz-sklad/ai-web',
-    appName: 'Craft AI',
+    sha: '9997ff0',
+    repo: 'lukasz-sklad/corel-web',
+    appName: 'VectorCraft',
     author: 'Lucas',
-    date: '2026-10-20',
-    message: 'feat: Pierwsze wydanie Craft AI Web (WASM) — uniwersalny hub modeli AI, SAM 3, FLUX, motywy i język polski',
+    date: '2026-10-28',
+    message: 'feat(cdr): Wersja 0.17.0 PL — wielostronicowe pliki .cdr (Artboards), tekst akapitowy Unicode, bitmapy i profile motywów',
     categoryPl: 'Wydanie Web',
-    url: 'https://github.com/lukasz-sklad/ai-web/commit/cf3294d',
+    url: 'https://github.com/lukasz-sklad/corel-web',
     isPolishBuild: true,
   },
   {
