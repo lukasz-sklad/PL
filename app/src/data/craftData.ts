@@ -915,14 +915,14 @@ export interface CommitEntry {
 
 export const INITIAL_COMMITS: CommitEntry[] = [
   {
-    sha: '2a7be6c',
+    sha: '83f2f89',
     repo: 'lukasz-sklad/effect-web',
     appName: 'EffectCraft',
     author: 'Lucas',
     date: '2026-10-29',
-    message: 'feat(i18n): dodanie pełnego języka polskiego i domyślny start w pl',
+    message: 'feat(theme): obsługa motywu systemowego w locie (jasny, ciemny, sepia z delikatnym przyciemnieniem) oraz poprawka tłumaczenia Jasny',
     categoryPl: 'Polskie Wydanie & Web',
-    url: 'https://github.com/lukasz-sklad/effect-web/commit/2a7be6c',
+    url: 'https://github.com/lukasz-sklad/effect-web/commit/83f2f89',
     isPolishBuild: true,
   },
   {
