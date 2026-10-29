@@ -21,6 +21,7 @@ export const APP_CANONICAL_SLUGS: Record<string, string> = {
   deckcraft: 'deck',
   pdfcraft: 'pdf',
   filmcraft: 'film',
+  effectcraft: 'effect',
   soundcraft: 'sound',
   lightcraft: 'light',
   designcraft: 'design',
@@ -86,6 +87,15 @@ export const APP_ALIASES: Record<string, string> = {
   video: 'filmcraft',
   premiere: 'filmcraft',
   filmcraft: 'filmcraft',
+
+  // EffectCraft (After Effects / VFX / Motion)
+  effect: 'effectcraft',
+  effects: 'effectcraft',
+  ae: 'effectcraft',
+  vfx: 'effectcraft',
+  motion: 'effectcraft',
+  aftereffects: 'effectcraft',
+  effectcraft: 'effectcraft',
 
   // SoundCraft
   sound: 'soundcraft',

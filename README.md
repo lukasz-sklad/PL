@@ -17,6 +17,7 @@ Polski portal i interaktywna stacja robocza zbierająca w jednym miejscu wszystk
 | **WordCraft** | Microsoft Word (`.docx`) | [wordcraft.lmk.one](https://wordcraft.lmk.one/) | **2 624** |
 | **GridCraft** | Microsoft Excel (`.xlsx`) | [excel.lmk.one](https://excel.lmk.one/) • [gridcraft.lmk.one](https://gridcraft.lmk.one/) | **541** |
 | **FilmCraft** | Adobe Premiere Pro (`.fcproj`, `.mp4`) | [film.lmk.one](https://film.lmk.one/) • [?webgl](https://film.lmk.one/?webgl) | **477** |
+| **EffectCraft** | Adobe After Effects (`.ecproj`) | [effect.lmk.one](https://effect.lmk.one/) • [?empty](https://effect.lmk.one/?empty) | **1 147** |
 | **DeckCraft** | Microsoft PowerPoint (`.pptx`) | [powerpoint.lmk.one](https://powerpoint.lmk.one/) | **251** |
 
 ---

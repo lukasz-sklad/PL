@@ -210,6 +210,76 @@ export const CRAFT_APPS: CraftApp[] = [
     ],
   },
   {
+    id: 'effectcraft',
+    name: 'EffectCraft',
+    taglinePl: 'Animacja grafiki (Motion Graphics), kompozycja wielowarstwowa 2D/3D i efekty wizualne (VFX)',
+    replaces: 'Adobe After Effects',
+    version: '0.18.0',
+    primaryUrl: 'https://effect.lmk.one/',
+    altUrls: [
+      { label: 'effect.lmk.one', url: 'https://effect.lmk.one/' },
+      { label: 'Czysty projekt (?empty)', url: 'https://effect.lmk.one/?empty' },
+      { label: 'Tryb WebGL2 (?webgl)', url: 'https://effect.lmk.one/?webgl' },
+      { label: 'lmk.one/effect', url: 'https://lmk.one/effect' },
+      { label: 'lmk.one/effectcraft', url: 'https://lmk.one/effectcraft' },
+    ],
+    upstreamRepo: 'storytold/effectcraft',
+    plWebRepo: 'lukasz-sklad/effect-web',
+    accentColor: '#818CF8',
+    badgeBg: 'bg-indigo-500/15 border-indigo-500/40',
+    badgeText: 'text-indigo-300',
+    gradientFrom: 'from-indigo-500/20',
+    gradientTo: 'to-purple-600/5',
+    translatedStrings: 1147,
+    parityPercent: 88,
+    wasmSizeCompressedMb: '19,1 MB (gzip)',
+    defaultStateNote: 'Polski interfejs (PL) + Ciemny motyw Dark + Kompozycja wielowarstwowa, kamery 3D i efekty',
+    urlParams: [
+      {
+        label: 'Domyślny kompozytor EffectCraft PL',
+        exampleUrl: 'https://effect.lmk.one/',
+        description: 'Uruchamia kompozytor grafiki ruchomej i efektów po polsku z osią czasu, podglądem i panelami.',
+      },
+      {
+        label: 'Czysty pusty projekt (?empty)',
+        exampleUrl: 'https://effect.lmk.one/?empty',
+        description: 'Otwiera nowy, czysty projekt bez wczytywania domyślnych kompozycji.',
+      },
+      {
+        label: 'Otwórz projekt lub wideo z URL (?file=)',
+        exampleUrl: 'https://effect.lmk.one/?file=https://twoj-serwer.pl/animacja.ecproj',
+        description: 'Pobiera i importuje projekt .ecproj lub pliki mediów bezpośrednio przez mostek CORS.',
+      },
+      {
+        label: 'Wymuś backend WebGL2 (?webgl)',
+        exampleUrl: 'https://effect.lmk.one/?webgl',
+        description: 'Tryb maksymalnej kompatybilności dla starszych kart i przeglądarek bez wsparcia WebGPU.',
+      },
+    ],
+    formats: ['.ecproj', '.mp4 (H.264/HEVC/AV1)', '.mov', '.webm', '.png / .exr / .tiff (sekwencje)', '.wav / .mp3 / .opus', '.json / .mgsk'],
+    highlights: [
+      'Wielowarstwowa kompozycja 2D/3D z kamerami perspektywicznymi, światłami i trybami mieszania',
+      'Klatki kluczowe (Keyframes) z edytorem krzywych wartości i prędkości (Graph Editor)',
+      'Rozbudowany silnik efektów cząsteczkowych, zniekształceń, masek Béziera, kluczowania i generatorów',
+      'Kompletny polski interfejs (ponad 1 140 przetłumaczonych fraz menu i paneli)',
+    ],
+    sampleFileUrl: 'https://effect.lmk.one/?empty',
+    shortcuts: [
+      { key: 'V', action: 'Narzędzie Zaznaczanie (Selection)', category: 'Narzędzia' },
+      { key: 'H', action: 'Rączka (Hand) – przesuwanie kadru kompozycji', category: 'Narzędzia' },
+      { key: 'Z', action: 'Lupa (Zoom) – powiększanie podglądu', category: 'Narzędzia' },
+      { key: 'W', action: 'Narzędzie Obrót (Rotation)', category: 'Narzędzia' },
+      { key: 'C', action: 'Narzędzie Kamera (Camera Tool)', category: 'Kamera 3D' },
+      { key: 'G', action: 'Pióro (Pen) – rysowanie masek i ścieżek kształtu', category: 'Maski i kształty' },
+      { key: 'Ctrl+N', action: 'Nowa kompozycja (New Composition)', category: 'Projekt' },
+      { key: 'Ctrl+Y', action: 'Nowa warstwa pełna (Solid Layer)', category: 'Warstwy' },
+      { key: 'Ctrl+K', action: 'Ustawienia kompozycji (Composition Settings)', category: 'Kompozycja' },
+      { key: 'Spacja', action: 'Odtwarzanie podglądu w czasie rzeczywistym', category: 'Podgląd' },
+      { key: 'P / S / R / T', action: 'Rozwiń Pozycję / Skalę / Obrót / Przezroczystość warstwy', category: 'Oś czasu' },
+      { key: 'F9', action: 'Łagodne przejście klatek (Easy Ease)', category: 'Klatki kluczowe' },
+    ],
+  },
+  {
     id: 'wordcraft',
     name: 'WordCraft',
     taglinePl: 'Edytor tekstu i dokumentów biurowych (.docx, .odt, .md) ze stylami i tabelami',
@@ -824,10 +894,10 @@ export const SIBLING_APPS: SiblingCraftApp[] = [
   {
     name: 'EffectCraft',
     replaces: 'Adobe After Effects',
-    version: '0.6.0',
-    descriptionPl: 'Motion design, animacja kompozycyjna, efekty wizualne (VFX) i kluczowanie.',
+    version: '0.18.0',
+    descriptionPl: 'Wdrożono: wydanie v0.18.0, pełne spolszczenie UI/menu (1 147 fraz), effect.lmk.one.',
     upstreamRepo: 'storytold/effectcraft',
-    statusPl: 'Lokalnie w katalogu /app/effectcraft',
+    statusPl: 'Wersja 0.18.0 wdrożona na effect.lmk.one',
   },
 ];
 
@@ -844,6 +914,17 @@ export interface CommitEntry {
 }
 
 export const INITIAL_COMMITS: CommitEntry[] = [
+  {
+    sha: '2a7be6c',
+    repo: 'lukasz-sklad/effect-web',
+    appName: 'EffectCraft',
+    author: 'Lucas',
+    date: '2026-10-29',
+    message: 'feat(i18n): dodanie pełnego języka polskiego i domyślny start w pl',
+    categoryPl: 'Polskie Wydanie & Web',
+    url: 'https://github.com/lukasz-sklad/effect-web/commit/2a7be6c',
+    isPolishBuild: true,
+  },
   {
     sha: '9997ff0',
     repo: 'lukasz-sklad/corel-web',

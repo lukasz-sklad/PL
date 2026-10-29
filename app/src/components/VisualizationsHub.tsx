@@ -39,7 +39,7 @@ export const VisualizationsHub: React.FC = () => {
                   Liczba przetłumaczonych fraz w plikach pl.tsv / pl.rs
                 </h3>
                 <span className="rounded-full bg-amber-500/15 px-2.5 py-0.5 font-mono text-xs font-bold text-amber-300">
-                  Razem: 12 290 fraz
+                  Razem: {CRAFT_APPS.reduce((sum, a) => sum + a.translatedStrings, 0).toLocaleString('pl-PL')} fraz
                 </span>
               </div>
               <p className="mt-1 text-xs text-zinc-400">

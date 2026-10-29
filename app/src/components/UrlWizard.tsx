@@ -28,6 +28,11 @@ const PRESET_FILES = [
     fileUrl: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
   },
   {
+    label: 'Animacja i efekty (.ecproj w EffectCraft)',
+    appId: 'effectcraft',
+    fileUrl: 'https://effect.lmk.one/?empty',
+  },
+  {
     label: 'Grafika rastrowa (.png w PhotoCraft)',
     appId: 'photocraft',
     fileUrl: 'https://photocraft.lmk.one/favicon.png',
@@ -54,6 +59,9 @@ export const UrlWizard: React.FC = () => {
     }
     if (lower.endsWith('.mp4') || lower.endsWith('.mov') || lower.endsWith('.webm') || lower.endsWith('.mkv') || lower.endsWith('.fcproj')) {
       return CRAFT_APPS.find((a) => a.id === 'filmcraft')!;
+    }
+    if (lower.endsWith('.ecproj') || lower.endsWith('.mgsk')) {
+      return CRAFT_APPS.find((a) => a.id === 'effectcraft')!;
     }
     if (lower.endsWith('.psd') || lower.endsWith('.xcf') || lower.endsWith('.png') || lower.endsWith('.jpg') || lower.endsWith('.webp')) {
       return CRAFT_APPS.find((a) => a.id === 'photocraft')!;

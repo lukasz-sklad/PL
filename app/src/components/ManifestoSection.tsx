@@ -50,6 +50,14 @@ const TRANSLATION_CASES: TranslationCase[] = [
     story:
       'Każdy, kto liczył cokolwiek w polskim arkuszu kalkulacyjnym, szuka „Tabeli przestawnej” oraz „Mikrowykresów w komórce”.',
   },
+  {
+    app: 'EffectCraft (Kompozycja & Animacja)',
+    english: 'Easy Ease & Graph Editor',
+    badLiteral: 'Łatwe złagodzenie i Edytor grafu',
+    naturalPolish: 'Łagodne przejście i Edytor wykresów',
+    story:
+      'W animacji grafiki i motion designie kluczowe pojęcia to Łagodne przejście (Easy Ease dla interpolacji Béziera) oraz Edytor wykresów prędkości i wartości.',
+  },
 ];
 
 export const ManifestoSection: React.FC = () => {
