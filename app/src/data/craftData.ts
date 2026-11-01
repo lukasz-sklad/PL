@@ -920,7 +920,7 @@ export const INITIAL_COMMITS: CommitEntry[] = [
     appName: 'VectorCraft',
     author: 'Lucas',
     date: '2026-11-01',
-    message: 'feat(cdr): Wydanie VectorCraft v0.19.0 — pełna ekstrakcja geometrii krzywych .cdr, import wielostronicowy, offline updates oraz optymalizacje Zen 2/WASM',
+    message: 'Wydanie VectorCraft v0.19.0',
     categoryPl: 'Wydanie Web & Desktop',
     url: 'https://corel.lmk.one',
     isPolishBuild: true,
