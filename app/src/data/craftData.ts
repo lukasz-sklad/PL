@@ -41,7 +41,7 @@ export const CRAFT_APPS: CraftApp[] = [
     name: 'VectorCraft',
     taglinePl: 'Grafika wektorowa, ilustracje, DTP i obsługa plików CorelDRAW (.cdr)',
     replaces: 'Adobe Illustrator / CorelDRAW',
-    version: '0.17.0',
+    version: '0.19.0',
     primaryUrl: 'https://corel.lmk.one/',
     altUrls: [
       { label: 'corel.lmk.one (Domyślnie: Herb Zawiercia .cdr)', url: 'https://corel.lmk.one/' },
@@ -57,8 +57,8 @@ export const CRAFT_APPS: CraftApp[] = [
     gradientFrom: 'from-amber-500/20',
     gradientTo: 'to-orange-600/5',
     translatedStrings: 4653,
-    parityPercent: 93,
-    wasmSizeCompressedMb: '20,1 MB (gzip)',
+    parityPercent: 94,
+    wasmSizeCompressedMb: '28,4 MB (gzip)',
     defaultStateNote: 'Polski interfejs (PL) + Ciemny motyw + Domyślnie otwiera plik zawiercie_logo.cdr',
     urlParams: [
       {
