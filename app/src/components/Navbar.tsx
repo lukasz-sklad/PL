@@ -143,7 +143,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               </span>
               <span>
                 <strong className="font-semibold text-white">Stacja *Craft PL na Telegramie:</strong>{' '}
-                powiadomienia o nowych kompilacjach WASM/Flatpak (VectorCraft 0.17 CDR, PDF, CAD) i szybkie udostępnianie projektów.
+                powiadomienia o nowych kompilacjach WASM/Flatpak (VectorCraft 0.19.0 CDR, PDF, CAD) i szybkie udostępnianie projektów.
               </span>
               <a
                 href={telegramShareHref}

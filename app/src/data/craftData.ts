@@ -915,6 +915,17 @@ export interface CommitEntry {
 
 export const INITIAL_COMMITS: CommitEntry[] = [
   {
+    sha: 'fbc27ba',
+    repo: 'lukasz-sklad/corel-web',
+    appName: 'VectorCraft',
+    author: 'Lucas',
+    date: '2026-11-01',
+    message: 'feat(cdr): Wydanie VectorCraft v0.19.0 — pełna ekstrakcja geometrii krzywych .cdr, import wielostronicowy, offline updates oraz optymalizacje Zen 2/WASM',
+    categoryPl: 'Wydanie Web & Desktop',
+    url: 'https://corel.lmk.one',
+    isPolishBuild: true,
+  },
+  {
     sha: '83f2f89',
     repo: 'lukasz-sklad/effect-web',
     appName: 'EffectCraft',
