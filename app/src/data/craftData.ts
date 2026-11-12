@@ -862,10 +862,10 @@ export const SIBLING_APPS: SiblingCraftApp[] = [
   {
     name: 'WordCraft',
     replaces: 'Microsoft Word / Notatnik / LibreOffice',
-    version: '0.8.0',
-    descriptionPl: 'Wdrożono: wydanie v0.8.0, ciemny motyw startowy (Dark Mode), słownik języka polskiego pl_PL.',
+    version: '0.18.1',
+    descriptionPl: 'Wdrożono: wydanie v0.18.1, ciemny motyw startowy (Dark Mode), słownik języka polskiego pl_PL, 100% spolszczenia.',
     upstreamRepo: 'storytold/wordcraft',
-    statusPl: 'Wersja 0.8.0 wdrożona na wordcraft.lmk.one',
+    statusPl: 'Wersja 0.18.1 wdrożona na wordcraft.lmk.one',
   },
   {
     name: 'FilmCraft',
