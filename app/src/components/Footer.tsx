@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
               <span className="flex h-6 w-6 items-center justify-center rounded-md bg-gradient-to-br from-white via-slate-100 to-red-500 text-[11px] font-extrabold text-zinc-950">
                 PL
               </span>
-              <span className="text-sm font-bold text-white">*Craft PL — Nieoficjalna Edycja</span>
+              <span className="text-sm font-bold text-white">*Craft — Nieoficjalna Edycja</span>
             </div>
             <p className="leading-relaxed text-zinc-400">
               Nieoficjalny polski portal zbierający w jednym miejscu aplikacje z rodziny *Craft.
@@ -213,7 +213,7 @@ export const Footer: React.FC = () => {
 
         <div className="mt-8 flex flex-col items-center justify-between gap-2 border-t border-white/10 pt-6 sm:flex-row">
           <div>
-            © {new Date().getFullYear()} Nieoficjalna Stacja *Craft PL (`craft.lmk.one` / `pl.lmk.one`). Kod na
+            © {new Date().getFullYear()} Nieoficjalna Stacja *Craft (`craft.lmk.one` / `pl.lmk.one`). Kod na
             licencji MIT OR Apache-2.0.
           </div>
           <div className="text-zinc-500">

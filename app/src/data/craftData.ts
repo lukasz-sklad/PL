@@ -42,6 +42,7 @@ export const CRAFT_APPS: CraftApp[] = [
   {
     id: 'vectorcraft',
     name: 'VectorCraft',
+    menuName: 'Vector',
     taglinePl: 'Grafika wektorowa, ilustracje, DTP i obsługa plików CorelDRAW (.cdr)',
     replaces: 'Adobe Illustrator / CorelDRAW',
     version: '0.19.0',
@@ -102,6 +103,7 @@ export const CRAFT_APPS: CraftApp[] = [
   {
     id: 'photocraft',
     name: 'PhotoCraft',
+    menuName: 'Photo',
     taglinePl: 'Zaawansowana edycja zdjęć, fotomontaż, warstwy i obsługa plików PSD',
     replaces: 'Adobe Photoshop / GIMP',
     version: '0.9.0',
@@ -155,6 +157,7 @@ export const CRAFT_APPS: CraftApp[] = [
   {
     id: 'filmcraft',
     name: 'FilmCraft',
+    menuName: 'Film',
     taglinePl: 'Nieliniowy montaż wideo (NLE), korekcja barwna Lumetri, wielościeżkowe audio i efekty',
     replaces: 'Adobe Premiere Pro / DaVinci Resolve',
     version: '0.8.0',
@@ -215,6 +218,7 @@ export const CRAFT_APPS: CraftApp[] = [
   {
     id: 'effectcraft',
     name: 'EffectCraft',
+    menuName: 'Effect',
     taglinePl: 'Animacja grafiki (Motion Graphics), kompozycja wielowarstwowa 2D/3D i efekty wizualne (VFX)',
     replaces: 'Adobe After Effects',
     version: '0.18.0',
@@ -285,6 +289,7 @@ export const CRAFT_APPS: CraftApp[] = [
   {
     id: 'wordcraft',
     name: 'WordCraft',
+    menuName: 'Word',
     taglinePl: 'Edytor tekstu i dokumentów biurowych (.docx, .odt, .md) ze stylami i tabelami',
     replaces: 'Microsoft Word / LibreOffice Writer',
     version: '0.18.1',
@@ -333,6 +338,7 @@ export const CRAFT_APPS: CraftApp[] = [
   {
     id: 'gridcraft',
     name: 'GridCraft',
+    menuName: 'Grid',
     taglinePl: 'Arkusze kalkulacyjne (.xlsx, .csv), setki formuł, tabele przestawne i wykresy',
     replaces: 'Microsoft Excel / LibreOffice Calc',
     version: '0.7.0',
@@ -381,6 +387,7 @@ export const CRAFT_APPS: CraftApp[] = [
   {
     id: 'deckcraft',
     name: 'DeckCraft',
+    menuName: 'Deck',
     taglinePl: 'Prezentacje multimedialne (.pptx), animacje slajdów, wzorce i widok prezentera',
     replaces: 'Microsoft PowerPoint / Keynote',
     version: '0.7.0',
@@ -427,6 +434,7 @@ export const CRAFT_APPS: CraftApp[] = [
   {
     id: 'pdfcraft',
     name: 'PDFCraft',
+    menuName: 'PDF',
     taglinePl: 'Edytor dokumentów PDF, OCR, formularze, podpisy i polski syntezator mowy Lektor TTS',
     replaces: 'Adobe Acrobat Pro',
     version: '0.8.0',
@@ -484,6 +492,7 @@ export const CRAFT_APPS: CraftApp[] = [
   {
     id: 'designcraft',
     name: 'DesignCraft',
+    menuName: 'Design',
     taglinePl: 'Skład DTP publikacji, książek, czasopism, katalogów i obsługa pakietów InDesign (.idml)',
     replaces: 'Adobe InDesign / QuarkXPress',
     version: '0.4.0',
@@ -560,6 +569,7 @@ export const CRAFT_APPS: CraftApp[] = [
   {
     id: 'lightcraft',
     name: 'LightCraft',
+    menuName: 'Light',
     taglinePl: 'Nieniszczące wywoływanie RAW, zaawansowana korekcja tonalna, retusz i katalog zdjęć',
     replaces: 'Adobe Lightroom / Darktable',
     version: '0.8.0',
@@ -622,6 +632,7 @@ export const CRAFT_APPS: CraftApp[] = [
   {
     id: 'figcraft',
     name: 'FigCraft',
+    menuName: 'Fig',
     taglinePl: 'Nowoczesne projektowanie interfejsów UI/UX, wektorowe prototypowanie i obsługa plików Figma',
     replaces: 'Figma / Sketch / Penpot',
     version: '0.7.0',
@@ -690,6 +701,7 @@ export const CRAFT_APPS: CraftApp[] = [
   {
     id: 'soundcraft',
     name: 'SoundCraft',
+    menuName: 'Sound',
     taglinePl: 'Cyfrowa stacja robocza audio (DAW), edycja wielościeżkowa, syntezatory, mikser i mastering',
     replaces: 'Avid Pro Tools / Reaper / Audition',
     version: '0.9.0',
@@ -755,6 +767,7 @@ export const CRAFT_APPS: CraftApp[] = [
   {
     id: 'solidcraft',
     name: 'SolidCraft',
+    menuName: 'Solid',
     taglinePl: 'Modelowanie parametryczne CAD 3D, bryły inżynierskie, eksport STL i obsługa STEP',
     replaces: 'Autodesk Fusion 360 / SolidWorks / FreeCAD',
     version: '0.15.0',
