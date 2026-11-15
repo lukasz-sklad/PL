@@ -37,6 +37,11 @@ const PRESET_FILES = [
     appId: 'photocraft',
     fileUrl: 'https://photocraft.lmk.one/favicon.png',
   },
+  {
+    label: 'Inspektor binariów ELF64 (?sample w Craft Anything)',
+    appId: 'craftanything',
+    fileUrl: 'https://anything.lmk.one/?sample',
+  },
 ];
 
 export const UrlWizard: React.FC = () => {
@@ -108,6 +113,20 @@ export const UrlWizard: React.FC = () => {
       lower.endsWith('.fcstd')
     ) {
       return CRAFT_APPS.find((a) => a.id === 'solidcraft') || CRAFT_APPS[0];
+    }
+    if (
+      lower.endsWith('.elf') ||
+      lower.endsWith('.so') ||
+      lower.endsWith('.exe') ||
+      lower.endsWith('.dll') ||
+      lower.endsWith('.dylib') ||
+      lower.endsWith('.wasm') ||
+      lower.endsWith('.dex') ||
+      lower.endsWith('.apk') ||
+      lower.endsWith('.ipa') ||
+      lower.endsWith('.asar')
+    ) {
+      return CRAFT_APPS.find((a) => a.id === 'craftanything') || CRAFT_APPS[0];
     }
     return CRAFT_APPS[0];
   }, [inputUrl, selectedAppId]);

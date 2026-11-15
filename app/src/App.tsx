@@ -25,6 +25,7 @@ export const APP_CANONICAL_SLUGS: Record<string, string> = {
   soundcraft: 'sound',
   lightcraft: 'light',
   designcraft: 'design',
+  craftanything: 'anything',
 };
 
 // Aliases accepted from URL pathname, query parameters, or hash
@@ -115,6 +116,14 @@ export const APP_ALIASES: Record<string, string> = {
   idml: 'designcraft',
   dtp: 'designcraft',
   designcraft: 'designcraft',
+
+  // Craft Anything (Reverse engineering / Analiza binariów)
+  anything: 'craftanything',
+  'craft-anything': 'craftanything',
+  craftanything: 'craftanything',
+  elf: 'craftanything',
+  disasm: 'craftanything',
+  re: 'craftanything',
 };
 
 export function resolveAppFromLocation(): CraftApp | undefined {

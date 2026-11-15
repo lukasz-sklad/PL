@@ -76,6 +76,7 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({
         { repo: 'lukasz-sklad/light-web', appName: 'LightCraft', isPl: true },
         { repo: 'lukasz-sklad/deck-web', appName: 'DeckCraft', isPl: true },
         { repo: 'lukasz-sklad/excel-web', appName: 'GridCraft', isPl: true },
+        { repo: 'lukasz-sklad/anything-web', appName: 'Craft Anything', isPl: true },
         { repo: 'lukasz-sklad/PL', appName: 'Portal PL', isPl: true },
         { repo: 'storytold/vectorcraft', appName: 'VectorCraft', isPl: false },
         { repo: 'storytold/photocraft', appName: 'PhotoCraft', isPl: false },
@@ -86,6 +87,7 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({
         { repo: 'storytold/deckcraft', appName: 'DeckCraft', isPl: false },
         { repo: 'storytold/figcraft', appName: 'FigCraft', isPl: false },
         { repo: 'storytold/solidcraft', appName: 'SolidCraft', isPl: false },
+        { repo: 'storytold/craft-anything', appName: 'Craft Anything', isPl: false },
       ];
 
       const results = await Promise.allSettled(

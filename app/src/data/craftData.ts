@@ -847,6 +847,76 @@ export const CRAFT_APPS: CraftApp[] = [
       { key: 'Ctrl+S', action: 'Zapisz projekt (.solidcraft)', category: 'Plik' },
     ],
   },
+  {
+    id: 'craftanything',
+    name: 'Craft Anything',
+    taglinePl: 'Inżynieria wsteczna, dezasemblacja i inspekcja plików binarnych (ELF, PE, Mach-O, WASM, APK, ASAR)',
+    replaces: 'Ghidra / IDA Pro / Binary Ninja / ImHex',
+    version: '0.6.1',
+    primaryUrl: 'https://anything.lmk.one/',
+    displayDomain: 'anything.lmk.one',
+    altUrls: [
+      { label: 'anything.lmk.one (Domyślnie: próbka ELF64 x86_64)', url: 'https://anything.lmk.one/' },
+      { label: 'Czysty inspektor (?new)', url: 'https://anything.lmk.one/?new' },
+      { label: 'Motyw Sepia + Próbka (?sample&theme=sepia)', url: 'https://anything.lmk.one/?sample&theme=sepia' },
+      { label: 'Zgodność WebGL2 (?webgl=1)', url: 'https://anything.lmk.one/?webgl=1' },
+      { label: 'lmk.one/anything', url: 'https://lmk.one/anything' },
+    ],
+    upstreamRepo: 'storytold/craft-anything',
+    plWebRepo: 'lukasz-sklad/anything-web',
+    accentColor: '#14B8A6',
+    badgeBg: 'bg-teal-500/15 border-teal-500/40',
+    badgeText: 'text-teal-300',
+    gradientFrom: 'from-teal-500/20',
+    gradientTo: 'to-emerald-600/5',
+    translatedStrings: 1488,
+    parityPercent: 88,
+    wasmSizeCompressedMb: '2,5 MB (gzip)',
+    defaultStateNote: 'Polski interfejs (PL) + Motywy Dark/Light/Sepia + Próbka syntetycznego ELF64 x86_64 (WebGPU/WebGL2)',
+    urlParams: [
+      {
+        label: 'Analiza pliku z sieci (?file= / ?url=)',
+        exampleUrl: 'https://anything.lmk.one/?file=https://...',
+        description: 'Pobiera plik binarny lub pakiet przez wielopoziomowe proxy CORS i otwiera go automatycznie po starcie inspektora WASM.',
+      },
+      {
+        label: 'Przykładowy program ELF64 (?sample / ?demo)',
+        exampleUrl: 'https://anything.lmk.one/?sample',
+        description: 'Ładuje syntetyczny program testowy Linux ELF64 x86_64 z faktami, sumą SHA-256 i entropią.',
+      },
+      {
+        label: 'Czysty inspektor (?new / ?empty)',
+        exampleUrl: 'https://anything.lmk.one/?new',
+        description: 'Pomija domyślną próbkę i uruchamia czysty ekran upuszczania plików gotowy na własne binarki.',
+      },
+      {
+        label: 'Wybór motywu (?theme=dark|light|sepia)',
+        exampleUrl: 'https://anything.lmk.one/?theme=sepia',
+        description: 'Synchronicznie ustawia motyw bez błysku przed pobraniem WASM i reaguje na komunikaty postMessage.',
+      },
+      {
+        label: 'Język i silnik GPU (?lang=pl|en & ?webgl=1)',
+        exampleUrl: 'https://anything.lmk.one/?lang=pl&webgl=1',
+        description: 'Przełącza interfejs PL/EN oraz pozwala wymusić tryb WebGL2 z automatycznym fallbackiem z WebGPU.',
+      },
+    ],
+    formats: ['.elf / .so (Linux ELF32/64)', '.exe / .dll (Windows PE/COFF)', 'Mach-O (macOS/iOS)', '.wasm (WebAssembly)', '.apk / .dex (Android)', 'app.asar / .jar / .zip'],
+    highlights: [
+      'Rozpoznawanie i analiza binariów (ELF, PE, Mach-O, WASM, DEX, ASAR) w 100% lokalnie w przeglądarce bez wysyłania plików',
+      'Obliczanie sumy SHA-256, entropii (Shannon), architektury, systemu docelowego i ograniczeń pliku binarnego',
+      'Pełne spolszczenie desktopowej wersji Qt/egui (1 488 wpisów pl.tsv) oraz natywna obsługa PL/EN w wersji Web',
+      'Trzy zsynchronizowane motywy (Dark, Light, Sepia), wielopoziomowe CORS i automatyczny fallback WebGPU → WebGL2',
+    ],
+    sampleFileUrl: 'https://anything.lmk.one/?sample',
+    shortcuts: [
+      { key: 'Ctrl+O', action: 'Otwórz plik binarny / pakiet', category: 'Plik' },
+      { key: 'Ctrl+K', action: 'Paleta poleceń / Szybkie wyszukiwanie', category: 'Nawigacja' },
+      { key: 'G', action: 'Przejdź do adresu / offsetu', category: 'Dezasemblacja' },
+      { key: 'X', action: 'Odniesienia krzyżowe (Xrefs)', category: 'Analiza' },
+      { key: 'D', action: 'Deklaracja typu / Dezasemblacja', category: 'Dezasemblacja' },
+      { key: 'Ctrl+F', action: 'Szukaj ciągów i sygnatur', category: 'Analiza' },
+    ],
+  },
 ];
 
 export interface SiblingCraftApp {
@@ -899,6 +969,14 @@ export const SIBLING_APPS: SiblingCraftApp[] = [
     upstreamRepo: 'storytold/effectcraft',
     statusPl: 'Wersja 0.18.0 wdrożona na effect.lmk.one',
   },
+  {
+    name: 'Craft Anything',
+    replaces: 'Ghidra / IDA Pro / ImHex',
+    version: '0.6.1',
+    descriptionPl: 'Wdrożono: v0.6.1 na SteamOS (PGO + Flatpak) i Web WASM z pełną polonizacją (1 488 fraz), 3 motywami oraz analizą ELF/PE/WASM.',
+    upstreamRepo: 'storytold/craft-anything',
+    statusPl: 'Wersja 0.6.1 wdrożona na anything.lmk.one',
+  },
 ];
 
 export interface CommitEntry {
@@ -914,6 +992,17 @@ export interface CommitEntry {
 }
 
 export const INITIAL_COMMITS: CommitEntry[] = [
+  {
+    sha: '45aec1f',
+    repo: 'lukasz-sklad/anything-web',
+    appName: 'Craft Anything',
+    author: 'Lucas',
+    date: '2026-11-15',
+    message: 'Wydanie Craft Anything Web v0.6.1 — pełna polonizacja, motywy Dark/Light/Sepia, parametry URL i WebGPU/WebGL2',
+    categoryPl: 'Wydanie Web & Desktop',
+    url: 'https://anything.lmk.one',
+    isPolishBuild: true,
+  },
   {
     sha: 'fbc27ba',
     repo: 'lukasz-sklad/corel-web',
