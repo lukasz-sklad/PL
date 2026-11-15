@@ -8,6 +8,8 @@ export interface CraftApp {
   id: string;
   name: string; // Oryginalna nazwa, np. VectorCraft
   menuName?: string; // Krótka nazwa w menu nawigacji, jeśli różna od name
+  androidUrl?: string;
+  androidLabel?: string;
   taglinePl: string;
   replaces: string;
   version: string;
@@ -285,7 +287,7 @@ export const CRAFT_APPS: CraftApp[] = [
     name: 'WordCraft',
     taglinePl: 'Edytor tekstu i dokumentów biurowych (.docx, .odt, .md) ze stylami i tabelami',
     replaces: 'Microsoft Word / LibreOffice Writer',
-    version: '0.8.0',
+    version: '0.18.1',
     primaryUrl: 'https://wordcraft.lmk.one/',
     altUrls: [
       { label: 'wordcraft.lmk.one', url: 'https://wordcraft.lmk.one/' },
@@ -293,6 +295,8 @@ export const CRAFT_APPS: CraftApp[] = [
     ],
     upstreamRepo: 'storytold/wordcraft',
     plWebRepo: 'lukasz-sklad/PL',
+    androidUrl: 'https://lukasz-sklad.github.io/docone/',
+    androidLabel: 'DocOne — WordCraft na Androida',
     accentColor: '#0EA5E9',
     badgeBg: 'bg-sky-500/15 border-sky-500/40',
     badgeText: 'text-sky-300',
@@ -755,7 +759,7 @@ export const CRAFT_APPS: CraftApp[] = [
     replaces: 'Autodesk Fusion 360 / SolidWorks / FreeCAD',
     version: '0.15.0',
     primaryUrl: 'https://solid.lmk.one/?url=ceownik_druk3d_10cm.stl&orbit=continuous',
-    displayDomain: 'solidcraft.lmk',
+    displayDomain: 'solidcraft.lmk.one',
     altUrls: [
       { label: 'solid.lmk.one (Ceownik STL + Orbit)', url: 'https://solid.lmk.one/?url=ceownik_druk3d_10cm.stl&orbit=continuous' },
       { label: 'Ciągły obrót + Centrowanie (?orbit=continuous&fit=1)', url: 'https://solid.lmk.one/?url=ceownik_druk3d_10cm.stl&orbit=continuous&fit=1' },

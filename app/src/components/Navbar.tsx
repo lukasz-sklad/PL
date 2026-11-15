@@ -120,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const shareUrl =
     typeof window !== 'undefined' ? window.location.href : 'https://craft.lmk.one';
-  const shareText = `${activeApp.name} v${activeApp.version} PL (${activeApp.replaces}) — polska stacja robocza WebAssembly na craft.lmk.one`;
+  const shareText = `${activeApp.name} v${activeApp.version} PL (${activeApp.replaces}) — nieoficjalna stacja WebAssembly na craft.lmk.one`;
   const telegramShareHref = `https://t.me/share/url?url=${encodeURIComponent(
     shareUrl
   )}&text=${encodeURIComponent(shareText)}`;
@@ -142,8 +142,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                 📣
               </span>
               <span>
-                <strong className="font-semibold text-white">Stacja *Craft PL na Telegramie:</strong>{' '}
-                powiadomienia o nowych kompilacjach WASM/Flatpak (VectorCraft v0.19.0) i szybkie udostępnianie projektów.
+                <strong className="font-semibold text-white">DocOne (WordCraft na Androida) &amp; Telegram:</strong>{' '}
+                mobilna wersja WordCraft dostępna na{' '}
+                <a
+                  href="https://lukasz-sklad.github.io/docone/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-sky-400/60 underline-offset-2 font-semibold text-sky-200 hover:text-white"
+                >
+                  lukasz-sklad.github.io/docone
+                </a>{' '}
+                • szybkie udostępnianie projektów *Craft PL na Telegramie.
               </span>
               <a
                 href={telegramShareHref}
@@ -242,7 +251,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                               <div className="text-[11px] text-zinc-400">
                                 {app.displayDomain ||
                                   (app.id === 'solidcraft'
-                                    ? 'solidcraft.lmk'
+                                    ? 'solidcraft.lmk.one'
                                     : app.primaryUrl
                                         .replace('https://', '')
                                         .split('?')[0]

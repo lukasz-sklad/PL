@@ -1,4 +1,4 @@
-import { Sparkles, Layers, ArrowUpRight, FolderGit2 } from 'lucide-react';
+import { Sparkles, Layers, ArrowUpRight, FolderGit2, Smartphone } from 'lucide-react';
 import { CRAFT_APPS, SIBLING_APPS, CraftApp } from '../data/craftData';
 
 interface AppDirectoryProps {
@@ -100,8 +100,21 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
                 </div>
               </div>
 
-              {/* Card Footer: Repo Link */}
-              <div className="mt-5 flex items-center justify-end border-t border-white/10 pt-4 text-[11px] text-zinc-400">
+              {/* Card Footer: Android & Repo Links */}
+              <div className="mt-5 flex items-center justify-end gap-3 border-t border-white/10 pt-4 text-[11px] text-zinc-400">
+                {app.androidUrl && (
+                  <a
+                    href={app.androidUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    title={app.androidLabel || `Wersja Android (${app.name})`}
+                    aria-label={app.androidLabel || `Wersja Android (${app.name})`}
+                    className="inline-flex items-center gap-1.5 text-emerald-300 hover:text-emerald-200 transition"
+                  >
+                    <Smartphone className="h-4 w-4" />
+                  </a>
+                )}
                 <a
                   href={`https://github.com/${app.upstreamRepo}`}
                   target="_blank"
