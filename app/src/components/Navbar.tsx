@@ -152,7 +152,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 >
                   lukasz-sklad.github.io/docone
                 </a>{' '}
-                • szybkie udostępnianie projektów *Craft PL na Telegramie.
+                • szybkie udostępnianie projektów *Craft na Telegramie.
               </span>
               <a
                 href={telegramShareHref}
@@ -211,6 +211,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                   style={{ backgroundColor: activeApp.accentColor }}
                 />
                 <span>{activeApp.menuName || activeApp.name}</span>
+                {activeApp.experimental && (
+                  <span className="text-[10px] font-normal lowercase text-amber-400">
+                    experimental
+                  </span>
+                )}
                 <ChevronDown className="h-3.5 w-3.5 text-zinc-400" />
               </button>
 
@@ -247,6 +252,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                                 <span className="text-[10px] font-normal text-zinc-400">
                                   v{app.version}
                                 </span>
+                                {app.experimental && (
+                                  <span className="ml-1.5 text-[10px] font-normal lowercase text-amber-400">
+                                    experimental
+                                  </span>
+                                )}
                               </div>
                               <div className="text-[11px] text-zinc-400">
                                 {app.displayDomain ||

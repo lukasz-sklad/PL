@@ -139,7 +139,15 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({
         }
         merged.sort((a, b) => (b.date > a.date ? 1 : -1));
         setCommits(merged);
-        const latestPl = merged.find((c) => c.isPolishBuild && c.appName !== 'Portal PL');
+        const latestPl = merged.find((c) => {
+          if (!c.isPolishBuild || c.appName === 'Portal PL') return false;
+          const app = CRAFT_APPS.find(
+            (a) =>
+              a.name.toLowerCase() === c.appName.toLowerCase() ||
+              a.id.toLowerCase() === c.appName.toLowerCase()
+          );
+          return !app?.experimental;
+        });
         if (latestPl && onLatestAppDetected) {
           onLatestAppDetected(latestPl.appName);
         }

@@ -171,7 +171,7 @@ export function resolveAppFromLocation(): CraftApp | undefined {
 }
 
 export function getDefaultAppByLatestCommit(): CraftApp {
-  // Sort initial commits by date descending to ensure the most recent Polish build is first
+  // Sort initial commits by date descending to ensure the most recent non-experimental Polish build is first
   const sorted = [...INITIAL_COMMITS].sort((a, b) => (b.date > a.date ? 1 : -1));
   for (const commit of sorted) {
     if (!commit.isPolishBuild) continue;
@@ -180,7 +180,7 @@ export function getDefaultAppByLatestCommit(): CraftApp {
         a.name.toLowerCase() === commit.appName.toLowerCase() ||
         a.id.toLowerCase() === commit.appName.toLowerCase()
     );
-    if (match) return match;
+    if (match && !match.experimental) return match;
   }
   return CRAFT_APPS.find((a) => a.id === 'vectorcraft') || CRAFT_APPS[0];
 }
@@ -266,7 +266,7 @@ export function App() {
                   a.name.toLowerCase() === appName.toLowerCase() ||
                   a.id.toLowerCase() === appName.toLowerCase()
               );
-              if (match && match.id !== activeApp.id) {
+              if (match && !match.experimental && match.id !== activeApp.id) {
                 setActiveApp(match);
               }
             }
