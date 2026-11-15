@@ -201,7 +201,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   className="h-2 w-2 rounded-full"
                   style={{ backgroundColor: activeApp.accentColor }}
                 />
-                <span>{activeApp.name}</span>
+                <span>{activeApp.menuName || activeApp.name}</span>
                 <ChevronDown className="h-3.5 w-3.5 text-zinc-400" />
               </button>
 
@@ -234,7 +234,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                             />
                             <div>
                               <div className="nav-app-title text-xs font-semibold text-white">
-                                {app.name}{' '}
+                                {app.menuName || app.name}{' '}
                                 <span className="text-[10px] font-normal text-zinc-400">
                                   v{app.version}
                                 </span>
@@ -254,7 +254,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                             href={app.primaryUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            title={`Otwórz ${app.name}`}
+                            title={`Otwórz ${app.menuName || app.name}`}
                             className="nav-app-ext ml-2 rounded-lg p-1.5 text-zinc-300 transition-all duration-150"
                           >
                             <ExternalLink className="h-3.5 w-3.5" />

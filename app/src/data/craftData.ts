@@ -7,6 +7,7 @@ export interface ShortcutItem {
 export interface CraftApp {
   id: string;
   name: string; // Oryginalna nazwa, np. VectorCraft
+  menuName?: string; // Krótka nazwa w menu nawigacji, jeśli różna od name
   taglinePl: string;
   replaces: string;
   version: string;
@@ -850,6 +851,7 @@ export const CRAFT_APPS: CraftApp[] = [
   {
     id: 'craftanything',
     name: 'Craft Anything',
+    menuName: 'Anything',
     taglinePl: 'Inżynieria wsteczna, dezasemblacja i inspekcja plików binarnych (ELF, PE, Mach-O, WASM, APK, ASAR)',
     replaces: 'Ghidra / IDA Pro / Binary Ninja / ImHex',
     version: '0.6.1',
