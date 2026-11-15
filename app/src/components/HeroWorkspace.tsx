@@ -315,13 +315,13 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                       <span
                         className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-0.5 text-xs font-semibold ${activeApp.badgeBg} ${activeApp.badgeText}`}
                       >
-                        {activeApp.name} v{activeApp.version} PL
+                        {activeApp.name} v{activeApp.version}
                       </span>
                       <span className="rounded-full bg-white/5 px-2.5 py-0.5 text-xs text-zinc-400">
                         Paczka WASM: {activeApp.wasmSizeCompressedMb}
                       </span>
                       <span className="rounded-full bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-0.5 text-xs text-emerald-300">
-                        {activeApp.translatedStrings.toLocaleString('pl-PL')} fraz po polsku
+                        100% lokalnie w przeglądarce
                       </span>
                     </div>
 
@@ -512,14 +512,14 @@ export const HeroWorkspace: React.FC<HeroWorkspaceProps> = ({
                     </div>
                   </div>
 
-                  {/* Parity & Translation Bar */}
+                  {/* Feature Parity Bar */}
                   <div className="mt-6 rounded-xl border border-white/10 bg-white/[0.03] p-4">
                     <div className="flex items-center justify-between text-xs">
                       <span className="font-semibold text-zinc-300">
-                        Poziom spolszczenia i parzystości funkcji
+                        Kompletność funkcji i narzędzi (Parity)
                       </span>
                       <span className="font-mono font-bold text-amber-400">
-                        {activeApp.parityPercent}% ({activeApp.translatedStrings} fraz PL)
+                        {activeApp.parityPercent}%
                       </span>
                     </div>
                     <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-white/10">

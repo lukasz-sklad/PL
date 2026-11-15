@@ -176,6 +176,17 @@ export const Footer: React.FC = () => {
                   <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://github.com/lukasz-sklad/cad-web"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-zinc-300 hover:text-white"
+                >
+                  <span>CADCraft Web (lukasz-sklad/cad-web)</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </li>
               <li className="pt-1 border-t border-white/5">
                 <a
                   href="https://pl.react.dev/"
@@ -197,7 +208,7 @@ export const Footer: React.FC = () => {
               <Heart className="h-3.5 w-3.5 text-red-400" /> Wytykanie mile widziane!
             </div>
             <p className="text-[11px] leading-relaxed text-zinc-400">
-              Widzisz literówkę lub niezgrabne tłumaczenie w którejś aplikacji? Daj znać! Każda uwaga
+              Widzisz błąd w działaniu programu albo problem z otwarciem pliku? Daj znać! Każda uwaga
               mobilizuje nas do dalszego ulepszania.
             </p>
             <a

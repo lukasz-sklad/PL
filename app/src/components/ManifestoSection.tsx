@@ -9,54 +9,54 @@ import {
   ExternalLink,
 } from 'lucide-react';
 
-interface TranslationCase {
+interface FormatShowcase {
   app: string;
-  english: string;
-  badLiteral: string;
-  naturalPolish: string;
+  extension: string;
+  cloudProblem: string;
+  wasmAdvantage: string;
   story: string;
 }
 
-const TRANSLATION_CASES: TranslationCase[] = [
+const FORMAT_SHOWCASES: FormatShowcase[] = [
   {
-    app: 'FilmCraft / VectorCraft',
-    english: 'Magenta',
-    badLiteral: 'Karmazynowy / Purpurowy',
-    naturalPolish: 'Magenta',
+    app: 'CAD / 2D & 3D',
+    extension: '.dwg / .dxf / AutoLISP',
+    cloudProblem: 'Ciężkie pakiety instalacyjne albo podglądy wysyłające dokumentację techniczną na cudze serwery',
+    wasmAdvantage: 'Natywny parser DWG/DXF, wiązania 2D i skrypty AutoLISP w Twojej karcie przeglądarki',
     story:
-      'W poligrafii (CMYK) i korekcji barwnej wideo nikt nie mówi „dodaj trochę karmazynu w cieniach”. Używa się po prostu słowa Magenta — i dokładnie tak zostawiliśmy w pl.tsv!',
+      'Rysunki techniczne i rzuty architektoniczne otwierają się lokalnie na Twoim GPU bez zakładania konta i bez opuszczania komputera.',
   },
   {
-    app: 'FilmCraft (Oś czasu)',
-    english: 'Ripple Edit / Roll Edit',
-    badLiteral: 'Edycja zmarszczkowa / Edycja toczona',
-    naturalPolish: 'Edycja z falowaniem / Edycja z zawijaniem',
+    app: 'Vector / Grafika wektorowa',
+    extension: '.cdr / .ai / .svg',
+    cloudProblem: 'Brak wsparcia dla plików CorelDRAW (.cdr) w przeglądarkowych edytorach i wymuszona subskrypcja',
+    wasmAdvantage: 'Bezpośredni odczyt krzywych Béziera, gradientów i obszarów roboczych z .cdr i .ai',
     story:
-      'Terminologia montażowa musi mówić to, co faktycznie dzieje się z klipami na osi czasu: przesunięcie całej reszty sekwencji (falowanie) albo przesunięcie samego punktu cięcia (zawijanie).',
+      'Silnik napisany od zera w języku Rust renderuje kształty, warstwy i typografię bezpośrednio przez WebGPU lub WebGL2.',
   },
   {
-    app: 'VectorCraft (Krzywe)',
-    english: 'Compound Path & Artboard',
-    badLiteral: 'Ścieżka mieszankowa i deska artystyczna',
-    naturalPolish: 'Ścieżka złożona i Obszar roboczy',
+    app: 'Photo / Grafika rastrowa',
+    extension: '.psd / .psb / .exr',
+    cloudProblem: 'Wysyłanie wielowarstwowych projektów ze zdjęciami do chmury przy każdym podglądzie',
+    wasmAdvantage: 'Warstwy, maski przycinające, pędzle i filtry 32-bit float liczone lokalnie w RAM i GPU',
     story:
-      'Zamiast kalek słownikowych stosujemy naturalne określenia znane polskim grafikom pracującym w CorelDRAW oraz Illustratorze.',
+      'Każda operacja na pikselach wykonuje się po stronie przeglądarki — nawet po odłączeniu od internetu wczytana karta działa dalej.',
   },
   {
-    app: 'GridCraft (Arkusze)',
-    english: 'Pivot Table & Sparklines',
-    badLiteral: 'Tabela obrotowa i linie iskrowe',
-    naturalPolish: 'Tabela przestawna i Mikrowykresy',
+    app: 'Effect & Film / Wideo i VFX',
+    extension: '.ecproj / .mp4 / WebCodecs',
+    cloudProblem: 'Długie wgrywanie materiałów wideo na serwer przed jakimkolwiek cięciem lub animacją',
+    wasmAdvantage: 'Kompozycja wielowarstwowa 2D/3D, klatki kluczowe i sprzętowe dekodowanie w przeglądarce',
     story:
-      'Każdy, kto liczył cokolwiek w polskim arkuszu kalkulacyjnym, szuka „Tabeli przestawnej” oraz „Mikrowykresów w komórce”.',
+      'Dane strumienia wideo pozostają na Twoim dysku, a karta robocza korzysta bezpośrednio z akceleracji sprzętowej przeglądarki.',
   },
   {
-    app: 'EffectCraft (Kompozycja & Animacja)',
-    english: 'Easy Ease & Graph Editor',
-    badLiteral: 'Łatwe złagodzenie i Edytor grafu',
-    naturalPolish: 'Łagodne przejście i Edytor wykresów',
+    app: 'Solid / Druk 3D CAD',
+    extension: '.stl / .step / .fcstd',
+    cloudProblem: 'Zamknięte przeglądarki 3D ograniczające eksport siatek bez płatnego abonamentu',
+    wasmAdvantage: 'Parametryczne bryły B-Rep, fazowanie, zaokrąglenia i błyskawiczny eksport do druku 3D',
     story:
-      'W animacji grafiki i motion designie kluczowe pojęcia to Łagodne przejście (Easy Ease dla interpolacji Béziera) oraz Edytor wykresów prędkości i wartości.',
+      'Gotowe części mechaniczne możesz obejrzeć w trybie ?orbit=continuous, zweryfikować geometrię i zapisać do .stl w kilka sekund.',
   },
 ];
 
@@ -78,10 +78,10 @@ export const ManifestoSection: React.FC = () => {
 
             <div className="space-y-4 text-sm sm:text-base leading-relaxed text-zinc-300">
               <p>
-                Ta strona — podobnie jak wszystkie zebrane na niej aplikacje — jest{' '}
-                <strong className="text-white">w wersji PL i wszystko tutaj będzie po polsku</strong>,
-                rozwijane uczciwie <strong className="text-amber-300">w miarę wolnego czasu i sił</strong>.
-                Dlaczego? Bo po prostu fajnie, jak wszystko jest po polsku!
+                Ta strona oraz zebrane na niej aplikacje webowe powstają i są utrzymywane{' '}
+                <strong className="text-amber-300">w miarę wolnego czasu i sił</strong>. Cel jest prosty:
+                dać wygodny dostęp do otwartoźródłowych narzędzi graficznych, biurowych i inżynieryjnych
+                bezpośrednio w przeglądarce.
               </p>
 
               <div className="rounded-2xl border border-amber-500/25 bg-amber-500/[0.06] p-5">
@@ -91,22 +91,19 @@ export const ManifestoSection: React.FC = () => {
                 </div>
                 <p className="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-300">
                   Kiedyś w polskim internecie działała legendarna strona{' '}
-                  <strong className="text-white">Jajko Polskie</strong>, gdzie można było przeczytać
-                  dokumentację jądra Linuksa przetłumaczoną na język polski. Człowiek otwierał opis
-                  konfiguracji kernela i od razu czuł się jak u siebie w domu. Czasem naprawdę nie
-                  wiadomo, który język wybrać, żeby coś technicznego lepiej i szybciej zrozumieć —
-                  dlatego my nie kombinujemy: <strong className="text-amber-300">trzymamy się PL!</strong>
+                  <strong className="text-white">Jajko Polskie</strong>, przybliżająca dokumentację
+                  jądra Linuksa w przystępny sposób. Człowiek otwierał opis konfiguracji kernela i od
+                  razu czuł się jak u siebie. Ten portal powstał w tym samym duchu: wszystko pod ręką,
+                  klarownie i bez zbędnych barier.
                 </p>
               </div>
 
               <p>
-                Przetłumaczenie sześciu ogromnych programów (od krzywych Béziera w{' '}
-                <strong className="text-white">VectorCraft</strong>, przez maski warstw w{' '}
-                <strong className="text-white">PhotoCraft</strong>, aż po koła barwne i montaż w{' '}
-                <strong className="text-white">FilmCraft</strong>) to ponad{' '}
-                <strong className="text-emerald-400">12 290 fraz</strong>. Robimy to z pasją, ale
-                jesteśmy ludźmi — więc na pewno gdzieś trafi się niezręczne sformułowanie albo słowo,
-                które brzmi zbyt „słownikowo”.
+                Wszystkie programy kompilujemy z natywnego kodu w języku Rust do lekkich paczek{' '}
+                <strong className="text-white">WebAssembly</strong>, dokładając wspólne parametry{' '}
+                <code className="text-amber-300">?file=</code>, motywy{' '}
+                <code className="text-amber-300">Dark / Light / Sepia</code> oraz automatyczny mostek{' '}
+                <code className="text-amber-300">WebGPU → WebGL2</code>.
               </p>
 
               <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-5">
@@ -115,38 +112,36 @@ export const ManifestoSection: React.FC = () => {
                   Wytykanie błędów będzie bardzo miło traktowane!
                 </div>
                 <p className="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-200">
-                  Serio! Jeśli zobaczysz w menu dziwne tłumaczenie, literówkę albo słowo, którego nikt
-                  w branży nie używa — <strong>wytknij nam to śmiało!</strong> Każde wytknięcie
-                  traktujemy z uśmiechem, bo to najbardziej mobilizuje do poprawy tłumaczeń i samych
-                  aplikacji!
+                  Serio! Jeśli trafisz na plik, który źle się otwiera, błąd graficzny w przeglądarce albo
+                  niedziałający parametr — <strong>wytknij nam to śmiało!</strong> Każde zgłoszenie
+                  mobilizuje do dopracowania kolejnych wydań webowych.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right 5 Cols: Interactive "Kuźnia Tłumaczeń PL" (Examples like Magenta!) */}
+          {/* Right 5 Cols: Interactive Native Format Showcase */}
           <div className="lg:col-span-5 rounded-2xl border border-white/15 bg-[#1b1c20] p-6 shadow-xl">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400">
-                <Sparkles className="h-4 w-4" /> Żywe przykłady z plików pl.tsv
+                <Sparkles className="h-4 w-4" /> Natywne formaty w przeglądarce
               </div>
               <span className="rounded bg-white/10 px-2 py-0.5 text-[10px] text-zinc-300">
-                Żywy język vs słownik
+                Zero wysyłania w chmurę
               </span>
             </div>
 
             <h3 className="mt-2 text-lg font-bold text-white">
-              Jak poprawiamy tłumaczenia dzięki Waszym uwagom
+              Co wyróżnia lokalne silniki Rust + WebAssembly
             </h3>
             <p className="mt-1 text-xs text-zinc-400">
-              Kliknij przykład poniżej, aby zobaczyć dlaczego nie tłumaczymy wszystkiego ślepo ze słownika:
+              Wybierz kategorię poniżej, aby porównać podejście desktopowo-webowe z zamkniętymi chmurami:
             </p>
 
-            {/* Case Selector Buttons */}
             <div className="mt-4 grid grid-cols-2 gap-2">
-              {TRANSLATION_CASES.map((item, idx) => (
+              {FORMAT_SHOWCASES.map((item, idx) => (
                 <button
-                  key={item.english}
+                  key={item.extension}
                   type="button"
                   onClick={() => setSelectedCase(idx)}
                   className={`rounded-xl border px-3 py-2 text-left text-xs transition ${
@@ -155,27 +150,26 @@ export const ManifestoSection: React.FC = () => {
                       : 'border-white/10 bg-black/30 text-zinc-400 hover:bg-white/5 hover:text-zinc-200'
                   }`}
                 >
-                  <div className="truncate font-mono text-[11px] text-amber-300">{item.english}</div>
+                  <div className="truncate font-mono text-[11px] text-amber-300">{item.extension}</div>
                   <div className="truncate text-[10px] text-zinc-400">{item.app}</div>
                 </button>
               ))}
             </div>
 
-            {/* Active Case Comparison Box */}
             <div className="mt-4 rounded-xl border border-white/10 bg-[#121316] p-4 space-y-3">
               <div className="text-xs text-zinc-400">
-                Oryginał (EN):{' '}
+                Formaty:{' '}
                 <code className="rounded bg-white/10 px-1.5 py-0.5 text-white font-mono">
-                  {TRANSLATION_CASES[selectedCase].english}
+                  {FORMAT_SHOWCASES[selectedCase].extension}
                 </code>
               </div>
 
               <div className="flex items-start gap-2.5 rounded-lg border border-red-500/20 bg-red-500/10 p-2.5 text-xs">
                 <XCircle className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-semibold text-red-300">Sztywna kalka słownikowa (odrzucona):</div>
-                  <div className="text-zinc-300 line-through">
-                    {TRANSLATION_CASES[selectedCase].badLiteral}
+                  <div className="font-semibold text-red-300">Tradycyjne ograniczenia:</div>
+                  <div className="text-zinc-300">
+                    {FORMAT_SHOWCASES[selectedCase].cloudProblem}
                   </div>
                 </div>
               </div>
@@ -183,31 +177,30 @@ export const ManifestoSection: React.FC = () => {
               <div className="flex items-start gap-2.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-2.5 text-xs">
                 <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-semibold text-emerald-300">W naszej wersji PL (pl.tsv):</div>
+                  <div className="font-semibold text-emerald-300">W naszych wersjach Web:</div>
                   <div className="text-white font-bold text-sm">
-                    {TRANSLATION_CASES[selectedCase].naturalPolish}
+                    {FORMAT_SHOWCASES[selectedCase].wasmAdvantage}
                   </div>
                 </div>
               </div>
 
               <p className="text-xs leading-relaxed text-zinc-300 pt-1">
-                {TRANSLATION_CASES[selectedCase].story}
+                {FORMAT_SHOWCASES[selectedCase].story}
               </p>
             </div>
 
-            {/* Call to Action: Report a translation tweak */}
             <div className="mt-5 flex flex-col sm:flex-row items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-3.5">
               <div className="text-xs text-zinc-300">
-                Znalazłeś lepsze polskie słowo w którymś programie?
+                Znalazłeś błąd lub nietypowy plik do sprawdzenia?
               </div>
               <a
-                href="https://github.com/lukasz-sklad/PL/issues/new?title=Poprawka+t%C5%82umaczenia+PL&body=Aplikacja:+%0AObecny+tekst:+%0AProponowane+polskie+brzmienie:+"
+                href="https://github.com/lukasz-sklad/PL/issues/new?title=Zg%C5%82oszenie+b%C5%82%C4%99du&body=Aplikacja:+%0AOpis+problemu:+"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500 px-3.5 py-2 text-xs font-bold text-zinc-950 transition hover:bg-amber-400 shrink-0"
               >
                 <MessageSquarePlus className="h-3.5 w-3.5" />
-                <span>Wytknij / Zgłoś poprawkę</span>
+                <span>Wytknij / Zgłoś błąd</span>
                 <ExternalLink className="h-3 w-3" />
               </a>
             </div>

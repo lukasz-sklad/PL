@@ -120,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const shareUrl =
     typeof window !== 'undefined' ? window.location.href : 'https://craft.lmk.one';
-  const shareText = `${activeApp.name} v${activeApp.version} PL (${activeApp.replaces}) — nieoficjalna stacja WebAssembly na craft.lmk.one`;
+  const shareText = `${activeApp.name} v${activeApp.version} (${activeApp.replaces}) — nieoficjalna stacja WebAssembly na craft.lmk.one`;
   const telegramShareHref = `https://t.me/share/url?url=${encodeURIComponent(
     shareUrl
   )}&text=${encodeURIComponent(shareText)}`;

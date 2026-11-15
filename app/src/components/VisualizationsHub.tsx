@@ -16,39 +16,37 @@ export const VisualizationsHub: React.FC = () => {
   const activeShortcutApp =
     CRAFT_APPS.find((a) => a.id === selectedShortcutAppId) || CRAFT_APPS[0];
 
-  const maxStrings = Math.max(...CRAFT_APPS.map((a) => a.translatedStrings));
-
   return (
     <section id="wizualizacje" className="py-16 border-t border-white/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
-        {/* Part 1: Radar Spolszczenia + Mapa Skrótów Klawiszowych */}
+        {/* Part 1: Zgodność funkcji (Parity) + Mapa Skrótów Klawiszowych */}
         <div>
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-sky-400">
-            <Sparkles className="h-4 w-4" /> Interaktywne Wizualizacje Ekosystemu PL
+            <Sparkles className="h-4 w-4" /> Zestawienie Możliwości i Narzędzi
           </div>
           <h2 className="mt-2 text-2xl font-extrabold text-white sm:text-4xl">
-            Statystyki tłumaczeń oraz interaktywne skróty klawiszowe
+            Kompletność funkcji (Parity) oraz interaktywne skróty klawiszowe
           </h2>
 
           <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12">
-            {/* Visualization A: Polish Translation Bar Chart */}
+            {/* Visualization A: Feature Parity Bar Chart */}
             <div className="lg:col-span-6 rounded-2xl border border-white/10 bg-[#1a1b1f] p-6">
               <div className="flex items-center justify-between">
                 <h3 className="text-base font-bold text-white flex items-center gap-2">
                   <BarChart3 className="h-4 w-4 text-amber-400" />
-                  Liczba przetłumaczonych fraz w plikach pl.tsv / pl.rs
+                  Zgodność narzędzi i formatów z programami bazowymi
                 </h3>
                 <span className="rounded-full bg-amber-500/15 px-2.5 py-0.5 font-mono text-xs font-bold text-amber-300">
-                  Razem: {CRAFT_APPS.reduce((sum, a) => sum + a.translatedStrings, 0).toLocaleString('pl-PL')} fraz
+                  {CRAFT_APPS.length} silników Rust → WASM
                 </span>
               </div>
               <p className="mt-1 text-xs text-zinc-400">
-                Prawdziwe statystyki policzone bezpośrednio z plików lokalizacyjnych naszych repozytoriów:
+                Porównanie pokrycia funkcji edycyjnych oraz rozmiaru skompresowanych modułów WebAssembly:
               </p>
 
               <div className="mt-6 space-y-4">
                 {CRAFT_APPS.map((app) => {
-                  const widthPct = Math.max(12, Math.round((app.translatedStrings / maxStrings) * 100));
+                  const widthPct = Math.max(15, Math.min(100, app.parityPercent));
                   return (
                     <div key={app.id} className="space-y-1.5">
                       <div className="flex items-center justify-between text-xs">
@@ -57,11 +55,11 @@ export const VisualizationsHub: React.FC = () => {
                             className="h-2.5 w-2.5 rounded-full"
                             style={{ backgroundColor: app.accentColor }}
                           />
-                          {app.name}
-                          <span className="font-normal text-zinc-400">({app.replaces.split('/')[0]})</span>
+                          {app.menuName || app.name}
+                          <span className="font-normal text-zinc-400">({app.replaces.split('/')[0].trim()})</span>
                         </span>
                         <span className="font-mono font-semibold text-zinc-200">
-                          {app.translatedStrings.toLocaleString('pl-PL')} linii PL
+                          {app.parityPercent}% · {app.wasmSizeCompressedMb}
                         </span>
                       </div>
                       <div className="h-3 w-full overflow-hidden rounded-full bg-black/50 p-0.5">
@@ -79,8 +77,9 @@ export const VisualizationsHub: React.FC = () => {
               </div>
 
               <div className="mt-6 rounded-xl border border-white/10 bg-black/30 p-3.5 text-xs text-zinc-400">
-                Każdy wiersz w <code className="text-amber-300">pl.tsv</code> to przetłumaczone menu,
-                podpowiedź narzędzia, filtr, okno dialogowe albo komunikat błędu.
+                Wszystkie aplikacje działają bezpośrednio w pamięci karty przeglądarki dzięki akceleracji{' '}
+                <code className="text-amber-300">WebGPU</code> oraz awaryjnemu trybowi{' '}
+                <code className="text-amber-300">WebGL2</code>.
               </div>
             </div>
 
@@ -113,7 +112,7 @@ export const VisualizationsHub: React.FC = () => {
                           : undefined
                       }
                     >
-                      {app.name}
+                      {app.menuName || app.name}
                     </button>
                   ))}
                 </div>
@@ -181,14 +180,14 @@ export const VisualizationsHub: React.FC = () => {
               </thead>
               <tbody className="divide-y divide-white/10 text-zinc-300">
                 <tr>
-                  <td className="py-3.5 pr-4 font-medium text-white">Język interfejsu i dokumentacji</td>
+                  <td className="py-3.5 pr-4 font-medium text-white">Licencja, kod i brak kont</td>
                   <td className="py-3.5 px-4 bg-amber-500/[0.06] text-emerald-300 font-semibold">
                     <span className="inline-flex items-center gap-1.5">
-                      <Check className="h-4 w-4 text-emerald-400" /> 100% po polsku (otwarte pliki pl.tsv, szybkie poprawki od ręki)
+                      <Check className="h-4 w-4 text-emerald-400" /> 0 zł • Open Source (MIT / Apache-2.0), bez rejestracji i telemetrii
                     </span>
                   </td>
                   <td className="py-3.5 px-4 text-zinc-400">
-                    Często wymuszony angielski lub sztywne tłumaczenia korporacyjne bez wpływu użytkowników
+                    Płatne subskrypcje miesięczne, wymóg konta i blokowanie plików po wygaśnięciu licencji
                   </td>
                 </tr>
                 <tr>

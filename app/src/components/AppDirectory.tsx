@@ -22,8 +22,8 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
             </p>
           </div>
           <div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-zinc-300">
-            Łącznie przetłumaczono:{' '}
-            <strong className="text-amber-400 font-mono">16 200+ fraz UI</strong>
+            Silnik:{' '}
+            <strong className="text-amber-400 font-mono">100% Rust + WebAssembly (GPU)</strong>
           </div>
         </div>
 
@@ -48,10 +48,17 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
                         className="h-3 w-3 rounded-full"
                         style={{ backgroundColor: app.accentColor }}
                       />
-                      <h3 className="text-xl font-extrabold text-white">{app.name}</h3>
+                      <h3 className="text-xl font-extrabold text-white">
+                        {app.menuName || app.name}
+                      </h3>
                       <span className="rounded-md bg-white/10 px-2 py-0.5 font-mono text-[11px] text-zinc-300">
                         v{app.version}
                       </span>
+                      {app.experimental && (
+                        <span className="rounded-md border border-amber-500/30 bg-amber-500/15 px-1.5 py-0.5 text-[10px] font-medium lowercase text-amber-300">
+                          experimental
+                        </span>
+                      )}
                     </div>
                     <div className="mt-1 text-xs font-medium text-zinc-400">
                       Odpowiednik: <span className="text-zinc-200">{app.replaces}</span>
@@ -80,7 +87,7 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
                 {/* All URLs for this App */}
                 <div className="mt-5 rounded-xl border border-white/10 bg-black/30 p-3">
                   <div className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
-                    Dostępne polskie adresy URL:
+                    Dostępne adresy URL:
                   </div>
                   <div className="mt-2 space-y-1.5">
                     {app.altUrls.map((u) => (
@@ -152,7 +159,9 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
               >
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-bold text-white">{sib.name}</span>
+                    <span className="text-sm font-bold text-white">
+                      {sib.name.replace(/Craft\b/gi, '').trim()}
+                    </span>
                     <span className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-[10px] text-zinc-300">
                       v{sib.version}
                     </span>

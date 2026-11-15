@@ -20,7 +20,7 @@ function classifyCommitMessagePl(msg: string): string {
     lower.includes('pl.tsv') ||
     lower.includes('pl.po')
   ) {
-    return 'Spolszczenie';
+    return 'Aktualizacja UI';
   }
   if (lower.startsWith('feat') || lower.includes('add ') || lower.includes('nowa funkcja')) {
     return 'Nowa funkcja';
@@ -66,6 +66,7 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({
     setLoading(true);
     try {
       const targets = [
+        { repo: 'lukasz-sklad/cad-web', appName: 'CADCraft', isPl: true },
         { repo: 'lukasz-sklad/solid-web', appName: 'SolidCraft', isPl: true },
         { repo: 'lukasz-sklad/corel-web', appName: 'VectorCraft', isPl: true },
         { repo: 'lukasz-sklad/film-web', appName: 'FilmCraft', isPl: true },
@@ -86,6 +87,7 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({
         { repo: 'storytold/gridcraft', appName: 'GridCraft', isPl: false },
         { repo: 'storytold/deckcraft', appName: 'DeckCraft', isPl: false },
         { repo: 'storytold/figcraft', appName: 'FigCraft', isPl: false },
+        { repo: 'storytold/cadcraft', appName: 'CADCraft', isPl: false },
         { repo: 'storytold/solidcraft', appName: 'SolidCraft', isPl: false },
         { repo: 'storytold/craft-anything', appName: 'Craft Anything', isPl: false },
       ];
@@ -104,7 +106,7 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({
             if (firstLine.includes('from lukasz-sklad')) {
               authorName = `Lucas (Zatwierdził: ${authorName})`;
             }
-            const isPolish = t.isPl || classifyCommitMessagePl(firstLine) === 'Spolszczenie';
+            const isPolish = t.isPl || classifyCommitMessagePl(firstLine) === 'Aktualizacja UI';
             return {
               sha: shortSha,
               repo: t.repo,

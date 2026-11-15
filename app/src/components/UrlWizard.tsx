@@ -38,6 +38,11 @@ const PRESET_FILES = [
     fileUrl: 'https://photocraft.lmk.one/favicon.png',
   },
   {
+    label: 'Czysty arkusz CAD 2D/3D (?new w CADCraft)',
+    appId: 'cadcraft',
+    fileUrl: 'https://cad.lmk.one/?new',
+  },
+  {
     label: 'Inspektor binariów ELF64 (?sample w Craft Anything)',
     appId: 'craftanything',
     fileUrl: 'https://anything.lmk.one/?sample',
@@ -103,6 +108,9 @@ export const UrlWizard: React.FC = () => {
       lower.endsWith('.midi')
     ) {
       return CRAFT_APPS.find((a) => a.id === 'soundcraft') || CRAFT_APPS[0];
+    }
+    if (lower.endsWith('.dwg') || lower.endsWith('.dxf') || lower.endsWith('.cadcraft')) {
+      return CRAFT_APPS.find((a) => a.id === 'cadcraft') || CRAFT_APPS[0];
     }
     if (
       lower.endsWith('.stl') ||

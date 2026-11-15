@@ -13,6 +13,7 @@ import { Footer } from './components/Footer';
 // Canonical short slug for each app in the URL (craft.lmk.one/:slug)
 export const APP_CANONICAL_SLUGS: Record<string, string> = {
   solidcraft: 'solid',
+  cadcraft: 'cad',
   figcraft: 'fig',
   wordcraft: 'word',
   vectorcraft: 'vector',
@@ -41,12 +42,18 @@ export const APP_ALIASES: Record<string, string> = {
   docx: 'wordcraft',
   wordcraft: 'wordcraft',
 
-  // SolidCraft (CAD / 3D)
+  // SolidCraft (Modelowanie 3D / STL / STEP)
   solid: 'solidcraft',
-  cad: 'solidcraft',
   stl: 'solidcraft',
   '3d': 'solidcraft',
   solidcraft: 'solidcraft',
+
+  // CADCraft (Rysunek techniczny 2D/3D CAD / DWG / DXF)
+  cad: 'cadcraft',
+  cadcraft: 'cadcraft',
+  dwg: 'cadcraft',
+  dxf: 'cadcraft',
+  autocad: 'cadcraft',
 
   // PhotoCraft
   photo: 'photocraft',
