@@ -48,9 +48,9 @@ const PRESET_FILES = [
     fileUrl: 'https://anything.lmk.one/?sample',
   },
   {
-    label: 'Przykładowy rysunek wektorowy (.tdraw w TraceDraw)',
+    label: 'Czysty arkusz wektorowy (?new w TraceDraw)',
     appId: 'tracedraw',
-    fileUrl: 'https://tracedraw.lmk.one/sample.tdraw',
+    fileUrl: 'https://tracedraw.lmk.one/?new',
   },
 ];
 
