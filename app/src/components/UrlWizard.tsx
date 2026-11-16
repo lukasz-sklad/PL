@@ -47,6 +47,11 @@ const PRESET_FILES = [
     appId: 'craftanything',
     fileUrl: 'https://anything.lmk.one/?sample',
   },
+  {
+    label: 'Przykładowy rysunek wektorowy (.tdraw w TraceDraw)',
+    appId: 'tracedraw',
+    fileUrl: 'https://tracedraw.lmk.one/sample.tdraw',
+  },
 ];
 
 export const UrlWizard: React.FC = () => {
@@ -64,6 +69,9 @@ export const UrlWizard: React.FC = () => {
       return CRAFT_APPS.find((a) => a.id === selectedAppId) || CRAFT_APPS[0];
     }
     const lower = inputUrl.toLowerCase();
+    if (lower.endsWith('.tdraw')) {
+      return CRAFT_APPS.find((a) => a.id === 'tracedraw') || CRAFT_APPS[0];
+    }
     if (lower.endsWith('.cdr') || lower.endsWith('.svg') || lower.endsWith('.ai') || lower.endsWith('.eps')) {
       return CRAFT_APPS.find((a) => a.id === 'vectorcraft')!;
     }

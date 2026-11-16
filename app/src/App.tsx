@@ -27,6 +27,7 @@ export const APP_CANONICAL_SLUGS: Record<string, string> = {
   lightcraft: 'light',
   designcraft: 'design',
   craftanything: 'anything',
+  tracedraw: 'tracedraw',
 };
 
 // Aliases accepted from URL pathname, query parameters, or hash
@@ -131,6 +132,11 @@ export const APP_ALIASES: Record<string, string> = {
   elf: 'craftanything',
   disasm: 'craftanything',
   re: 'craftanything',
+
+  // TraceDraw
+  tracedraw: 'tracedraw',
+  trace: 'tracedraw',
+  tdraw: 'tracedraw',
 };
 
 export function resolveAppFromLocation(): CraftApp | undefined {

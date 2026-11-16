@@ -187,6 +187,17 @@ export const Footer: React.FC = () => {
                   <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://github.com/lukasz-sklad/tracedraw-web"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-zinc-300 hover:text-white"
+                >
+                  <span>TraceDraw Web (lukasz-sklad/tracedraw-web)</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </li>
               <li className="pt-1 border-t border-white/5">
                 <a
                   href="https://pl.react.dev/"

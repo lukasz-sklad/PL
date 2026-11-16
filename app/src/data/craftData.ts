@@ -9,6 +9,7 @@ export interface CraftApp {
   name: string; // Oryginalna nazwa, np. VectorCraft
   menuName?: string; // Krótka nazwa w menu nawigacji, jeśli różna od name
   experimental?: boolean;
+  unofficial?: boolean;
   androidUrl?: string;
   androidLabel?: string;
   taglinePl: string;
@@ -1010,6 +1011,79 @@ export const CRAFT_APPS: CraftApp[] = [
       { key: 'F8', action: 'Tryb ortogonalny (ORTHO)', category: 'Precyzja' },
     ],
   },
+  {
+    id: 'tracedraw',
+    name: 'TraceDraw',
+    menuName: 'TraceDraw',
+    unofficial: true,
+    taglinePl: 'Edytor grafiki wektorowej, składu stron i druku DTP z obsługą .tdraw, .cdr, PDF/X, warstw i efektów na żywo',
+    replaces: 'CorelDRAW / Adobe Illustrator / Affinity Designer',
+    version: '0.46.0',
+    primaryUrl: 'https://tracedraw.lmk.one/?sample',
+    displayDomain: 'tracedraw.lmk.one',
+    altUrls: [
+      { label: 'tracedraw.lmk.one/?sample (Przykładowy projekt .tdraw)', url: 'https://tracedraw.lmk.one/?sample' },
+      { label: 'Czysty dokument (?new)', url: 'https://tracedraw.lmk.one/?new' },
+      { label: 'Motyw Sepia (?theme=sepia)', url: 'https://tracedraw.lmk.one/?theme=sepia' },
+      { label: 'Interfejs PL (?lang=pl)', url: 'https://tracedraw.lmk.one/?lang=pl' },
+      { label: 'lmk.one/tracedraw', url: 'https://lmk.one/tracedraw' },
+    ],
+    upstreamRepo: 'tracedraw/tracedraw',
+    plWebRepo: 'lukasz-sklad/tracedraw-web',
+    accentColor: '#38BDF8',
+    badgeBg: 'bg-sky-500/15 border-sky-500/40',
+    badgeText: 'text-sky-300',
+    gradientFrom: 'from-sky-500/20',
+    gradientTo: 'to-blue-600/5',
+    parityPercent: 85,
+    wasmSizeCompressedMb: '14,3 MB (gzip)',
+    defaultStateNote: 'Domyślnie PL przy pierwszej wizycie + 19 języków + Motywy Dark/Light/Sepia + Katalog Google Fonts + Próbka .tdraw',
+    urlParams: [
+      {
+        label: 'Otwieranie projektu z sieci (?file= / ?url=)',
+        exampleUrl: 'https://tracedraw.lmk.one/?file=https://tracedraw.lmk.one/sample.tdraw',
+        description: 'Pobiera plik .tdraw, .cdr, .svg lub .pdf przez wielopoziomowe proxy CORS i otwiera go automatycznie po uruchomieniu.',
+      },
+      {
+        label: 'Czysty arkusz roboczy (?new / ?empty)',
+        exampleUrl: 'https://tracedraw.lmk.one/?new',
+        description: 'Pomija ekran powitalny i uruchamia pusty dokument gotowy do rysowania.',
+      },
+      {
+        label: 'Przykładowy projekt (?sample / ?demo)',
+        exampleUrl: 'https://tracedraw.lmk.one/?sample',
+        description: 'Otwiera wbudowany rysunek testowy sample.tdraw bez modali blokujących start.',
+      },
+      {
+        label: 'Wybór motywu (?theme=dark|light|sepia)',
+        exampleUrl: 'https://tracedraw.lmk.one/?theme=sepia',
+        description: 'Synchronicznie ustawia paletę okna ładowania i edytora (w tym dodany motyw Sepia) oraz reaguje na postMessage.',
+      },
+      {
+        label: 'Język interfejsu (?lang=pl|en)',
+        exampleUrl: 'https://tracedraw.lmk.one/?lang=pl',
+        description: 'Uruchamia wybrany z 19 dostępnych języków interfejsu (domyślnie PL przy pierwszej wizycie).',
+      },
+    ],
+    formats: ['.tdraw (Natywny)', '.cdr (CorelDRAW)', '.svg / .pdf / .ai / .eps', '.dxf / .psd / .png'],
+    highlights: [
+      'Otwartoźródłowy edytor wektorowy i DTP napisany od zera w Rustcie: strony, warstwy, krzywe Beziera, symbole i druk',
+      'Efekty na żywo (cienie, kontury, obwiednie, mieszania, wytłoczenia 3D), import/eksport .cdr i PDF/X',
+      'Katalog 109 lokalnych rodzin fontów + dynamiczne dociąganie Google Fonts na żądanie oraz 19 wersji językowych UI',
+      'Trzy zsynchronizowane motywy portalu (Dark, Light, Sepia) bez błysku przy starcie oraz parametry URL z CORS fallback',
+    ],
+    sampleFileUrl: 'https://tracedraw.lmk.one/?sample',
+    shortcuts: [
+      { key: 'V / Pick', action: 'Narzędzie Wskaźnik (Pick)', category: 'Narzędzia' },
+      { key: 'F10', action: 'Narzędzie Kształt (Edycja węzłów)', category: 'Narzędzia' },
+      { key: 'F6', action: 'Prostokąt', category: 'Rysowanie' },
+      { key: 'F7', action: 'Elipsa / Łuk', category: 'Rysowanie' },
+      { key: 'F8', action: 'Tekst artystyczny i akapitowy', category: 'Tekst' },
+      { key: 'Ctrl+G', action: 'Grupuj zaznaczone obiekty', category: 'Układ' },
+      { key: 'Ctrl+K', action: 'Rozbij obiekt / kontur', category: 'Krzywe' },
+      { key: 'F9', action: 'Podgląd pełnoekranowy', category: 'Widok' },
+    ],
+  },
 ];
 
 export interface SiblingCraftApp {
@@ -1077,6 +1151,17 @@ export interface CommitEntry {
 }
 
 export const INITIAL_COMMITS: CommitEntry[] = [
+  {
+    sha: '8b6dddc',
+    repo: 'lukasz-sklad/tracedraw-web',
+    appName: 'TraceDraw',
+    author: 'Lucas',
+    date: '2026-11-16',
+    message: 'Wdrożenie TraceDraw Web v0.46.0 (WASM, PL, motywy Dark/Light/Sepia, katalog 1930 czcionek, parametry URL)',
+    categoryPl: 'Wydanie Web',
+    url: 'https://tracedraw.lmk.one',
+    isPolishBuild: true,
+  },
   {
     sha: '705a2b2',
     repo: 'lukasz-sklad/cad-web',

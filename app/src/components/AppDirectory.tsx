@@ -59,6 +59,11 @@ export const AppDirectory: React.FC<AppDirectoryProps> = ({ onSelectApp }) => {
                           experimental
                         </span>
                       )}
+                      {app.unofficial && (
+                        <span className="rounded-md border border-sky-500/30 bg-sky-500/15 px-1.5 py-0.5 text-[10px] font-medium lowercase text-sky-300">
+                          nieoficjalny
+                        </span>
+                      )}
                     </div>
                     <div className="mt-1 text-xs font-medium text-zinc-400">
                       Odpowiednik: <span className="text-zinc-200">{app.replaces}</span>

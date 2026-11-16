@@ -216,6 +216,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                     experimental
                   </span>
                 )}
+                {activeApp.unofficial && (
+                  <span className="text-[10px] font-normal lowercase text-sky-400">
+                    nieoficjalny
+                  </span>
+                )}
                 <ChevronDown className="h-3.5 w-3.5 text-zinc-400" />
               </button>
 
@@ -255,6 +260,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                                 {app.experimental && (
                                   <span className="ml-1.5 text-[10px] font-normal lowercase text-amber-400">
                                     experimental
+                                  </span>
+                                )}
+                                {app.unofficial && (
+                                  <span className="ml-1.5 text-[10px] font-normal lowercase text-sky-400">
+                                    nieoficjalny
                                   </span>
                                 )}
                               </div>

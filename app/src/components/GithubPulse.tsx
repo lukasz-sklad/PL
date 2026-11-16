@@ -66,6 +66,7 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({
     setLoading(true);
     try {
       const targets = [
+        { repo: 'lukasz-sklad/tracedraw-web', appName: 'TraceDraw', isPl: true },
         { repo: 'lukasz-sklad/cad-web', appName: 'CADCraft', isPl: true },
         { repo: 'lukasz-sklad/solid-web', appName: 'SolidCraft', isPl: true },
         { repo: 'lukasz-sklad/corel-web', appName: 'VectorCraft', isPl: true },
@@ -90,6 +91,7 @@ export const GithubPulse: React.FC<GithubPulseProps> = ({
         { repo: 'storytold/cadcraft', appName: 'CADCraft', isPl: false },
         { repo: 'storytold/solidcraft', appName: 'SolidCraft', isPl: false },
         { repo: 'storytold/craft-anything', appName: 'Craft Anything', isPl: false },
+        { repo: 'tracedraw/tracedraw', appName: 'TraceDraw', isPl: false },
       ];
 
       const results = await Promise.allSettled(
