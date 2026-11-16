@@ -1018,7 +1018,7 @@ export const CRAFT_APPS: CraftApp[] = [
     unofficial: true,
     taglinePl: 'Edytor grafiki wektorowej, składu stron i druku DTP z obsługą .tdraw, .cdr, PDF/X, warstw i efektów na żywo',
     replaces: 'CorelDRAW / Adobe Illustrator / Affinity Designer',
-    version: '0.46.0',
+    version: '0.47.0',
     primaryUrl: 'https://tracedraw.lmk.one/?new',
     displayDomain: 'tracedraw.lmk.one',
     altUrls: [
@@ -1151,6 +1151,17 @@ export interface CommitEntry {
 }
 
 export const INITIAL_COMMITS: CommitEntry[] = [
+  {
+    sha: '669799f',
+    repo: 'lukasz-sklad/tracedraw-web',
+    appName: 'TraceDraw',
+    author: 'Lucas',
+    date: '2026-11-16',
+    message: 'Wdrożenie TraceDraw Web v0.47.0 (WASM, PL, motywy Dark/Light/Sepia, ?new)',
+    categoryPl: 'Wydanie Web',
+    url: 'https://tracedraw.lmk.one/?new',
+    isPolishBuild: true,
+  },
   {
     sha: 'f8ccf3d',
     repo: 'lukasz-sklad/tracedraw-web',
