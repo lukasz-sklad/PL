@@ -1,8 +1,32 @@
-import React from 'react';
-import { ExternalLink, Heart, Code2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { ExternalLink, Heart, Code2, Copy, Check, Sparkles } from 'lucide-react';
 import { CRAFT_APPS } from '../data/craftData';
 
 export const Footer: React.FC = () => {
+  const [copiedFlag, setCopiedFlag] = useState<string | null>(null);
+
+  const copyToClipboard = (text: string) => {
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).catch(() => {});
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+      } finally {
+        document.body.removeChild(ta);
+      }
+    }
+    setCopiedFlag(text);
+    window.setTimeout(() => {
+      setCopiedFlag((prev) => (prev === text ? null : prev));
+    }, 2000);
+  };
+
   return (
     <footer className="border-t border-white/10 bg-[#101113] py-12 text-xs text-zinc-400">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -213,23 +237,114 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Col 4: Feedback Note */}
-          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4 space-y-2">
-            <div className="font-bold text-white flex items-center gap-1.5">
-              <Heart className="h-3.5 w-3.5 text-red-400" /> Wytykanie mile widziane!
+          {/* Col 4: Feedback Note & Chrome WebGPU Guide */}
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4 space-y-3">
+            <div className="space-y-2">
+              <div className="font-bold text-white flex items-center gap-1.5">
+                <Heart className="h-3.5 w-3.5 text-red-400" /> Wytykanie mile widziane!
+              </div>
+              <p className="text-[11px] leading-relaxed text-zinc-400">
+                Widzisz błąd w działaniu programu albo problem z otwarciem pliku? Daj znać! Każda uwaga
+                mobilizuje nas do dalszego ulepszania.
+              </p>
+              <a
+                href="https://github.com/lukasz-sklad/PL/issues"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs font-bold text-amber-400 hover:underline pt-1"
+              >
+                Zgłoś uwagę na GitHubie →
+              </a>
             </div>
-            <p className="text-[11px] leading-relaxed text-zinc-400">
-              Widzisz błąd w działaniu programu albo problem z otwarciem pliku? Daj znać! Każda uwaga
-              mobilizuje nas do dalszego ulepszania.
-            </p>
-            <a
-              href="https://github.com/lukasz-sklad/PL/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-bold text-amber-400 hover:underline pt-1"
-            >
-              Zgłoś uwagę na GitHubie →
-            </a>
+
+            <div className="border-t border-white/10 pt-3 space-y-2">
+              <div className="text-[10px] font-bold uppercase tracking-wider text-amber-400">
+                Poradnik • Porady
+              </div>
+              <div className="font-bold text-white flex items-center gap-1.5">
+                <Sparkles className="h-3.5 w-3.5 text-amber-400 shrink-0" />
+                <span>Włącz obsługę WebGPU i Vulkan w Chrome</span>
+              </div>
+              <p className="text-[11px] leading-relaxed text-zinc-400">
+                Wklej kolejno w pasek adresu Chrome poniższe adresy i przestaw obie opcje na{' '}
+                <span className="font-semibold text-emerald-400">Enabled</span>:
+              </p>
+              <ol className="space-y-2 text-[11px] leading-relaxed text-zinc-300">
+                <li className="space-y-1">
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <span className="font-bold text-zinc-400">1.</span>
+                    <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-[10px] text-amber-300 break-all">
+                      chrome://flags/#enable-unsafe-webgpu
+                    </code>
+                    <button
+                      type="button"
+                      onClick={() => copyToClipboard('chrome://flags/#enable-unsafe-webgpu')}
+                      className="inline-flex items-center gap-1 rounded border border-white/10 bg-white/5 px-1.5 py-0.5 text-[10px] text-zinc-300 transition hover:border-amber-500/40 hover:text-amber-300"
+                      title="Kopiuj chrome://flags/#enable-unsafe-webgpu"
+                      aria-label="Kopiuj chrome://flags/#enable-unsafe-webgpu"
+                    >
+                      {copiedFlag === 'chrome://flags/#enable-unsafe-webgpu' ? (
+                        <Check className="h-3 w-3 text-emerald-400" />
+                      ) : (
+                        <Copy className="h-3 w-3" />
+                      )}
+                    </button>
+                    <span>→</span>
+                    <span className="font-semibold text-emerald-400">Enabled</span>
+                  </div>
+                </li>
+                <li className="space-y-1">
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <span className="font-bold text-zinc-400">2.</span>
+                    <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-[10px] text-amber-300 break-all">
+                      chrome://flags/#enable-vulkan
+                    </code>
+                    <button
+                      type="button"
+                      onClick={() => copyToClipboard('chrome://flags/#enable-vulkan')}
+                      className="inline-flex items-center gap-1 rounded border border-white/10 bg-white/5 px-1.5 py-0.5 text-[10px] text-zinc-300 transition hover:border-amber-500/40 hover:text-amber-300"
+                      title="Kopiuj chrome://flags/#enable-vulkan"
+                      aria-label="Kopiuj chrome://flags/#enable-vulkan"
+                    >
+                      {copiedFlag === 'chrome://flags/#enable-vulkan' ? (
+                        <Check className="h-3 w-3 text-emerald-400" />
+                      ) : (
+                        <Copy className="h-3 w-3" />
+                      )}
+                    </button>
+                    <span>→</span>
+                    <span className="font-semibold text-emerald-400">Enabled</span>
+                  </div>
+                  <div className="pl-4 text-[10px] text-zinc-400">
+                    (wymagane na Linuksie, aby WebGPU korzystało z GPU przez Vulkan)
+                  </div>
+                </li>
+              </ol>
+              <p className="text-[11px] leading-relaxed text-zinc-400">
+                Kliknij <span className="font-semibold text-zinc-200">Relaunch</span> na dole ekranu,
+                aby zrestartować przeglądarkę. (Aktualny stan obsługi możesz zawsze sprawdzić pod
+                adresem{' '}
+                <span className="inline-flex items-center gap-1 align-middle">
+                  <code className="rounded bg-white/5 px-1 py-0.5 font-mono text-[10px] text-cyan-300">
+                    chrome://gpu
+                  </code>
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard('chrome://gpu')}
+                    className="inline-flex items-center rounded border border-white/10 bg-white/5 p-0.5 text-zinc-300 transition hover:border-amber-500/40 hover:text-amber-300"
+                    title="Kopiuj chrome://gpu"
+                    aria-label="Kopiuj chrome://gpu"
+                  >
+                    {copiedFlag === 'chrome://gpu' ? (
+                      <Check className="h-2.5 w-2.5 text-emerald-400" />
+                    ) : (
+                      <Copy className="h-2.5 w-2.5" />
+                    )}
+                  </button>
+                </span>{' '}
+                w sekcji <span className="font-semibold text-zinc-200">WebGPU</span>).
+              </p>
+            </div>
           </div>
         </div>
 

@@ -1018,7 +1018,7 @@ export const CRAFT_APPS: CraftApp[] = [
     unofficial: true,
     taglinePl: 'Edytor grafiki wektorowej, składu stron i druku DTP z obsługą .tdraw, .cdr, PDF/X, warstw i efektów na żywo',
     replaces: 'CorelDRAW / Adobe Illustrator / Affinity Designer',
-    version: '0.47.0',
+    version: '0.49.0',
     primaryUrl: 'https://tracedraw.lmk.one/?new',
     displayDomain: 'tracedraw.lmk.one',
     altUrls: [
@@ -1036,8 +1036,8 @@ export const CRAFT_APPS: CraftApp[] = [
     gradientFrom: 'from-sky-500/20',
     gradientTo: 'to-blue-600/5',
     parityPercent: 85,
-    wasmSizeCompressedMb: '14,3 MB (gzip)',
-    defaultStateNote: 'Domyślnie PL przy pierwszej wizycie + czysty obszar roboczy (?new) + 19 języków + Motywy Dark/Light/Sepia + Katalog Google Fonts',
+    wasmSizeCompressedMb: '15,1 MB (gzip)',
+    defaultStateNote: 'Domyślnie PL przy pierwszej wizycie + czysty obszar roboczy (?new/?empty) + 19 języków + Motywy Dark/Light/Sepia + Katalog Google Fonts + Selektor WebGPU/WebGL2',
     urlParams: [
       {
         label: 'Otwieranie projektu z sieci (?file= / ?url=)',
@@ -1063,6 +1063,11 @@ export const CRAFT_APPS: CraftApp[] = [
         label: 'Język interfejsu (?lang=pl|en)',
         exampleUrl: 'https://tracedraw.lmk.one/?new&lang=pl',
         description: 'Uruchamia wybrany z 19 dostępnych języków interfejsu (domyślnie PL przy pierwszej wizycie).',
+      },
+      {
+        label: 'Akceleracja GPU (?backend=webgpu|webgl2 / ?webgl=1)',
+        exampleUrl: 'https://tracedraw.lmk.one/?new&webgl=1',
+        description: 'Przełącza tryb selektora GPU na ekranie startowym z automatycznym fallbackiem na WebGL 2 (silnik Canvas WASM w TraceDraw używa WebGL 2 / eframe glow).',
       },
     ],
     formats: ['.tdraw (Natywny)', '.cdr (CorelDRAW)', '.svg / .pdf / .ai / .eps', '.dxf / .psd / .png'],
@@ -1151,6 +1156,17 @@ export interface CommitEntry {
 }
 
 export const INITIAL_COMMITS: CommitEntry[] = [
+  {
+    sha: 'b49914b',
+    repo: 'lukasz-sklad/tracedraw-web',
+    appName: 'TraceDraw',
+    author: 'Lucas',
+    date: '2026-11-19',
+    message: 'Wdrożenie TraceDraw Web v0.49.0 (WASM, PL, motywy Dark/Light/Sepia, ?empty, WebGPU/WebGL2)',
+    categoryPl: 'Wydanie Web',
+    url: 'https://github.com/lukasz-sklad/tracedraw-web/commit/b49914b',
+    isPolishBuild: true,
+  },
   {
     sha: '669799f',
     repo: 'lukasz-sklad/tracedraw-web',
