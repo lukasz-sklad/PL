@@ -258,9 +258,6 @@ export const Footer: React.FC = () => {
             </div>
 
             <div className="border-t border-white/10 pt-3 space-y-2">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-amber-400">
-                Poradnik • Porady
-              </div>
               <div className="font-bold text-white flex items-center gap-1.5">
                 <Sparkles className="h-3.5 w-3.5 text-amber-400 shrink-0" />
                 <span>Włącz obsługę WebGPU i Vulkan w Chrome</span>
@@ -269,10 +266,9 @@ export const Footer: React.FC = () => {
                 Wklej kolejno w pasek adresu Chrome poniższe adresy i przestaw obie opcje na{' '}
                 <span className="font-semibold text-emerald-400">Enabled</span>:
               </p>
-              <ol className="space-y-2 text-[11px] leading-relaxed text-zinc-300">
+              <ul className="space-y-2 text-[11px] leading-relaxed text-zinc-300">
                 <li className="space-y-1">
                   <div className="flex flex-wrap items-center gap-1.5">
-                    <span className="font-bold text-zinc-400">1.</span>
                     <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-[10px] text-amber-300 break-all">
                       chrome://flags/#enable-unsafe-webgpu
                     </code>
@@ -289,13 +285,10 @@ export const Footer: React.FC = () => {
                         <Copy className="h-3 w-3" />
                       )}
                     </button>
-                    <span>→</span>
-                    <span className="font-semibold text-emerald-400">Enabled</span>
                   </div>
                 </li>
                 <li className="space-y-1">
                   <div className="flex flex-wrap items-center gap-1.5">
-                    <span className="font-bold text-zinc-400">2.</span>
                     <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-[10px] text-amber-300 break-all">
                       chrome://flags/#enable-vulkan
                     </code>
@@ -312,18 +305,15 @@ export const Footer: React.FC = () => {
                         <Copy className="h-3 w-3" />
                       )}
                     </button>
-                    <span>→</span>
-                    <span className="font-semibold text-emerald-400">Enabled</span>
                   </div>
-                  <div className="pl-4 text-[10px] text-zinc-400">
+                  <div className="text-[10px] text-zinc-400">
                     (wymagane na Linuksie, aby WebGPU korzystało z GPU przez Vulkan)
                   </div>
                 </li>
-              </ol>
+              </ul>
               <p className="text-[11px] leading-relaxed text-zinc-400">
-                Kliknij <span className="font-semibold text-zinc-200">Relaunch</span> na dole ekranu,
-                aby zrestartować przeglądarkę. (Aktualny stan obsługi możesz zawsze sprawdzić pod
-                adresem{' '}
+                Kliknij <span className="font-semibold text-zinc-200">Relaunch</span> na dole ekranu.{' '}
+                Aktualny stan obsługi możesz zawsze sprawdzić pod adresem{' '}
                 <span className="inline-flex items-center gap-1 align-middle">
                   <code className="rounded bg-white/5 px-1 py-0.5 font-mono text-[10px] text-cyan-300">
                     chrome://gpu
@@ -341,8 +331,7 @@ export const Footer: React.FC = () => {
                       <Copy className="h-2.5 w-2.5" />
                     )}
                   </button>
-                </span>{' '}
-                w sekcji <span className="font-semibold text-zinc-200">WebGPU</span>).
+                </span>
               </p>
             </div>
           </div>
